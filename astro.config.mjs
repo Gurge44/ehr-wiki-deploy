@@ -46,7 +46,6 @@ export default defineConfig({
 				content: "/ehr_logo_simple.png"
 				}
 			},
-			// <meta name="theme-color" content="#fec5d5" />
 			{
 				tag: 'meta',
 				attrs: {
@@ -54,7 +53,6 @@ export default defineConfig({
 				content: "#deb942"
 				}
 			},
-			//<meta name="twitter:card" content="summary" />
 			{
 				tag: 'meta',
 				attrs: {
