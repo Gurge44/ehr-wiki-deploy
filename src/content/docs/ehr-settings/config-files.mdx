@@ -1,0 +1,111 @@
+---
+title: Mod Configuration Files
+description: Customize your EHR experience with external configuration files.
+sidebar:
+  order: 1
+---
+import { FileTree } from '@astrojs/starlight/components';
+
+## 📁 What Are Mod Config Files?
+
+The EHR Mod allows external configuration through `.txt` files located in the `EHR_DATA` folder inside your game directory. These files let you control moderation, access, templates, and more.
+
+### 🔍 Quick Reference
+
+<details>
+<summary><strong>📄 <code>BanList.txt</code></strong> — Blocks specific players</summary>
+
+- **Purpose:** Prevents certain players from joining.
+- **Format:** `(FriendCode, PUID, Name)` — comma-separated  
+- **Example:**  
+  `player#1234, abc9876543, griefname`
+
+</details>
+
+<details>
+<summary><strong>🚫 <code>BanWords.txt</code></strong> — Filters offensive words</summary>
+
+- **Purpose:** Censors unwanted or inappropriate words.
+- **Format:** One word per line  
+- **Example:**  
+  `badword`
+
+</details>
+
+<details>
+<summary><strong>❌ <code>DenyNames.txt</code></strong> — Blocks specific usernames</summary>
+
+- **Purpose:** Blocks specific player names from use.
+- **Format:** One name per line  
+- **Example:**  
+  `trollname`
+
+</details>
+
+<details>
+<summary><strong>🛡️ <code>Moderators.txt</code></strong> — Grants mod privileges</summary>
+
+- **Purpose:** Allows listed users to access moderator tools.
+- **Format:** `(FriendCode)`  
+- **Example:**  
+  `moduser#7777`
+
+</details>
+
+<details>
+<summary><strong>🏷️ <code>Tags.txt</code></strong> — Adds custom profile tags</summary>
+
+- **Purpose:** Assigns visual tags to players.
+- **Format:** `(FriendCode = RichTextTag)`  
+- **Example:**  
+  `user#1111=<#ffaa00ff>Streamer 🎥</color>`
+
+</details>
+
+<details>
+<summary><strong>📝 <code>Template.txt</code></strong> — Defines lobby UI & rules</summary>
+
+- **Purpose:** Customizes lobby greeting, rules, and messages.
+- **Format:** `(Key = RichTextValue)` — supports rich-text tags  
+- **Example:**  
+  `welcome=<b>Welcome!</b>`
+
+</details>
+
+<details>
+<summary><strong>🎖️ <code>VIPs.txt</code></strong> — Grants VIP status</summary>
+
+- **Purpose:** Adds users to VIP list (cosmetics, perks).
+- **Format:** `(FriendCode)`  
+- **Example:**  
+  `vip#8888`
+
+</details>
+
+<details>
+<summary><strong>✅ <code>WhiteList.txt</code></strong> — Restricts lobby access</summary>
+
+- **Purpose:** Only listed players can join the lobby.
+- **Format:** `(FriendCode)`  
+- **Example:**  
+  `trusted#4444`
+
+</details>
+
+---
+
+### 📦 Directory Structure
+
+<FileTree>
+
+- EHR_DATA
+  - BanList.txt
+  - BanWords.txt
+  - DenyNames.txt
+  - Moderators.txt
+  - Tags.txt
+  - Template.txt
+  - VIPs.txt
+  - WhiteList.txt
+
+</FileTree>
