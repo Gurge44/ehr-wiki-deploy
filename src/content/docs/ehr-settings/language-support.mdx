@@ -1,0 +1,117 @@
+---
+title: Language Localization
+description: Customize every piece of in-game text in your language with the EHR Mod.
+sidebar:
+  order: 2
+---
+
+## 🌐 What Can You Customize?
+
+The EHR Mod supports full text customization using editable language files. You can override **role names**, **system messages**, **role descriptions**, and practically anything text-based in the mod.
+
+This guide walks you through setting up your own custom translations.
+
+---
+
+## 📂 Step-by-Step Guide
+
+### 1️⃣ Locate Your Game Directory
+
+Depending on your platform:
+
+- **Steam:**
+  ```
+  C:\Program Files (x86)\Steam\steamapps\common\Among Us
+  ```
+
+- **Epic Games:**
+  ```
+  C:\Program Files\AmongUs
+  ```
+
+- **Microsoft Store:**
+  ```
+  C:\Program Files\WindowsApps\InnerSloth.LLC-AmongUs_8wekyb3d8bbwe
+  ```
+
+---
+
+### 2️⃣ Open the `Language` Folder
+
+If it doesn't exist, just launch the game once to generate it automatically.
+
+```
+[Among Us Folder]/Language/
+```
+
+---
+
+### 3️⃣ Clone the `template.dat` File
+
+Make a copy of `template.dat` to preserve the original.
+
+---
+
+### 4️⃣ Rename the File
+
+Rename your copy to match your in-game language, for example:
+
+```
+English.dat
+```
+
+Other examples:
+- `Spanish.dat`
+- `German.dat`
+
+> ✅ The name **must match the language set in-game**.
+
+---
+
+### 5️⃣ Customize the Translations
+
+Open the `.dat` file with a plain text editor like **Notepad** or **VS Code**.
+
+Each line follows this format:
+
+```
+KEY: Custom Translation
+```
+
+Example:
+```
+ROLE_JESTER: Joker
+```
+
+- You can delete lines you don’t want to override.
+- Only lines with changed translations need to stay in the file.
+
+---
+
+### 6️⃣ Reload Translations In-Game
+
+If the game is already running:
+
+- Press `F5 + T` to reload translations
+
+Or just **restart the game** to apply your custom localization.
+
+---
+
+## 🔍 Finding Translation Keys
+
+The complete list of default strings and their keys can be found in the official language file:
+
+> 📄 [`Resources/Lang/en_US.json`](https://github.com/Gurge44/EndlessHostRoles/blob/main/Resources/Lang/en_US.json)
+
+You can search this file by role, message, or section.
+
+:::tip[Pro Tips]
+- Keep your `.dat` files backed up in case of mod updates.
+- If you want to create a full new language, you can translate the entire file.
+- Ask the community in our [Discord server](https://discord.gg/m2qS2WCDuv) if you're unsure about a specific key.
+:::
+
+---
+
+> 🎉 You now have full control over how your game looks and reads. Whether you're localizing to a new language or just rewording roles, EHR gives you the freedom to personalize your experience.

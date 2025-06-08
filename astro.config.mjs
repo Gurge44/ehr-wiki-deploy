@@ -8,6 +8,7 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: 'EHR Wiki',
+			description: 'Endless Host Roles (EHR) is a host-only Among Us mod with 400+ roles, custom game modes, and full customization.',
 			logo: {
 				src: '/public/ehr_wiki.png',
 				replacesTitle: true
@@ -16,19 +17,18 @@ export default defineConfig({
 			editLink: {baseUrl: 'https://github.com/gurge44/ehr-wiki-deploy/edit/main/src/content/docs/'},
 			social: [
 				{ icon: 'github', label: 'EHR GitHub', href: 'https://github.com/Gurge44/EndlessHostRoles' },
-				{ icon: 'pencil', label: 'Wiki GitHub', href: 'https://github.com/Gurge44/ehr-wiki-deploy' }
+				{ icon: 'discord', label: 'Discord', href: 'https://discord.gg/m2qS2WCDuv' },
+				{ icon: 'external', label: 'Official Website', href: 'https://gurge44.pythonanywhere.com' },
+				{ icon: 'pencil', label: 'Wiki GitHub', href: 'https://github.com/Gurge44/ehr-wiki-deploy' },
 			],
 			sidebar: [
 				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
+					label: 'Getting Started',
+					autogenerate: { directory: 'guides' },
 				},
 				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
+					label: 'EHR Settings',
+					autogenerate: { directory: 'ehr-settings' },
 				},
 			],
 			head: [
@@ -59,7 +59,8 @@ export default defineConfig({
 				name: 'twitter:card',
 				content: "summary"
 				}
-			}],
+				
+			}]
 		}),
 	],
 });
