@@ -1,0 +1,570 @@
+---
+title: System Settings
+description: Configure the core behavior of EHR using these mod-wide options.
+sidebar:
+    order: 5
+---
+
+## ⚙️ System Settings
+
+Each setting is shown as a Drop-down. Click to expand and reveal description, type, sub-options, and default value.
+
+---
+
+### 🛡️ Player Restrictions
+
+<details>
+  <summary>Mod Language</summary>
+
+- **Type**: Options 
+- **Description**: Language used by the mod UI.
+- **Options**: Use Game Language, Hungarian, Polish, Indonesian, etc.  
+- **Default**: `Use Game Language`
+
+</details>
+
+<details>
+  <summary>Kick players whose level is lower than</summary>
+
+- **Type**: Number  
+- **Description**: Prevents players below the specified level from joining.
+- **Default**: `0`
+
+</details>
+
+<details>
+  <summary>Kick mobile players</summary>
+
+- **Type**: Toggle  
+- **Description**: Prevents mobile players from joining. 
+- **Default**: `❌`
+
+</details>
+
+<details>
+  <summary>Kick players who are not logged in</summary>
+
+- **Type**: Toggle  
+- **Description**: Prevents players who are not logged in from joining.  
+- **Default**: `❌`
+
+</details>
+
+<details>
+  <summary>Apply DenyName List</summary>
+
+- **Type**: Toggle  
+- **Description**: Prevents players with blacklisted usernames from joining.  
+- **Default**: `✔️`
+
+</details>
+
+<details>
+  <summary>Apply BanList</summary>
+
+- **Type**: Toggle  
+- **Description**: Prevents banned players from joining.  
+- **Default**: `✔️`
+
+</details>
+
+<details>
+  <summary>Apply Moderator List</summary>
+
+- **Type**: Toggle  
+- **Description**: Applies moderator status to players in the Moderator list.  
+- **Default**: `✔️`
+
+</details>
+
+<details>
+  <summary>Apply VIP List</summary>
+
+- **Type**: Toggle  
+- **Description**: Applies VIP status to players in the VIP list.  
+- **Default**: `✔️`
+
+</details>
+
+---
+
+### 🚫 Chat Automod
+
+<details>
+  <summary>Kick players that say "start"</summary>
+
+- **Type**: Toggle  
+- **Description**: Kicks players who type "start" in lobby chat.  
+- **Default**: `❌`
+
+<details>
+  <summary><em>Sub-options</em></summary>
+
+- **Warnings before kick**  
+  - **Type:** Number  
+  - **Default:** `1`
+
+- **Block after kick**  
+  - **Type:** Toggle  
+  - **Default:** `❌`
+
+</details>
+</details>
+
+<details>
+  <summary>Kick players who write banned words</summary>
+
+- **Type**: Toggle  
+- **Description**: Kicks players who use prohibited words.  
+- **Default**: `❌`
+
+<details>
+  <summary><em>Sub-options</em></summary>
+
+- **Warnings before kick**  
+  - Type: Number  
+  - Default: `3`
+
+- **Block after kick**  
+  - Type: Toggle  
+  - Default: `❌`
+
+- **Warn player**  
+  - Type: Toggle  
+  - Default: `❌`
+
+</details>
+</details>
+
+---
+
+### ⏱️ Auto Hosting & Timers
+
+:::note
+The settings below are only applicable when Auto Host is enabled in [Client Options](../client-options). If Auto Host is disabled, these timers and thresholds will not take effect.
+:::
+
+<details>
+  <summary>Minutes to wait before auto-starting</summary>
+
+- **Type**: Time (minutes)  
+- **Description**: Auto-starts after this delay if minimum player threshold is met.  
+- **Default**: `2.0`
+
+</details>
+
+<details>
+  <summary>Force start when Lobby Timer goes below</summary>
+
+- **Type**: Time (minutes)  
+- **Description**: Forces game start regardless of player count once this time limit is hit.  
+- **Default**: `6.0`
+
+</details>
+
+<details>
+  <summary>Minimum Player Threshold to auto-start</summary>
+
+- **Type**: Number  
+- **Description**: Required players to enable auto-start.  
+- **Default**: `5`
+
+</details>
+
+<details>
+  <summary>Initial Countdown for auto-starting</summary>
+
+- **Type**: Time (seconds)  
+- **Description**: Countdown duration before the game starts once auto-start is triggered.  
+- **Default**: `20`
+
+</details>
+
+---
+
+### 🔁 Lobby Automation
+
+<details>
+  <summary>Auto Re-Enter Lobby after Game End</summary>
+
+- **Type**: Toggle  
+- **Description**: Automatically rejoins the lobby after a game ends.  
+- **Default**: `❌`
+
+<details>
+  <summary><em>Sub-option</em></summary>
+
+- **Delay before Auto Re-Entering Lobby**
+  - **Type**: Time (seconds) 
+  - **Description**: Delay before rejoining the lobby after a game ends.  
+  - **Default**: `10`
+
+</details>
+</details>
+
+<details>
+  <summary>Auto Execute /gmpoll After Joining The Lobby</summary>
+
+- **Type**: Toggle  
+- **Description**: Automatically runs the `/gmpoll` command after joining the lobby.  
+- **Default**: `❌`
+
+<details>
+  <summary><em>Sub-option</em></summary>
+
+- **Delay Before Auto Executing /gmpoll**
+  - **Type**: Time  
+  - **Description**: Wait time before executing `/gmpoll`.  
+  - **Default**: `15`
+
+</details>
+</details>
+
+<details>
+  <summary>Auto Execute /draftstart After Joining The Lobby</summary>
+
+- **Type**: Toggle  
+- **Description**: Automatically runs the `/draftstart` command after joining the lobby.  
+- **Default**: `❌`
+
+<details>
+  <summary><em>Sub-option</em></summary>
+
+- **Delay Before Auto Executing /draftstart**
+  - **Type**: Time  
+  - **Description**: Wait time before executing `/draftstart`.  
+  - **Default**: `90`
+
+</details>
+</details>
+
+---
+
+### 🧠 Performance
+
+<details>
+  <summary>Fix Lag</summary>
+
+- **Type**: Toggle  
+- **Description**: Enables various fixes to reduce lag during gameplay.  
+- **Default**: `✔️`
+
+</details>
+
+<details>
+  <summary>Prioritize Performance</summary>
+
+- **Type**: Toggle  
+- **Description**: Sends fewer updates to clients to improve overall performance.  
+- **Default**: `❌`
+
+</details>
+
+<details>
+  <summary>Don't Update Dead Players</summary>
+
+- **Type**: Toggle  
+- **Description**: Reduces updates for dead players to improve performance.  
+- **Default**: `✔️`
+
+</details>
+
+<details>
+  <summary>Dump Log After Each Game End</summary>
+
+- **Type**: Toggle  
+- **Description**: Saves a log file after each game ends.  
+- **Default**: `✔️`
+
+</details>
+
+<details>
+  <summary>Force Game End on Critical Errors</summary>
+
+- **Type**: Toggle  
+- **Description**: Ends the game automatically if a serious error is detected.  
+- **Default**: `✔️`
+
+</details>
+
+<details>
+  <summary>Remove pets from dead players</summary>
+
+- **Type**: Toggle  
+- **Description**: Hides pets from the bodies of dead players.  
+- **Default**: `❌`
+
+</details>
+
+<details>
+  <summary>Kick players who haven't joined the game every 25s</summary>
+
+- **Type**: Toggle  
+- **Description**: Kicks idle players from the lobby periodically.  
+- **Default**: `✔️`
+
+</details>
+
+---
+
+### 🔐 Anti-Cheat
+
+<details>
+  <summary>When a cheating player is found</summary>
+
+- **Type**: Options  
+- **Description**: Choose how to respond when cheating is detected.  
+- **Options**: Cancel Action Only, Notify Me, Notify Everyone, Kick, Ban, Ban For This Session Only  
+- **Default**: `Cancel Action Only`
+
+</details>
+
+<details>
+  <summary>Enable EAC Checks</summary>
+
+- **Type**: Toggle  
+- **Description**: Detects speed hacks using movement analysis. May cause false positives.
+- **Default**: `❌`
+
+</details>
+
+<details>
+  <summary>Disable Vote-Kick</summary>
+
+- **Type**: Toggle  
+- **Description**: Disables vote-kick to prevent hacker abuse.   
+- **Default**: `✔️`
+
+</details>
+
+---
+
+### 📃 Display & Game Info
+
+<details>
+  <summary>Display Kill-log</summary>
+
+- **Type**: Toggle  
+- **Description**: Shows kill information during the game.  
+- **Default**: `✔️`
+
+</details>
+
+<details>
+  <summary>Display Last Roles</summary>
+
+- **Type**: Toggle  
+- **Description**: Shows role assignments from the previous game.  
+- **Default**: `✔️`
+
+</details>
+
+<details>
+  <summary>Display Last Add-ons</summary>
+
+- **Type**: Toggle  
+- **Description**: Displays which add-ons were used in the previous game.  
+- **Default**: `✔️`
+
+</details>
+
+<details>
+  <summary>Auto Display Last Result</summary>
+
+- **Type**: Toggle  
+- **Description**: Automatically shows results of the previous game.  
+- **Default**: `✔️`
+
+</details>
+
+<details>
+  <summary>Hide Game Settings</summary>
+
+- **Type**: Toggle  
+- **Description**: Hides the game’s custom rules/settings UI.  
+- **Default**: `❌`
+
+</details>
+
+<details>
+  <summary>Show Anti-Blackout Warning</summary>
+
+- **Type**: Toggle  
+- **Description**: Shows a warning if ejection screen is overridden.  
+- **Default**: `✔️`
+
+</details>
+
+---
+
+### 👥 Player Commands
+
+<details>
+  <summary>Enable only custom /n messages</summary>
+
+- **Type**: Toggle  
+- **Description**: Replaces default `/n` command with a custom message.  
+- **Default**: `❌`
+
+</details>
+
+<details>
+  <summary>Players can use the /color command</summary>
+
+- **Type**: Toggle  
+- **Description**: Allows players to change their color with `/color`.  
+- **Default**: `❌`
+
+</details>
+
+<details>
+  <summary>Players can use the /rename command</summary>
+
+- **Type**: Toggle  
+- **Description**: Allows players to change their name with `/rename`.  
+- **Default**: `❌`
+
+</details>
+
+<details>
+  <summary>Players can use the /tpin & /tpout command</summary>
+
+- **Type**: Toggle  
+- **Description**: Allows players to teleport into or out of the dropship area while in the lobby using the /tpin and /tpout commands.
+- **Default**: `❌`
+
+</details>
+
+<details>
+  <summary>Player Name Mode</summary>
+
+- **Type**: Options  
+- **Description**: Choose how player names are displayed.  
+- **Options**: Disable, Color, Random  
+- **Default**: `Disable`
+
+</details>
+
+<details>
+  <summary>Disable Emoji in names</summary>
+
+- **Type**: Toggle  
+- **Description**: Prevents players from using emojis in their names.  
+- **Default**: `✔️`
+
+</details>
+
+---
+
+### 📘 Role Information
+
+<details>
+  <summary>Show Role Info to Unmodded Clients Round 1</summary>
+
+- **Type**: Toggle  
+- **Description**: Shows modded role info to unmodded players in Round 1.  
+- **Default**: `✔️`
+
+<details>
+  <summary><em>Sub-option</em></summary>
+
+- **Show Long Role Descriptions**
+  - **Type**: Toggle  
+  - **Description**: Uses long versions of role descriptions.  
+  - **Default**: `✔️`
+
+</details>
+</details>
+
+<details>
+  <summary>Show Role Descriptions on First Meeting</summary>
+
+- **Type**: Toggle  
+- **Description**: Shows role info on meeting for unmodded players.  
+- **Default**: `✔️`
+
+</details>
+
+---
+
+### 🧪 Technical
+
+<details>
+  <summary>No Game End</summary>
+
+- **Type**: Toggle  
+- **Description**: Prevents the game from ending.  
+- **Default**: `❌`
+
+</details>
+
+<details>
+  <summary>Console</summary>
+
+- **Type**: Toggle  
+- **Description**: Enables access to the in-game console.  
+- **Default**: `❌`
+
+</details>
+
+<details>
+  <summary>Post the lobby code to the EHR Website</summary>
+
+- **Type**: Toggle  
+- **Description**: Publishes your lobby code to the [EHR website](https://gurge44.pythonanywhere.com/lobbies).  
+- **Default**: `✔️`
+
+</details>
+
+<details>
+  <summary>Store completed achievements</summary>
+
+- **Type**: Toggle  
+- **Description**: Saves achievements to EHR database to prevent loss of progress in case of a reinstall or an update.
+- **Default**: `✔️`
+
+</details>
+
+<details>
+  <summary>All Crewmate roles have vanilla color</summary>
+
+- **Type**: Toggle  
+- **Description**: Overrides custom colors for all crewmates.  
+- **Default**: `❌`
+
+</details>
+
+<details>
+  <summary>Message RPC Size Limit</summary>
+
+- **Type**: Number  
+- **Description**: Sets the max message size. Higher values may increase disconnect risk.  
+- **Default**: `1400`
+
+</details>
+
+---
+
+### 🎲 Role Assignment
+
+<details>
+  <summary>Role Assigning Algorithm</summary>
+
+- **Type**: Options  
+- **Description**: Algorithm used to randomly assign roles.  
+- **Options**: Default, .NET System.Random, HashRandom, Xorshift, MersenneTwister  
+- **Default**: `MersenneTwister`
+
+</details>
+
+<details>
+  <summary>Camouflage Appearance</summary>
+
+- **Type**: Options  
+- **Description**: Sets how camouflaged players appear.  
+- **Options**: Default, Host, KARPED1EM, Gurge44, TommyXL  
+- **Default**: `Default`
+
+</details>
+
+---
