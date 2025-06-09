@@ -1,3 +1,7 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Work+Sans:wght@300;400;500&display=swap');
+
 /* Dark mode colors. */
 :root {
 	--sl-color-accent-low: #2d2206;
@@ -26,4 +30,157 @@
 	--sl-color-gray-6: #ebeeee;
 	--sl-color-gray-7: #f5f7f7;
 	--sl-color-black: #ffffff;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+/* Base Font Setup */
+
+:root {
+  --font-family-base: 'Raleway', sans-serif;
+  --font-family-sidebar: 'Work Sans', sans-serif;
+}
+
+/* Apply globally */
+body {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--sl-color-text); /* Uses Starlight's default text color */
+}
+
+/* Headings */
+h1 {
+  font-family: var(--font-family-base);
+  font-weight: 750;
+  font-size: 2.5rem;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  font-weight: 650;
+  font-size: 2rem;
+  letter-spacing: -0.3px;
+}
+
+h3 {
+  font-weight: 550;
+  font-size: 1.6rem;
+}
+
+h4, h5, h6 {
+  font-weight: 450;
+  font-size: 1.3rem;
+}
+
+/* Paragraphs */
+p {
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+/* Sidebar Navigation */
+aside nav,
+aside nav a,
+nav[aria-label="Page navigation"] a {
+  font-family: var(--font-family-sidebar);
+  font-weight: 350;
+  font-size: 0.85rem;
+  letter-spacing: 0.015em;
+  text-transform: none;
+}
+
+/* Nav Bar */
+header nav,
+.header a {
+  font-family: var(--font-family-sidebar);
+  font-weight: 400;
+}
+
+/* Code & Preformatted Blocks */
+code,
+pre {
+  font-family: 'Fira Code', monospace;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Tables */
+table {
+  font-family: var(--font-family-base);
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+th {
+  font-weight: 700;
+}
+
+td {
+  font-weight: 400;
+}
+
+/* Callouts */
+.starlight-callout {
+  font-family: var(--font-family-base);
+}
+
+.starlight-callout-title {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+}
+
+.starlight-callout-content {
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+/* Buttons */
+button,
+.btn,
+.copy {
+  font-family: var(--font-family-base);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+/* Footer */
+footer {
+  font-family: var(--font-family-base);
+  font-weight: 300;
+  font-size: 0.85rem;
+}
+
+/* Utility Font Classes */
+.font-light {
+  font-weight: 300;
+}
+
+.font-regular {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+.font-black {
+  font-weight: 900;
 }
