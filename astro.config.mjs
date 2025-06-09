@@ -9,6 +9,9 @@ export default defineConfig({
 		starlight({
 			title: 'EHR Wiki',
 			description: 'Endless Host Roles (EHR) is a host-only Among Us mod with 400+ roles, custom game modes, and full customization.',
+			components: {
+				SiteTitle: './src/components/overrides/SiteTitle.astro',
+			},
 			logo: {
 				src: '/public/ehr_wiki.png',
 				replacesTitle: true
@@ -30,6 +33,10 @@ export default defineConfig({
 					label: 'EHR Settings',
 					autogenerate: { directory: 'ehr-settings' },
 				},
+				{
+					label: 'Core Concepts',
+					autogenerate: { directory: 'core-concepts' },
+				},	
 			],
 			head: [
 			{

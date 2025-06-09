@@ -1,0 +1,49 @@
+---
+import { getRelativeLocaleUrl } from "astro:i18n"
+import navbar from '../../navbar'
+
+const entries = navbar;
+---
+{
+  entries && (
+    <ul>
+      {entries.map((entry) => (
+        <li>
+          <a href={getRelativeLocaleUrl(Astro.currentLocale ?? 'en', entry.href)}>
+            {entry.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
+<style>
+  ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    gap: var(--sl-nav-gap);
+  }
+  a {
+    text-decoration: none;
+    color: var(--sl-color-gray-1);
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--sl-color-white);
+  }
+
+  [aria-current="page"],
+  [aria-current="page"]:hover,
+  [aria-current="page"]:focus {
+    font-weight: 600;
+  }
+
+  @media (min-width: 50rem) {
+    a {
+      font-size: var(--sl-text-sm);
+    }
+  }
+</style>
