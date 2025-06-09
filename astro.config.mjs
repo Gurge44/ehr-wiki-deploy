@@ -33,6 +33,10 @@ export default defineConfig({
 					label: 'EHR Settings',
 					autogenerate: { directory: 'ehr-settings' },
 				},
+				{
+					label: 'Core Concepts',
+					autogenerate: { directory: 'core-concepts' },
+				},	
 			],
 			head: [
 			{
