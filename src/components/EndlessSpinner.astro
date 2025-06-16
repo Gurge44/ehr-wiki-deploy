@@ -1,0 +1,147 @@
+{/* Load the l-infinity spinner from LDRS CDN */}
+<script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/infinity.js"></script>
+
+{/* Spinner + container for typewriter loading message */}
+<div id="global-spinner">
+  <l-infinity
+    size="85"
+    stroke="6"
+    stroke-length="0.4"
+    bg-opacity="0.08"
+    speed="0.8"
+    color="#00ffa5"
+  ></l-infinity>
+  <div class="loading-text" id="ehr-loading-text"></div>
+</div>
+
+{/* === STYLES === */}
+<style>
+{/* Full-page blur overlay */}
+  #global-spinner {
+    position: fixed;
+    inset: 0;
+    background: transparent;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    font-family: 'Courier New', monospace;
+    color: #00ffa5;
+    text-align: center;
+    padding: 20px;
+  }
+
+{/* Fade-out when page is ready */}
+  #global-spinner.fade-out {
+    opacity: 0;
+  }
+
+{/* Typewriter loading text with glow + cursor */}
+  #global-spinner .loading-text {
+    margin-top: 20px;
+    font-size: 1rem;
+    line-height: 1.4;
+    letter-spacing: 0.05em;
+    white-space: pre;
+    overflow: hidden;
+    border-right: 2px solid #00ffa5;
+    width: fit-content;
+    animation: blink-caret 0.75s step-end infinite;
+    text-shadow:
+      0 0 6px rgba(0, 255, 165, 0.6),
+      0 0 12px rgba(0, 255, 165, 0.3),
+      0 0 18px rgba(0, 255, 165, 0.2);
+  }
+
+{/* Cursor animation */}
+  @keyframes blink-caret {
+    50% {
+      border-color: transparent;
+    }
+  }
+
+{/* Glow effect + pulsing for spinner */}
+  l-infinity {
+    filter: drop-shadow(0 0 6px #00ffa5aa) drop-shadow(0 0 18px #00ffa5aa);
+    animation: pulse-glow 2s ease-in-out infinite;
+    transition: filter 0.4s ease-in-out;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 6px #00ffa5aa) drop-shadow(0 0 18px #00ffa5aa);
+    }
+    50% {
+      filter: drop-shadow(0 0 12px #00ffa5aa) drop-shadow(0 0 28px #00ffa5aa);
+    }
+  }
+
+{/* Lock scroll while loading */}
+  body.loading {
+    overflow: hidden;
+  }
+</style>
+
+{/* === JS === */}
+<script>
+  document.body.classList.add('loading');
+
+{/* Loading messages */}
+  const loadingMessages = [
+    "Syncing Host Protocol...",
+    "Booting Role Matrix...",
+    "Calibrating Endless Hosts...",
+    "Engaging Skeld Interface...",
+    "Aligning Game Modes...",
+    "Initializing Role Nexus...",
+    "Assembling Custom Teams...",
+    "Assigning Add-Ons...",
+    "Linking Vent Grid...",
+    "Injecting Reactor Cooldown...",
+    "Switching Game Presets...",
+    "Bypassing Innersloth's Restrictions..."
+  ];
+
+{/* Typewriter effect */}
+  const message = loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
+const textEl = document.getElementById('ehr-loading-text');
+
+if (textEl !== null) {
+  const message = loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
+  let i = 0;
+  const typingSpeed = 50;
+
+  const typeWriter = () => {
+    if (i < message.length) {
+      textEl.textContent += message.charAt(i);
+      i++;
+      setTimeout(typeWriter, typingSpeed);
+    }
+  };
+
+  typeWriter();
+}
+
+{/* Spinner minimum duration */}
+  const MIN_LOAD_TIME = 2000;
+  const start = performance.now();
+
+  window.addEventListener('load', () => {
+    const elapsed = performance.now() - start;
+    const waitTime = Math.max(0, MIN_LOAD_TIME - elapsed);
+
+    setTimeout(() => {
+      const spinner = document.getElementById('global-spinner');
+      if (spinner) {
+        spinner.classList.add('fade-out');
+        spinner.addEventListener('transitionend', () => spinner.remove());
+      }
+      document.body.classList.remove('loading');
+    }, waitTime);
+  });
+</script>
