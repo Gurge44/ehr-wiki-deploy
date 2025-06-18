@@ -16,7 +16,7 @@ export default defineConfig({
 				src: '/public/ehr_wiki.png',
 				replacesTitle: true
 			},
-			customCss: ["./src/style/custom.css",],
+			customCss: ["./src/styles/custom.css",],
 			editLink: {baseUrl: 'https://github.com/gurge44/ehr-wiki-deploy/edit/main/src/content/docs/'},
 			social: [
 				{ icon: 'github', label: 'EHR GitHub', href: 'https://github.com/Gurge44/EndlessHostRoles' },
