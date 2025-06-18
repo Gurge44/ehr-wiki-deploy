@@ -1,0 +1,212 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.4 ), 
+      rgba(0, 0, 0, 0.45)
+    ),
+    url('../site-assets/serene_mountain_sunrise.png') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Segoe UI', sans-serif;
+  color: #e8e8e8;
+  min-height: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.header {
+  background: transparent;
+  transition: background 0.3s ease;
+}
+
+.homepage-container {
+  padding: 4rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 100dvh;
+  animation: bgFadeIn 1.5s ease-out;
+}
+
+.homepage-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.2;
+  text-align: center;
+  text-shadow: 0 0 8px #ffffff22;
+}
+
+.word-endless,
+.word-host,
+.word-roles {
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  display: inline-block;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.word-endless {
+  background: linear-gradient(90deg, #ff4444, #ff0000);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px rgba(255, 0, 0, 0.45);
+}
+
+.word-host {
+  background: linear-gradient(90deg, #bfffff, #a4ffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px rgba(164, 255, 255, 0.35);
+}
+
+.word-roles {
+  background: linear-gradient(90deg, #fff89a, #fff758);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 8px rgba(255, 247, 88, 0.4);
+}
+
+@keyframes bgFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.homepage-subtitle {
+  font-family: 'Inter', sans-serif;
+  max-width: 960px;
+  font-size: 1.75rem;
+  font-style: italic;
+  color: #fffde0;
+  margin-bottom: 3rem;
+  line-height: 1.9;
+  text-align: center;
+  animation: fadeIn 1.2s ease-in;
+  text-shadow:
+    0 0 4px rgba(0, 0, 0, 0.35),
+    0 0 10px rgba(255, 255, 200, 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  width: 100%;
+  margin-bottom: 3rem;
+  animation: fadeIn 1.8s ease-in;
+}
+
+/* Base card style */
+.feature-card {
+  background: #111;
+  border-radius: 1.25rem;
+  padding: 2rem;
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* Unique colors per feature */
+.feature-card.endless {
+  border: 1px solid #ff000080;
+  box-shadow: 0 0 12px #ff000050;
+}
+.feature-card.endless:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 18px #ff000080;
+}
+.feature-card.endless h3 {
+  color: #ff0000;
+}
+
+.feature-card.host {
+  border: 1px solid #a4ffff80;
+  box-shadow: 0 0 12px #a4ffff50;
+}
+.feature-card.host:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 18px #a4ffff80;
+}
+.feature-card.host h3 {
+  color: #a4ffff;
+}
+
+.feature-card.roles {
+  border: 1px solid #fff75880;
+  box-shadow: 0 0 12px #fff75850;
+}
+.feature-card.roles:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 18px #fff75880;
+}
+.feature-card.roles h3 {
+  color: #fff758;
+}
+
+.feature-card ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.feature-card li {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+}
+
+.feature-card a {
+  color: #fffac0;
+  text-decoration: none;
+}
+
+.feature-card a:hover {
+  text-decoration: underline;
+}
+
+/* CTA Button in yellow */
+.cta-button {
+  margin-top: 1rem;
+  background: #fff758;
+  color: #000;
+  padding: 0.75rem 2rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 0 12px #fff75880;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.cta-button:hover {
+  transform: scale(1.05);
+  background: #fffa80;
+}
+
+.netlify-badge {
+  margin-top: 3rem;
+  opacity: 0.8;
+}

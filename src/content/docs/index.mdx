@@ -1,36 +1,73 @@
 ---
-title: Welcome
+title: Home
+template: splash
+editUrl: False
+banner:
+  content: |
+    🚧 This wiki is a work in progress. We're actively expanding and improving the documentation. <br>  
+    Want to help? <a href="https://github.com/Gurge44/ehr-wiki-deploy" target="_blank">Contribute on GitHub</a>.
 ---
+import '@styles/home-page.css';
+import EndlessSpinner from '@components/EndlessSpinner.astro';
+import RemoveTitle from '@components/RemoveTitle.astro';
 
-# Endless Host Roles Documentation
+<RemoveTitle />
+<EndlessSpinner />
 
-Welcome to the official Wiki for **Endless Host Roles**, a powerful mod for **Among Us** that adds host-controlled role customization, game modes, and advanced configuration options.
+<div class="homepage-container">
+<h1 class="homepage-title">
+  <span class="word-endless">Endless</span>
+  <span class="word-host">Host</span>
+  <span class="word-roles">Roles</span> Wiki
+</h1>
 
-Whether you're a new host or a seasoned modder, this site will help you understand how to install, configure, and get the most out of the mod.
+<div class="homepage-subtitle">
+  A powerful mod for <strong>Among Us</strong> that unlocks host-controlled role customization,<br />
+  dynamic game modes, and deep configuration options.<br /><br />
+  Whether you're a curious beginner or a seasoned modder,<br />
+  this wiki will help you master <strong><span style="color: #ff0000">Endless</span><span style="color: #a4ffff"> Host</span><span style="color: #fff758"> Roles</span></strong>.
+</div>
 
----
+  <div class="feature-grid">
+    <div class="feature-card endless">
+      <h3>🔥 Endless Mode</h3>
+      <ul>
+        <li>🎭 400+ unique roles</li>
+        <li>🧠 Dynamic endless logic</li>
+        <li>🔁 Chaos control features</li>
+        <li>🎨 Flexible modifiers</li>
+        <li>📈 Scaling complexity</li>
+      </ul>
+    </div>
 
-## 🚀 Features
+    <div class="feature-card host">
+      <h3>🧠 Host Tools</h3>
+      <ul>
+        <li>⚙️ Prebuilt presets</li>
+        <li>🛠️ Real-time config updates</li>
+        <li>🎛️ Lobby & player tools</li>
+        <li>🧩 Mod compatibility layer</li>
+        <li>📂 Import/export settings</li>
+      </ul>
+    </div>
 
-- 🎭 Over **400 custom roles** with unique abilities
-- 🧠 Dynamic **game modes** like Speedrun, Quiz, and Stop And Go
-- 🛠️ Deep customization for hosts (role weights, rules, modifiers)
-- 🔁 **Auto-updating** config system
-- 🧩 Works seamlessly with **BepInEx** and other mods
+    <div class="feature-card roles">
+      <h3>🧬 Custom Roles</h3>
+      <ul>
+        <li><a href="/roles">🎭 Explore all roles</a></li>
+        <li><a href="/settings">🔍 Configure logic</a></li>
+        <li><a href="/game-modes">🎮 Play new modes</a></li>
+        <li><a href="/guides/installation">📥 Easy installation</a></li>
+        <li><a href="/guides/faq">❓ FAQ</a></li>
+      </ul>
+    </div>
+  </div>
 
----
+  <a class="cta-button" href="/guides/installation">Get Started! ➔</a>
 
-## 📚 Get Started
-
-👉 Head to the [Installation Guide](/guides/installation) to set up the mod
-🧪 Try out different [Game Modes](/game-modes)
-🎨 Learn about each [Role](/roles)
-🔧 Dive into the [Host Settings](/settings)
-
----
-
-<p align="center" style={{ marginTop: '2rem' }}>
-  <a href="https://www.netlify.com">
-    <img src="https://www.netlify.com/assets/badges/netlify-badge-dark.svg" alt="Deploys by Netlify" />
-  </a>
-</p>
+  <div class="netlify-badge">
+    <a href="https://www.netlify.com">
+      <img src="https://www.netlify.com/assets/badges/netlify-badge-dark.svg" alt="Deploys by Netlify" />
+    </a>
+  </div>
+</div>

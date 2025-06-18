@@ -1,43 +1,42 @@
-/* Import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300..900&family=Work+Sans:wght@300;400;500&display=swap');
 
 /* Dark mode colors. */
 :root {
-	--sl-color-accent-low: #2d2206;
-	--sl-color-accent: #d7e746;
-	--sl-color-accent-high: #d5c7a8;
-	--sl-color-white: #ffffff;
-	--sl-color-gray-1: #ebeeee;
-	--sl-color-gray-2: #c6cbcb;
-	--sl-color-gray-3: #9da6a6;
-	--sl-color-gray-4: #525a5a;
-	--sl-color-gray-5: #323a3a;
-	--sl-color-gray-6: #212828;
-	--sl-color-black: #161919;
+  --sl-color-accent-low: #2d2206;
+  --sl-color-accent: #d7e746;
+  --sl-color-accent-high: #d5c7a8;
+  --sl-color-white: #ffffff;
+  --sl-color-gray-1: #ebeeee;
+  --sl-color-gray-2: #c6cbcb;
+  --sl-color-gray-3: #9da6a6;
+  --sl-color-gray-4: #525a5a;
+  --sl-color-gray-5: #323a3a;
+  --sl-color-gray-6: #212828;
+  --sl-color-black: #161919;
 }
+
 /* Light mode colors. */
 :root[data-theme='light'] {
-	--sl-color-accent-low: #e0d6be;
-	--sl-color-accent: #644c00;
-	--sl-color-accent-high: #402f00;
-	--sl-color-white: #161919;
-	--sl-color-gray-1: #212828;
-	--sl-color-gray-2: #323a3a;
-	--sl-color-gray-3: #525a5a;
-	--sl-color-gray-4: #858d8d;
-	--sl-color-gray-5: #bec3c3;
-	--sl-color-gray-6: #ebeeee;
-	--sl-color-gray-7: #f5f7f7;
-	--sl-color-black: #ffffff;
+  --sl-color-accent-low: #e0d6be;
+  --sl-color-accent: #644c00;
+  --sl-color-accent-high: #402f00;
+  --sl-color-white: #161919;
+  --sl-color-gray-1: #212828;
+  --sl-color-gray-2: #323a3a;
+  --sl-color-gray-3: #525a5a;
+  --sl-color-gray-4: #858d8d;
+  --sl-color-gray-5: #bec3c3;
+  --sl-color-gray-6: #ebeeee;
+  --sl-color-gray-7: #f5f7f7;
+  --sl-color-black: #ffffff;
 }
 
 html {
-	scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 /* Base Font Setup */
-
 :root {
   --font-family-base: 'Raleway', sans-serif;
   --font-family-sidebar: 'Work Sans', sans-serif;
@@ -48,26 +47,27 @@ body {
   font-family: var(--font-family-base);
   font-weight: 400;
   line-height: 1.65;
-  color: var(--sl-color-text); /* Uses Starlight's default text color */
+  color: var(--sl-color-text);
 }
 
 /* Headings */
 h1 {
   font-family: var(--font-family-base);
-  font-weight: 750;
-  font-size: 2.5rem;
-  letter-spacing: -0.5px;
+  font-weight: 650; /* reduced from 750 */
+  font-size: 3.2rem; /* increased */
+  letter-spacing: -0.6px;
+  line-height: 1.2;
 }
 
 h2 {
-  font-weight: 650;
-  font-size: 2rem;
-  letter-spacing: -0.3px;
+  font-weight: 600;
+  font-size: 2.25rem;
+  letter-spacing: -0.4px;
 }
 
 h3 {
   font-weight: 550;
-  font-size: 1.6rem;
+  font-size: 1.75rem;
 }
 
 h4, h5, h6 {
