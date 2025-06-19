@@ -1,11 +1,13 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
 	site:'https://ehr-wiki.netlify.app',
 	integrations: [
+		sitemap(),
 		starlight({
 			title: 'EHR Wiki',
 			description: 'Endless Host Roles (EHR) is a host-only Among Us mod with 400+ roles, custom game modes, and full customization.',
