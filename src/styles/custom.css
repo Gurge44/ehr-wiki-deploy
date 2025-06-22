@@ -53,8 +53,8 @@ body {
 /* Headings */
 h1 {
   font-family: var(--font-family-base);
-  font-weight: 650; /* reduced from 750 */
-  font-size: 3.2rem; /* increased */
+  font-weight: 650;
+  font-size: 3.2rem;
   letter-spacing: -0.6px;
   line-height: 1.2;
 }
