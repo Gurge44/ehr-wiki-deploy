@@ -38,7 +38,11 @@ export default defineConfig({
 				{
 					label: 'Core Concepts',
 					autogenerate: { directory: 'core-concepts' },
-				},	
+				},
+				{
+					label: 'EHR Utility Suite',
+					autogenerate: { directory: 'ehr-utility-suite' },
+				},						
 			],
 			head: [
 			{
