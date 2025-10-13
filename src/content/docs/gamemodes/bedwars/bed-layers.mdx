@@ -1,0 +1,108 @@
+---
+title: Bed Layer Mechanics
+description: How Bed layers, break times, and strategies work in Bed Wars
+sidebar:
+  order: 7
+---
+
+## How Bed Layers Work
+
+Bed protection works by stacking protective layers around your bed, similar to layers of armor. Each layer you add goes on the outside, creating a stack that attackers must break through one by one, always starting from the outermost layer.
+
+:::note
+**Critical Rule:** Attackers cannot skip layers. They must completely destroy the outermost layer before they can touch the layer beneath it. This means your outermost layer acts as a shield for everything inside.
+:::
+
+---
+
+### Layer Protection Effects
+
+**Glass as Outer Layer:**
+
+- TNT explosions cannot damage any inner layers  
+- Attackers must break the glass layer completely before TNT becomes effective  
+- Glass breaks quickly, but forces enemies to spend time removing it first
+
+**Obsidian as Outer Layer:**
+
+- Provides maximum TNT protection for all inner layers  
+- Acts like an impenetrable shield against explosives  
+- Even if you have weak materials like wool or wood inside, the obsidian outer layer keeps them completely safe from TNT
+
+**Example:** You have Stone → Stone → Obsidian (from innermost to outermost). An enemy throws TNT at your bed. The TNT does absolutely nothing because the obsidian outer layer blocks all explosive damage. The enemy must break the obsidian layer using tools before their TNT can affect the stone layers underneath.
+
+---
+
+## Break Time Calculation
+
+Each material has specific break times depending on the tool used to break it. The game uses four different tool categories, each with different effectiveness:
+
+### Material Break Times *(in seconds)*
+
+| BLOCK     | DEFAULT | PICKAXE | AXE | SHEARS |
+| --------- | ------- | ------- | --- | ------ |
+| WOOL      | 2       | 2       | 2   | 1      |
+| END STONE | 6       | 2       | 6   | 6      |
+| WOOD      | 4       | 4       | 1   | 4      |
+| GLASS     | 1       | 1       | 1   | 1      |
+| OBSIDIAN  | 60      | 8       | 60  | 60     |
+
+---
+
+### How Total Break Time Works
+
+The total time to break through your bed protection is calculated by adding up the break time for each individual layer, plus 1 extra second as a base time.
+
+**Formula:** Total Time = 1 second + (Layer 1 time + Layer 2 time + Layer 3 time + ...)
+
+- `Default` is the total time if no tool is used  
+- `Pickaxe` is the total time if a pickaxe is used for every layer  
+- `Axe` is the total time if an axe is used for every layer  
+- `Shears` is the total time if shears are used for every layer  
+
+Each number represents the total time needed to break through **all your layers** using that specific tool type.
+
+**Example Calculation:**  
+Layers (outermost to innermost): Glass → Wood → Obsidian
+
+- **With Pickaxe:** 1 + 4 + 8 = 14 seconds  
+- **With Axe:** 1 + 1 + 60 = 63 seconds  
+
+---
+
+## Layer Cost System
+
+Each new layer you add requires significantly more blocks than the previous one. The cost doubles for each additional layer you want to build.
+
+**Layer Cost Pattern:**
+
+- 1st layer: 1 block  
+- 2nd layer: 2 blocks  
+- 3rd layer: 4 blocks  
+- 4th layer: 8 blocks  
+- 5th layer: 16 blocks  
+- 6th layer: 32 blocks  
+- 7th layer: 64 blocks  
+
+> The blocks needed for the next layer follow the pattern of powers of two. This exponential cost makes building many layers expensive very quickly.
+
+---
+
+## Layer Upgrading Strategy
+
+Instead of always adding more layers, you can **upgrade existing layers** by replacing them with stronger materials. This is often much more cost-effective than building additional layers.
+
+**How Upgrading Works:**
+
+- Break your current outer layer  
+- Replace it with a stronger material  
+- Pay only the cost for that specific layer position  
+
+**Example Upgrade:**
+
+- Current setup: Wood (inner) → Wood (outer), cost so far: 3 blocks total  
+- Next layer would cost: 4 blocks for a 3rd layer  
+- **Instead, upgrade:** Replace outer Wood with Stone for only 2 blocks  
+- Result: Wood (inner) → Stone (outer), much stronger for half the cost
+
+---
