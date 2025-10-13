@@ -42,8 +42,13 @@ export default defineConfig({
 				{
 					label: 'EHR Utility Suite',
 					autogenerate: { directory: 'ehr-utility-suite' },
-				},						
+				},
+				{
+					label: 'Gamemodes',
+					autogenerate: { directory: 'gamemodes' },
+				}						
 			],
+			
 			head: [
 			{
 				tag: 'meta',
