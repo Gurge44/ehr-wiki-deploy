@@ -1,13 +1,11 @@
 ---
 import Default from "@astrojs/starlight/components/SiteTitle.astro";
 import NavLinks from "../NavLinks.astro";
-
-import type { Props } from "@astrojs/starlight/props";
 ---
 
 <div>
   <Default />
-  <div class="sl-navlinks"><NavLinks position="leading" {...Astro.props} /></div>
+  <nav class="sl-navlinks"><NavLinks position="leading" {...Astro.props} /></nav>
 </div>
 
 <style>
