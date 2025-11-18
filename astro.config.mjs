@@ -26,7 +26,7 @@ export default defineConfig({
 						icon: 'open-book',
 						items: [
 							{ label: "Getting Started", autogenerate: { directory: 'guides' } },
-							{ label: "EHR Settings", autogenerate: { directory: 'ehr-settings' } }
+							{ label: "Settings", autogenerate: { directory: 'settings' } }
 						]
 					},
 					{
@@ -47,10 +47,10 @@ export default defineConfig({
 					},
 					{
 						label: 'Tools',
-						link: '/ehr-utility-suite/chat-commands',
+						link: '/utility-suite/chat-commands',
 						icon: 'setting',
 						items: [
-							{ label: 'EHR Utility Suite', autogenerate: { directory: 'ehr-utility-suite' } }
+							{ label: 'Utility Suite', autogenerate: { directory: 'utility-suite' } }
 						]
 					},
 				]),
