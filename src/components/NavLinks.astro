@@ -1,17 +1,42 @@
 ---
-import { getRelativeLocaleUrl } from "astro:i18n"
-import navbar from '../../navbar'
+import { getRelativeLocaleUrl } from "astro:i18n";
+import navbar from "./navbar";
 
 const entries = navbar;
 ---
+
 {
   entries && (
-    <ul>
+    <ul id="main-nav">
       {entries.map((entry) => (
         <li>
-          <a href={getRelativeLocaleUrl(Astro.currentLocale ?? 'en', entry.href)}>
-            {entry.label}
-          </a>
+          {entry.href ? (
+            <a class="nav-label" href={getRelativeLocaleUrl(Astro.currentLocale ?? "en", entry.href)}>
+              {entry.label}
+            </a>
+          ) : (
+           <div tabindex="-1">
+             <span class="nav-label">{entry.label}</span>
+             <img class="caret-icon" src="/site-assets/icons/caret.svg" />
+            </div>
+          )}
+
+          {entry.children && entry.children.length > 0 && (
+            <ul class="subnav">
+              {entry.children.map((child) => (
+                <li>
+                  <a
+                    href={getRelativeLocaleUrl(
+                      Astro.currentLocale ?? "en",
+                      child.href,
+                    )}
+                  >
+                    {child.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
         </li>
       ))}
     </ul>
@@ -19,20 +44,39 @@ const entries = navbar;
 }
 
 <style>
-  ul {
+  #main-nav {
     display: flex;
     list-style: none;
     padding: 0;
     gap: var(--sl-nav-gap);
   }
-  a {
+
+  #main-nav > li{
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 1.5rem 0;
+  }
+
+  #main-nav > li > div{
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    cursor: pointer;
+  }
+
+  .nav-label {
     text-decoration: none;
     color: var(--sl-color-gray-1);
   }
 
-  a:hover,
-  a:focus {
+  .nav-label:hover,
+  .nav-label:focus {
     color: var(--sl-color-white);
+  }
+
+  .caret-icon {
+    width: 16px;
   }
 
   [aria-current="page"],
@@ -41,9 +85,49 @@ const entries = navbar;
     font-weight: 600;
   }
 
+  .subnav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    flex-direction: column;
+    background: var(--sl-color-gray-6);
+    padding: 0.5rem;
+    list-style: none;
+    gap: 0.25rem;
+    min-width: 10rem;
+    z-index: 100;
+  }
+
+  li:hover > .subnav,
+  li:focus-within > .subnav {
+    display: flex;
+  }
+
+  li:hover > div > img,
+  li:focus-within > div > img {
+    transition: all 400ms;
+    rotate: 180deg;
+  }
+
+  .subnav a {
+    font-size: var(--sl-text-sm);
+    color: var(--sl-color-gray-1);
+  }
+
+  .subnav a:hover,
+  .subnav a:focus {
+    color: var(--sl-color-white);
+  }
+
   @media (min-width: 50rem) {
-    a {
+    .nav-label {
       font-size: var(--sl-text-sm);
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    #main-nav {
+      display: none;
     }
   }
 </style>
