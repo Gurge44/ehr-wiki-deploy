@@ -1,0 +1,54 @@
+---
+title: Overview
+description: Guide on how to play Mingle in Endless Host Roles
+sidebar:
+  order: 1
+tableOfContents: false
+---
+import { CardGrid, LinkCard } from '@astrojs/starlight/components';
+
+Mingle in **Endless Host Roles** is a fast-paced survival gamemode inspired by Squid Game style room challenges.  
+This mode focuses on movement, room requirements, and quick decision making.  
+Each round assigns a set of rooms, and every room requires a specific number of players.  
+Your goal is to reach the correct room with the correct number of players before the timer expires.  
+If you enter the wrong room, or the room has too many or too few players, you are eliminated.  
+Rounds continue with new rooms, changing requirements, and shorter timers until only one player remains.
+
+---
+
+<CardGrid 
+  class="bw-grid"
+  stagger
+>
+
+  <LinkCard
+    title="🖥️ HUD Guide"
+    href="/gamemodes/mingle/hud"
+    description="Understand the HUD symbols, room requirement format, and how to read live round info."
+  />
+
+  <LinkCard
+    title="🔄 Round Flow"
+    href="/gamemodes/mingle/round-flow"
+    description="Learn what happens each round from assignment to elimination and how the round cycle works."
+  />
+
+  <LinkCard
+    title="📍 Room Mechanics"
+    href="/gamemodes/mingle/room-mechanics"
+    description="See how rooms are selected, how requirements work, and why some rooms are harder to reach."
+  />
+
+  <LinkCard
+    title="⏱️ Time Mechanics"
+    href="/gamemodes/mingle/time-mechanics"
+    description="Understand how timers scale, how min and max times work, and how time pressure increases."
+  />
+
+  <LinkCard
+    title="🔧 Settings"
+    href="/gamemodes/mingle/settings"
+    description="View all host options including time settings, room restrictions, elimination rules, and HUD toggles."
+  />
+
+</CardGrid>
