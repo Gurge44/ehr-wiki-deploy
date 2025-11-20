@@ -34,7 +34,8 @@ export default defineConfig({
 						link: '/gamemodes/bedwars/overview',
 						icon: 'rocket',
 						items: [
-							{ label: "Bedwars", autogenerate: { directory: 'gamemodes/bedwars' } }
+							{ label: "Bedwars", autogenerate: { directory: 'gamemodes/bedwars' } },
+							{ label: "Mingle", autogenerate: { directory: 'gamemodes/mingle' } }
 						]
 					},
 					{
