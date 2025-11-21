@@ -46,7 +46,6 @@ export default defineConfig({
 							{ label: 'Overview', autogenerate: { directory: 'roles/overview' }, collapsed: true },
 							{
 								label: 'Crewmate', items: [
-									{ label: 'Crewmate Roles', link: 'roles/crewmate' },
 									{ label: 'Vanilla', autogenerate: { directory: 'roles/crewmate/vanilla' }, collapsed: true },
 									{ label: 'Miscellaneous', autogenerate: { directory: 'roles/crewmate/miscellaneous' }, collapsed: true },
 									{ label: 'Investigative', autogenerate: { directory: 'roles/crewmate/investigative' }, collapsed: true },
