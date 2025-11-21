@@ -10,6 +10,8 @@ banner:
 import '@styles/home-page.css';
 import EndlessSpinner from '@components/EndlessSpinner.astro';
 import RemoveTitle from '@components/RemoveTitle.astro';
+import CTALink from '@components/CTALink.astro';
+import IndexLink from '@components/IndexLink.astro';
 
 <RemoveTitle />
 <EndlessSpinner />
@@ -26,7 +28,7 @@ import RemoveTitle from '@components/RemoveTitle.astro';
     <p> Whether you're a curious beginner or a seasoned modder, this wiki will help you master <strong><span style="color: #ff0000">Endless</span><span style="color: #a4ffff"> Host</span><span style="color: #fff758"> Roles</span></strong>.</p>
   </div>
 
-  <a class="cta-button" href="/guides/installation">Get Started! ➔</a>
+  <CTALink />
 
   <div class="feature-grid">
     <div class="feature-card endless">
@@ -54,11 +56,11 @@ import RemoveTitle from '@components/RemoveTitle.astro';
     <div class="feature-card roles">
       <h3>🧬 Custom Roles</h3>
       <ul>
-        <li><a href="/roles">🎭 Explore all roles</a></li>
-        <li><a href="/settings">🔍 Configure logic</a></li>
-        <li><a href="/game-modes">🎮 Play new modes</a></li>
-        <li><a href="/guides/installation">📥 Easy installation</a></li>
-        <li><a href="/guides/faq">❓ FAQ</a></li>
+        <li><IndexLink href="/roles/overview/crewmate">🎭 Explore all roles</IndexLink></li>
+        <li><IndexLink href="/settings/config-files">🔍 Configure logic</IndexLink></li>
+        <li><IndexLink href="/gamemodes/bedwars/overview">🎮 Play new modes</IndexLink></li>
+        <li><IndexLink href="/guides/installation">📥 Easy installation</IndexLink></li>
+        {/* <li><IndexLink href="/guides/faq">❓ FAQ</IndexLink></li> */}
       </ul>
     </div>
   </div>
