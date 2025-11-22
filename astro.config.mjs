@@ -6,11 +6,66 @@ import starlightSidebarTopics from 'starlight-sidebar-topics';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://ehr-wiki.netlify.app',
+	site: 'https://ehr-wiki.gurge44.eu',
 	integrations: [
 		sitemap(),
 		starlight({
-			title: 'EHR Wiki',
+			title: 'Endless Host Roles Wiki',
+			defaultLocale: 'root',
+			locales: {
+				root: {
+					label: 'English',
+					lang: 'en'
+				},
+				'zh-CN': {
+					label: "简体中文",
+				},
+				'zh-TW': {
+					label: '繁體中文',
+				},
+				'ru': {
+					label: 'Русский',
+				},
+				'ja': {
+					label: '日本語',
+				},
+				'pt-br': {
+					label: 'Português (Brasil)',
+				},
+				'es': {
+					label: 'Español',
+				},
+				'de': {
+					label: 'Deutsch',
+				},
+				'id': {
+					label: 'Bahasa Indonesia'
+				},
+				'pl': {
+					label: 'Polski'
+				},
+				'fa': {
+					label: 'فارسی'
+				},
+				'hu': {
+					label: 'Magyar'
+				},
+				'fr': {
+					label: 'Français'
+				},
+				'ko': {
+					label: '한국어'
+				},
+				'cs': {
+					label: 'Čeština'
+				},
+				'ro': {
+					label: 'Română'
+				},
+				'vi': {
+					label: 'Tiếng Việt'
+				}
+			},
 			description: 'Endless Host Roles (EHR) is a host-only Among Us mod with 400+ roles, custom game modes, and full customization.',
 			logo: {
 				src: '/public/ehr_wiki.png',
