@@ -127,7 +127,15 @@ export default defineConfig({
 									{ label: 'Killing', autogenerate: { directory: 'roles/neutral/killing' }, collapsed: true },
 							], collapsed: true },
 							{ label: 'Coven', autogenerate: { directory: 'roles/coven' }, collapsed: true },
-							{ label: 'Addons', autogenerate: { directory: 'roles/addons' }, collapsed: true },
+							{ label: 'AddOns', items: [
+									{ label: 'Common', autogenerate: { directory: 'roles/addons/common' }, collapsed: true },
+									{ label: 'Crewmate', autogenerate: { directory: 'roles/addons/crewmate' }, collapsed: true },
+									{ label: 'Impostor', autogenerate: { directory: 'roles/addons/impostor' }, collapsed: true },
+									{ label: 'Betrayal', autogenerate: { directory: 'roles/addons/betrayal' }, collapsed: true },
+									{ label: 'Harmful', autogenerate: { directory: 'roles/addons/harmful' }, collapsed: true },
+									{ label: 'Helpful', autogenerate: { directory: 'roles/addons/helpful' }, collapsed: true },
+									{ label: 'Mixed', autogenerate: { directory: 'roles/addons/mixed' }, collapsed: true },
+							], collapsed: true },
 							{ label: 'Ghost', autogenerate: { directory: 'roles/ghost' }, collapsed: true },
 							{ label: 'Settings', autogenerate: { directory: 'roles/settings' } },
 						]
