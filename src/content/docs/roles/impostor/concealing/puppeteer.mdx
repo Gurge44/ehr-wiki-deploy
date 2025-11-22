@@ -16,43 +16,43 @@ A layer of difficulty can be added to the role by configuring a lower maximum nu
 ## Options
 
 - ### Max
-  **Type:** `number`
+  **Type:** `Number`
 
   The cap for how many of this role can spawn.
 
 - ### Puppet Cooldown
-  **Type:** `time (2.5s - 60s)`
+  **Type:** `Time (2.5s - 60s)`
 
   The amount of time after the start of each round until the Puppeteer can use their puppet ability.
 
 - ### Can Kill Normally
-  **Type:** `yes/no`
+  **Type:** `Toggle`
 
   Whether the Puppeteer can kill normally. If this is enabled, the Puppeteer should press the kill button twice to perform a kill.
     
     - #### Puppeteer Kill Cooldown
-      **Type:** `time (2.5s - 60s)`
+      **Type:** `Time (2.5s - 60s)`
 
       If *Can Kill Normally* is enabled, the amount of time after the start of each round until the Puppeteer can perform a kill.
 
 - ### Minimum Delay Before The Puppeted Player Can Kill
-  **Type:** `time (0s - 90s)`
+  **Type:** `Time (0s - 90s)`
 
   The minimum delay before the *puppeted* player becomes *manipulated* and able to kill anyone who enters their range. This should never be lower than the maximum delay.
 
 - ### Maximum Delay Before The Puppeted Player Can Kill
-  **Type:** `time (0s - 90s)`
+  **Type:** `Time (0s - 90s)`
 
   The maximum delay before the *puppeted* player becomes *manipulated* and able to kill anyone who enters their range. This should never be lower than the minimum delay.
 
 - ### Manipulation Ends After a Specific Time
-  **Type:** `yes/no`
+  **Type:** `Toggle`
 
   Whether the *puppeted* player is *manipulated* indefinitely or there is a time limit. If enabled, after this time has elapsed, the *puppeted* player will return to normal.
   
 
   - #### Time After The Manipulation Ends
-    **Type:** `time (0s - 90s)`
+    **Type:** `Time (0s - 90s)`
 
     The amount of time until the *manipulated* player loses the effect.
   <Aside>
@@ -60,22 +60,22 @@ A layer of difficulty can be added to the role by configuring a lower maximum nu
   </Aside>
 
 - ### Bypass Lazy
-  **Type:** `yes/no`
+  **Type:** `Toggle`
 
   If enabled, the players with the Lazy addon will be able to be *puppeted*. By default, players with the Lazy addon are immune to being *puppeted*.
 
 - ### Bypass Lazy Guy
-  **Type:** `yes/no`
+  **Type:** `Toggle`
 
   If enabled, Crewmates with the Lazy Guy role will be able to be *puppeted*. By default, Crewmates with the Lazy Guy role are immune to being *puppeted*.
 
 - ### Puppet Can Kill Other Impostors
-  **Type:** `yes/no`
+  **Type:** `Toggle`
 
   If enabled, the *puppeted* player will be able to kill other impostors - not the Puppeteer.
 
 - ### Puppet Can Kill The Puppeteer
-  **Type:** `yes/no`
+  **Type:** `Toggle`
 
   If enabled, the *puppeted* player will be able to kill the Puppeteer who puppeted them.
   <Aside type="caution">
@@ -83,16 +83,16 @@ A layer of difficulty can be added to the role by configuring a lower maximum nu
   </Aside>
 
 - ### Maximum Number of Puppets
-  **Type:** `number (0 - 30)`
+  **Type:** `Number (0 - 30)`
 
   The maximum number of times the Puppeteer can puppet. This only counts successful puppets and does not reset after meetings.
 
 - ### Puppeteer Dies After Running Out Of Puppets
-  **Type:** `yes/no`
+  **Type:** `Toggle`
 
   If enabled, the Puppeteer will suicide after using their last puppet. This only counts successful puppets.
 
 - ### Puppet Dies Along With The Victim
-  **Type:** `yes/no`
+  **Type:** `Toggle`
 
   If enabled, the *puppeted* player will die with the player they kill when manipulated.
