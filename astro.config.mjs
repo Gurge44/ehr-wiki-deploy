@@ -29,7 +29,7 @@ export default defineConfig({
 				'ja': {
 					label: '日本語',
 				},
-				'pt-br': {
+				'pt-BR': {
 					label: 'Português (Brasil)',
 				},
 				'es': {
