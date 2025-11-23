@@ -35,33 +35,6 @@ export default defineConfig({
             },
             'de': {
                 label: 'Deutsch',
-            },
-            'id': {
-                label: 'Bahasa Indonesia'
-            },
-            'pl': {
-                label: 'Polski'
-            },
-            'fa': {
-                label: 'فارسی'
-            },
-            'hu': {
-                label: 'Magyar'
-            },
-            'fr': {
-                label: 'Français'
-            },
-            'ko': {
-                label: '한국어'
-            },
-            'cs': {
-                label: 'Čeština'
-            },
-            'ro': {
-                label: 'Română'
-            },
-            'vi': {
-                label: 'Tiếng Việt'
             }
         },
         description: 'Endless Host Roles (EHR) is a host-only Among Us mod with 400+ roles, custom game modes, and full customization.',
