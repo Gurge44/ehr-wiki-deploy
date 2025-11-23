@@ -14,7 +14,7 @@
   --sl-color-gray-5: #323a3a;
   --sl-color-gray-6: #212828;
   --sl-color-black: #161919;
-  --sl-content-width: 50rem;
+  --sl-content-width: 45rem;
 }
 
 /* Light mode colors. */
@@ -225,4 +225,10 @@ footer {
 
 .font-black {
   font-weight: 900;
+}
+
+.font-monospace {
+  font-family: monospace;
+  color: #10b981;
+  font-weight: 600;
 }
