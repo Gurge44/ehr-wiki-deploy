@@ -1,17 +1,20 @@
 ---
+import { t, loadI18n } from '../lib/i18n';
+
+await loadI18n();
+const lang = Astro.currentLocale;
+
 interface Props {
   faction: string;
   alignment: string;
   basis: string;
-  ability: string;
-  indicators: string;
+  ability?: string;
+  indicators?: string;
   winCondition?: string;
   deathReason?: string;
 }
 
 const { 
-  faction, 
-  alignment, 
   basis, 
   ability, 
   indicators, 
@@ -19,14 +22,23 @@ const {
   deathReason 
 } = Astro.props;
 
+const { pathname } = Astro.url;
+
+const segments = pathname.split('/').filter(Boolean);
+const rolesIndex = segments.indexOf('roles');
+
+// Handle locale prefix (en stripped; others present)
+const factionKey = segments[rolesIndex + 1];
+const alignmentKey = segments[rolesIndex + 2];
+
 const factionColors = {
-  'Impostor': 'role-impostor',
-  'Crewmate': 'role-crewmate',
-  'Neutral': 'role-neutral',
-  'Madmate': 'role-madmate',
+  'impostor': 'role-impostor',
+  'crewmate': 'role-crewmate',
+  'neutral': 'role-neutral',
+  'madmate': 'role-madmate',
 };
 
-const factionClass = factionColors[faction as keyof typeof factionColors] || 'role-neutral';
+const factionClass = factionColors[factionKey as keyof typeof factionColors] || 'role-neutral';
 ---
 
 <div class={`role-info-card ${factionClass}`}>
@@ -36,9 +48,9 @@ const factionClass = factionColors[faction as keyof typeof factionColors] || 'ro
         <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        Faction
+        {t('faction', lang)}
       </span>
-      <span class="role-value faction-badge">{faction}</span>
+      <span class="role-value faction-badge">{t(`factions.${factionKey}`)}</span>
     </div>
 
     <div class="role-item">
@@ -47,9 +59,9 @@ const factionClass = factionColors[faction as keyof typeof factionColors] || 'ro
           <circle cx="12" cy="12" r="10" stroke-width="2"/>
           <path d="M12 6v6l4 2" stroke-width="2" stroke-linecap="round"/>
         </svg>
-        Alignment
+        {t('alignment', lang)}
       </span>
-      <span class="role-value">{alignment}</span>
+      <span class="role-value">{t(`alignments.${alignmentKey}`)}</span>
     </div>
 
     <div class="role-item">
@@ -57,7 +69,7 @@ const factionClass = factionColors[faction as keyof typeof factionColors] || 'ro
         <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke-width="2"/>
         </svg>
-        Basis
+        {t('basis', lang)}
       </span>
       <span class="role-value">{basis}</span>
     </div>
@@ -67,7 +79,7 @@ const factionClass = factionColors[faction as keyof typeof factionColors] || 'ro
         <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        Ability
+        {t('ability', lang)}
       </span>
       <span class="role-value">{ability}</span>
     </div>
@@ -78,7 +90,7 @@ const factionClass = factionColors[faction as keyof typeof factionColors] || 'ro
           <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke-width="2"/>
           <circle cx="12" cy="12" r="3" stroke-width="2"/>
         </svg>
-        Indicators
+        {t('indicators', lang)}
       </span>
       <span class="role-value">{indicators}</span>
     </div>
@@ -89,7 +101,7 @@ const factionClass = factionColors[faction as keyof typeof factionColors] || 'ro
           <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
             <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
-          Win Condition
+        {t('winCondition', lang)}
         </span>
         <span class="role-value">{winCondition}</span>
       </div>
@@ -103,7 +115,7 @@ const factionClass = factionColors[faction as keyof typeof factionColors] || 'ro
             <circle cx="15" cy="12" r="1" fill="currentColor"/>
             <path d="M8 17h8M3 7h18M4 2h16v20H4z" stroke-width="2" stroke-linecap="round"/>
           </svg>
-          Death Reason
+        {t('deathReason', lang)}
         </span>
         <span class="role-value">{deathReason}</span>
       </div>
