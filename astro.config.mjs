@@ -4,8 +4,6 @@ import starlight from '@astrojs/starlight';
 import sitemap from "@astrojs/sitemap";
 import starlightSidebarTopics from 'starlight-sidebar-topics';
 
-import icon from 'astro-icon';
-
 // https://astro.build/config
 export default defineConfig({
     site: 'https://ehr-wiki.gurge44.eu',
@@ -190,5 +188,5 @@ export default defineConfig({
                 }
 
             }]
-		}), icon()],
+		})],
 });
