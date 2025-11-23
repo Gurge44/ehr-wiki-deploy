@@ -1,12 +1,12 @@
 import { getCollection } from 'astro:content';
 
-type TranslationMap = Record<string, string>;
+type TranslationMap = Record<string, any>; // allow non-string values (booleans, nested objects, etc.)
 
 let translations: Record<string, TranslationMap> = {};
 const defaultLang = 'en';
 
 export async function loadI18n() {
-  const entries = await getCollection('i18n');
+  const entries = await (getCollection as any)('i18n');
   translations = {};
 
   for (const entry of entries) {
