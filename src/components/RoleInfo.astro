@@ -1,0 +1,250 @@
+---
+import { t, loadI18n } from '../lib/i18n';
+
+await loadI18n();
+const lang = Astro.currentLocale;
+
+interface Props {
+  faction: string;
+  alignment: string;
+  basis: string;
+  ability?: string;
+  indicators?: string;
+  winCondition?: string;
+  deathReason?: string;
+}
+
+const { 
+  basis, 
+  ability, 
+  indicators, 
+  winCondition, 
+  deathReason 
+} = Astro.props;
+
+const { pathname } = Astro.url;
+
+const segments = pathname.split('/').filter(Boolean);
+const rolesIndex = segments.indexOf('roles');
+
+// Handle locale prefix (en stripped; others present)
+const factionKey = segments[rolesIndex + 1];
+const alignmentKey = segments[rolesIndex + 2];
+
+const factionColors = {
+  'impostor': 'role-impostor',
+  'crewmate': 'role-crewmate',
+  'neutral': 'role-neutral',
+  'madmate': 'role-madmate',
+};
+
+const factionClass = factionColors[factionKey as keyof typeof factionColors] || 'role-neutral';
+---
+
+<div class={`role-info-card ${factionClass}`}>
+  <div class="role-grid">
+    <div class="role-item">
+      <span class="role-label">
+        <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        {t('faction', lang)}
+      </span>
+      <span class="role-value faction-badge">{t(`factions.${factionKey}`)}</span>
+    </div>
+
+    <div class="role-item">
+      <span class="role-label">
+        <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <circle cx="12" cy="12" r="10" stroke-width="2"/>
+          <path d="M12 6v6l4 2" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        {t('alignment', lang)}
+      </span>
+      <span class="role-value">{t(`alignments.${alignmentKey}`)}</span>
+    </div>
+
+    <div class="role-item">
+      <span class="role-label">
+        <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" stroke-width="2"/>
+        </svg>
+        {t('basis', lang)}
+      </span>
+      <span class="role-value">{basis}</span>
+    </div>
+
+    <div class="role-item">
+      <span class="role-label">
+        <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        {t('ability', lang)}
+      </span>
+      <span class="role-value">{ability}</span>
+    </div>
+
+    <div class="role-item full-width">
+      <span class="role-label">
+        <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke-width="2"/>
+          <circle cx="12" cy="12" r="3" stroke-width="2"/>
+        </svg>
+        {t('indicators', lang)}
+      </span>
+      <span class="role-value">{indicators}</span>
+    </div>
+
+    {winCondition && (
+      <div class="role-item full-width">
+        <span class="role-label">
+          <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        {t('winCondition', lang)}
+        </span>
+        <span class="role-value">{winCondition}</span>
+      </div>
+    )}
+
+    {deathReason && (
+      <div class="role-item full-width">
+        <span class="role-label">
+          <svg class="role-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="9" cy="12" r="1" fill="currentColor"/>
+            <circle cx="15" cy="12" r="1" fill="currentColor"/>
+            <path d="M8 17h8M3 7h18M4 2h16v20H4z" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        {t('deathReason', lang)}
+        </span>
+        <span class="role-value">{deathReason}</span>
+      </div>
+    )}
+  </div>
+</div>
+
+<style>
+  .role-info-card {
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.375rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background: var(--sl-color-black);
+  }
+
+  .role-impostor {
+    border-left: 3px solid var(--sl-color-impostor);
+  }
+
+  .role-crewmate {
+    border-left: 3px solid var(--sl-color-crewmate);
+  }
+
+  .role-neutral {
+    border-left: 3px solid var(--sl-color-neutral);
+  }
+
+  .role-madmate {
+    border-left: 3px solid var(--sl-color-madmate);
+  }
+
+  .role-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .role-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-top: 0;
+  }
+
+  .role-item.full-width {
+    grid-column: 1 / -1;
+  }
+
+  .role-label {
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--sl-color-gray-3);
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+  }
+
+  .role-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+    opacity: 0.7;
+    flex-shrink: 0;
+  }
+
+  .role-value {
+    font-size: 0.9375rem;
+    color: var(--sl-color-white);
+    padding: 0.125rem 0.625rem 0.125rem 1.25rem;
+    line-height: 1.4;
+  }
+
+  .faction-badge {
+    display: inline-block;
+    border-radius: 0.25rem;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  .role-impostor .faction-badge {
+    background: #dc262633;
+    border: 1px solid rgba(220, 38, 38, 0.4);
+  }
+
+  .role-crewmate .faction-badge {
+    background: rgba(37, 99, 235, 0.2);
+    border: 1px solid rgba(37, 99, 235, 0.4);
+  }
+
+  .role-neutral .faction-badge {
+    background: rgba(107, 114, 128, 0.2);
+    border: 1px solid rgba(107, 114, 128, 0.4);
+  }
+
+  .role-madmate .faction-badge {
+    background: rgba(234, 88, 12, 0.2);
+    border: 1px solid rgba(234, 88, 12, 0.4);
+  }
+
+  @media (max-width: 768px) {
+    .role-grid {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+    
+    .role-item {
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid var(--sl-color-gray-6);
+    }
+
+    .role-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .role-info-card {
+      padding: 0.875rem;
+    }
+
+    .role-label {
+      font-size: 0.75rem;
+    }
+
+    .role-value {
+      font-size: 0.875rem;
+    }
+  }
+</style>
