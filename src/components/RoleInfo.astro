@@ -121,19 +121,19 @@ const factionClass = factionColors[faction as keyof typeof factionColors] || 'ro
   }
 
   .role-impostor {
-    border-left: 3px solid #dc2626;
+    border-left: 3px solid var(--sl-color-impostor);
   }
 
   .role-crewmate {
-    border-left: 3px solid #2563eb;
+    border-left: 3px solid var(--sl-color-crewmate);
   }
 
   .role-neutral {
-    border-left: 3px solid #6b7280;
+    border-left: 3px solid var(--sl-color-neutral);
   }
 
   .role-madmate {
-    border-left: 3px solid #ea580c;
+    border-left: 3px solid var(--sl-color-madmate);
   }
 
   .role-grid {
@@ -186,26 +186,22 @@ const factionClass = factionColors[faction as keyof typeof factionColors] || 'ro
   }
 
   .role-impostor .faction-badge {
-    background: rgba(220, 38, 38, 0.2);
-    color: #fca5a5;
+    background: #dc262633;
     border: 1px solid rgba(220, 38, 38, 0.4);
   }
 
   .role-crewmate .faction-badge {
     background: rgba(37, 99, 235, 0.2);
-    color: #93c5fd;
     border: 1px solid rgba(37, 99, 235, 0.4);
   }
 
   .role-neutral .faction-badge {
     background: rgba(107, 114, 128, 0.2);
-    color: #d1d5db;
     border: 1px solid rgba(107, 114, 128, 0.4);
   }
 
   .role-madmate .faction-badge {
     background: rgba(234, 88, 12, 0.2);
-    color: #fdba74;
     border: 1px solid rgba(234, 88, 12, 0.4);
   }
 
