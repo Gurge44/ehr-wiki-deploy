@@ -1,0 +1,111 @@
+---
+title: Shadow Assassin
+description: Learn how the Shadow Assassin role works in the Endless Host Roles Among Us mod.
+---
+import RoleInfo from '@components/RoleInfo.astro';
+import { Aside } from '@astrojs/starlight/components';
+
+<RoleInfo 
+  faction="Impostor"
+  alignment="Evil"
+  basis="Shapeshifter"
+  ability="Shadow Strike"
+  indicators="Red glow around player, distorted screen effect for victims"
+  winCondition="Eliminate all crewmates or match their numbers"
+  deathReason="Assassinated"
+/>
+
+The Shadow Assassin is a deadly impostor variant with enhanced stealth capabilities. When activated, the Shadow Assassin can become nearly invisible for a short duration, allowing them to move through the ship undetected and strike at opportune moments.
+
+This role excels at ambush tactics and creating chaos among the crew. The Shadow Assassin's ability has a cooldown period, requiring strategic timing to maximize effectiveness. Crewmates may notice subtle visual distortions when the Shadow Assassin is nearby, adding a layer of psychological tension to the game.
+
+The role rewards patient, tactical gameplay and punishes reckless aggression. Master assassins know when to strike and when to blend in with the crew.
+
+## Role Mechanics
+### Invisibility System
+
+When the Shadow Assassin activates their ability, they enter a **shadow mode** that makes them nearly invisible to other players. During this time:
+
+- Movement speed remains normal
+- Kill cooldown is reduced by the configured multiplier
+- Players within detection range see subtle visual distortions
+- The ability automatically deactivates after the duration expires
+
+### Detection Mechanics
+
+Crewmates can detect the Shadow Assassin through:
+- Visual distortions when within the configured range
+- Audio cues when the assassin moves nearby
+- Emergency lights revealing the shadow outline
+
+## Strategy Tips
+
+- **Timing is Everything**: Use your shadow ability strategically near groups to create confusion
+- **Isolate Targets**: Time your strikes when other players are spread out
+- **Cooldown Management**: Avoid using shadow mode unnecessarily to keep your cooldown available
+- **Task Awareness**: Pay attention to task completion rates to identify safe targets
+- **Vent Positioning**: Position yourself near vents for quick escapes after kills
+
+## Counterplay 
+Crewmates can counter the Shadow Assassin by:
+
+- **Buddy System**: Staying in groups to reduce isolation opportunities
+- **Watch for Distortions**: Being alert for visual effects that indicate nearby shadow mode
+- **Quick Meetings**: Calling emergency meetings when suspicious activity is detected
+- **Visual Tasks**: Prioritizing visual tasks to establish innocence early
+- **Light Management**: Fixing lights immediately to reduce shadow effectiveness
+
+<Aside type="danger" title="Important Notes">
+**Balance Considerations**: This role can be extremely powerful with low cooldowns. Server hosts should test settings carefully to ensure fair gameplay.
+
+**Performance Impact**: Shadow effects may cause lag on lower-end devices. Consider disabling visual distortions if players report performance issues.
+</Aside>
+
+## Role Options
+- ### Shadow Duration
+
+  How long the Shadow Assassin remains invisible.
+
+  `TIME` (<span class="font-monospace">10s</span> default)
+
+- ### Shadow Cooldown
+
+  Time before shadow ability can be used again.
+
+  `TIME` (<span class="font-monospace">30s</span> default)
+
+- ### Kill Cooldown Modifier
+
+  Multiplier for kill cooldown during shadow mode.
+
+  `MULTIPLIER` (<span class="font-monospace">0.5x</span> default)
+
+  - #### Minimum Cooldown
+
+    Shortest possible cooldown
+
+    `TIME` (<span class="font-monospace">10s</span> default)
+
+  - #### Maximum Cooldown
+
+    Longest possible cooldown
+
+    `TIME` (<span class="font-monospace">60s</span> default)
+
+- ### Detection Range
+  
+  Distance at which crewmates can detect distortions
+
+  `NUMBER` (<span class="font-monospace">3.0</span> default)
+
+- ### Can Vent
+  
+  Whether the Shadow Assassin can use vents
+
+  `TOGGLE` (<span class="font-monospace">On</span> default)
+
+- ### Kill Success Rate
+  
+  Probability of a successful kill attempt
+
+  `PERCENTAGE` (<span class="font-monospace">85%</span> default)
