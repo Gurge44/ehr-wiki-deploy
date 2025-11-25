@@ -1,0 +1,60 @@
+---
+title: Time Mechanics
+description: Understanding how the timer, round pacing, and time reduction work in the Mingle gamemode.
+sidebar:
+  order: 5
+tableOfContents: false
+---
+
+Time management is the core of the Mingle gamemode.\
+Every round is driven by a countdown that determines when room checks and eliminations happen. Understanding how the timer works helps you predict the pace of the game and react correctly.
+
+---
+
+## 🔹 Base Round Time
+
+At the start of a match, the game sets the initial timer using the **Time Limit** option.\
+This value determines how long the first round lasts.
+
+---
+
+## 🔹 Extra Time on Certain Maps
+
+Some maps provide bonus time at the start of the match based on the settings:
+
+* **Airship** gives additional starting seconds
+* **Fungle** gives additional starting seconds
+
+This extra time is added only once and does not repeat after each round.
+
+---
+
+## 🔹 Time Decrease When There Are No Deaths
+
+If a round ends with everyone surviving, the next round becomes shorter.\
+The amount of reduction is determined by the **Time Decrease On No Death** option.
+
+This creates increasing pressure and speeds up the pace until players start getting eliminated again.
+
+---
+
+## 🔹 Minimum Time Limit
+
+The round timer will never go below the value set by **Minimum Time**.\
+Even if many rounds have no eliminations, the countdown will stop decreasing once it reaches this limit.
+
+---
+
+## 🔹 When the Timer Reaches Zero
+
+When the countdown reaches zero, the game immediately performs a room check:
+
+* Are you in a required room
+* Are you in a room with the correct number of players
+* Are you not outside or in a restricted room
+* Are you alive and active
+
+Anyone who fails these checks is eliminated.\
+After this phase, a new round begins with freshly generated room requirements.
+
+---
