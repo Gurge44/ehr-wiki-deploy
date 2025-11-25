@@ -1,0 +1,190 @@
+---
+title: Settings
+description: All configurable settings for Mingle.
+sidebar:
+  order: 6
+tableOfContents: true
+---
+
+These are all the host-configurable settings for **Mingle** in Endless Host Roles.\
+They control timers, room requirements, movement settings, elimination rules, and display options.
+
+---
+
+## ⏳ Round Timer Settings
+
+<details>
+  <summary>Base Round Time</summary>
+
+  How long players have to reach the correct room at the start of a round.\
+  Lower time = higher difficulty.
+
+  **Default:** `12 seconds`
+</details>
+
+<details>
+  <summary>Minimum Round Time</summary>
+
+  The lowest possible timer after difficulty scaling.
+
+  **Default:** `6 seconds`
+</details>
+
+<details>
+  <summary>Timer Decrease Per Round</summary>
+
+  How much time is removed each round.
+
+  **Example progression:**
+
+  * Round 1 → `12s`
+  * Round 2 → `11s`
+  * Round 3 → `10s`
+  * … until it hits `6s`
+</details>
+
+---
+
+## 🏠 Room Requirement Settings
+
+<details>
+  <summary>Minimum Required Players Per Room</summary>
+
+  Sets the minimum number of players a room can require.
+</details>
+
+<details>
+  <summary>Maximum Required Players Per Room</summary>
+
+  Sets the maximum number of players a room can require.
+</details>
+
+<details>
+  <summary>Allow Zero-Requirement Rooms</summary>
+
+  Allows a room to have a requirement of **0**, turning it into a **trap room** players should avoid.
+</details>
+
+<details>
+  <summary>Randomize Requirements Each Round</summary>
+
+  If ON → fully reshuffles requirements every round.\
+  If OFF → requirement pattern stays similar across rounds.
+</details>
+
+---
+
+## 🚪 Room Selection Settings
+
+<details>
+  <summary>Room Pool Mode</summary>
+
+  Controls which rooms can be chosen:
+
+  * **All Rooms**
+  * **Major Rooms Only**
+  * **Custom Room List**
+</details>
+
+<details>
+  <summary>Avoid Consecutive Repeats</summary>
+
+  Prevents the same room from being chosen in back-to-back rounds.
+</details>
+
+---
+
+## 💀 Elimination Behavior
+
+<details>
+  <summary>Strict Checking</summary>
+
+  Checks player positions **exactly** when time runs out.\
+  If disabled, players get a short grace window.
+</details>
+
+<details>
+  <summary>Late Entry Allowance</summary>
+
+  Allows players who enter slightly after the timer to still survive (if ON).
+</details>
+
+<details>
+  <summary>Overpopulation Behavior</summary>
+
+  Controls what happens if too many players enter a room:
+
+  * **Eliminate All** *(default)*
+  * **Eliminate Extras Only**
+  * **Eliminate Slowest**
+</details>
+
+---
+
+## 🏃 Movement & Player Control Options
+
+<details>
+  <summary>Movement Speed Modifier</summary>
+
+  Adjusts player movement speed.
+
+  Options: `0.75x`, `1.0x`, `1.25x`
+</details>
+
+<details>
+  <summary>Boost on Round Start</summary>
+
+  Gives players a temporary speed boost when the round begins.
+</details>
+
+<details>
+  <summary>Block Vents</summary>
+
+  Disables venting to keep navigation fair.
+</details>
+
+---
+
+## 🖥️ HUD & Display Options
+
+<details>
+  <summary>Show Room Requirements in HUD</summary>
+
+  Displays live requirement info for each room.
+
+  **Example HUD format:**
+
+  * Medbay: 0 / 4
+  * Storage: 2 / 2
+  * Reactor: 1 / 3
+</details>
+
+<details>
+  <summary>Highlight Assigned Room</summary>
+
+  Marks your assigned room or guides you toward it.
+</details>
+
+<details>
+  <summary>Sound Cue on Timer End</summary>
+
+  Plays an audio cue shortly before eliminations occur.
+</details>
+
+---
+
+## 🎛️ Miscellaneous
+
+<details>
+  <summary>Number of Players to Start</summary>
+
+  Minimum number of players needed to begin a Mingle match.
+</details>
+
+<details>
+  <summary>Sudden Death Mode</summary>
+
+  Triggers an ultra-fast final round when too many players survive.
+</details>
+
+---
