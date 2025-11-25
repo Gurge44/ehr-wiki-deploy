@@ -1,0 +1,60 @@
+---
+title: Round Flow
+description: Understand how each round in Mingle works from start to finish.
+sidebar:
+  order: 3
+tableOfContents: false
+---
+
+Mingle follows a repeating cycle of movement, room selection, and elimination.\
+Every round becomes faster or more unpredictable as the player count drops.
+
+---
+
+## 🔹 Start of the Round
+
+At the beginning of each round:
+
+* The HUD displays the **valid rooms** chosen for that round.
+* Each room shows the **required number of players**.
+* A **timer** starts counting down.
+
+This is the signal to start moving immediately.
+
+---
+
+## 🔹 Movement Phase
+
+During this phase:
+
+* All living players move through the map toward the room they want.
+* Players can switch rooms at any time before the timer ends.
+* Crowding, hesitation, or misreading the HUD can lead to elimination.
+
+Only your final location when the timer ends matters.
+
+---
+
+## 🔹 Timer End
+
+When the timer reaches zero, the following happens instantly:
+
+* Players in **invalid rooms** are eliminated.
+* Players in valid rooms but with the **wrong number of occupants** are eliminated.
+* Players meeting the requirement survive and continue to the next round.
+
+There are no second chances.
+
+---
+
+## 🔹 New Round
+
+After the elimination:
+
+* New rooms are selected.
+* New player counts are assigned.
+* The next timer begins.
+
+This loop repeats until one player remains.
+
+---
