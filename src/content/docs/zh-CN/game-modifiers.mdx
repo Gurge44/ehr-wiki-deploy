@@ -1,0 +1,555 @@
+---
+title: Game Modifiers
+description: Customize how tasks behave, how players interact with core mechanics, and enable advanced guessing-based roles in EHR.
+sidebar:
+  order: 7
+---
+
+Each setting is shown as a Drop-down. Click to expand and reveal description, type, sub-options, and default value.
+
+---
+
+## 🧩 Core Behavior Modifiers
+
+<details>
+  <summary>Use Pet Button Instead of Vent / Shapeshift</summary>
+
+  * **Type**: Toggle
+  * **Description**: Uses the Pet Ability button instead of Vent or Shapeshift button.
+  * **Default**: `❌`
+
+  <details>
+    <summary>Pet to Assign to Everyone</summary>
+
+    * **Type**: Option
+    * **Default**: `Pusheen`
+    * **Options**:\
+      `Bedcrab`, `Breb`, `Bränt`, `Bushfriend`, `Charles Chopper`, `Chewie`,\
+      `Clank`, `Coalton`, `Deitied Guy`, `Doggy`, `E. Rose`, `Frankendog`,\
+      `Ghost`, `Glitch Pet`, `Guilty Spark`, `H. Stickmin`, `Holiday Hammy`,\
+      `Hampton`, `Headslug`, `Heimerdinger's Poro`, `Magmate`, `Mini Crewmate`,\
+      `Pouka`, `Pusheen`, `Ro-Bot`, `Snowball`, `Squig`, `The Nug`,\
+      `Toppat Chopper`, `UFO`, `Worm`, `Random`
+  </details>
+</details>
+
+<details>
+  <summary>Anonymous Bodies</summary>
+
+  * **Type**: Toggle
+  * **Description**: Hides identity when reporting bodies.
+  * **Default**: `❌`
+</details>
+
+<details>
+  <summary>Everyone Sees Dead Players' Roles</summary>
+
+  * **Type**: Toggle
+  * **Description**: Reveals roles of dead players to all alive players.
+  * **Default**: `❌`
+</details>
+
+<details>
+  <summary>Use Vanish Button (Phantom basis) as Ability Trigger</summary>
+
+  * **Type**: Toggle
+  * **Description**: Uses the Phantom’s Vanish button to activate abilities for all roles.
+  * **Default**: `✔️`
+
+  <details>
+    <summary>Even for Neutral Killing Roles (Experimental)</summary>
+
+    * **Type**: Toggle
+    * **Description**: Allow Neutral Killing roles to also use this desynced trigger.
+    * **Default**: `✔️`
+  </details>
+</details>
+
+<details>
+  <summary>Everyone Can Vent</summary>
+
+  * **Type**: Toggle
+  * **Description**: Overrides role restrictions and lets all players use vents, regardless of their original role.
+  * **Default**: `❌`
+
+  <details>
+    <summary>Also Override Scientist-Based Roles to Engineer</summary>
+
+    * **Type**: Toggle
+    * **Description**: Changes roles originally based on Scientist to use Engineer-based logic so they can vent too.
+    * **Default**: `❌`
+  </details>
+
+  <details>
+    <summary>Whack-A-Mole</summary>
+
+    * **Type**: Toggle
+    * **Description**: Enables the Mole role effect for everyone — exiting a vent randomly teleports you to another vent.
+    * **Default**: `❌`
+  </details>
+</details>
+
+<details>
+  <summary>Random Crewmate Becomes Renegade if All Impostors Die</summary>
+
+  * **Type**: Toggle
+  * **Description**: Enables one random Crewmate to become a Renegade when all Impostors die.
+  * **Default**: `❌`
+
+  <details>
+    <summary>Spawn Even if a Neutral Killer is Alive</summary>
+
+    * **Type**: Toggle
+    * **Description**: Allows Renegade to spawn even if a Neutral Killer exists.
+    * **Default**: `❌`
+  </details>
+
+  <details>
+    <summary>Minimum Number of Alive Players to Spawn</summary>
+
+    * **Type**: Number
+    * **Description**: Minimum number of alive players required for triggering spawning.
+    * **Default**: `7`
+    * **Range**: `1 - 14`
+  </details>
+</details>
+
+---
+
+## 🧹 Task Filters & Restrictions
+
+<details>
+  <summary>Disable Short Tasks</summary>
+
+  * **Type**: Toggle
+  * **Default**: `❌`
+
+  <details>
+    <summary>List of Short Tasks</summary>
+
+    #### 🛰️ The Skeld
+
+    <ul style="columns: 2;">
+      <li>Clean Vent</li>
+      <li>Calibrate Distributor</li>
+      <li>Chart Course</li>
+      <li>Stabilize Steering</li>
+      <li>Clean O2 Filter</li>
+      <li>Unlock Manifolds</li>
+      <li>Prime Shields</li>
+    </ul>
+
+    #### 🧪 MIRA HQ
+
+    <ul style="columns: 2;">
+      <li>Clean Vent</li>
+      <li>Chart Course</li>
+      <li>Prime Shields</li>
+      <li>Measure Weather</li>
+      <li>Buy Beverage</li>
+      <li>Clean O<sub>2</sub> Filter</li>
+      <li>Unlock Manifolds</li>
+      <li>Assemble Artifact</li>
+      <li>Sort Samples</li>
+      <li>Run Diagnostics</li>
+      <li>Process Data</li>
+    </ul>
+
+    #### 🏔️ Polus
+
+    <ul style="columns: 2;">
+      <li>Chart Course</li>
+      <li>Calibrate Distributor</li>
+      <li>Measure Weather</li>
+      <li>Repair Drill</li>
+      <li>Submit Scan</li>
+      <li>Align Telescope</li>
+      <li>Record Temperature</li>
+      <li>Fill Canisters</li>
+      <li>Monitor Tree</li>
+      <li>Store Artifacts</li>
+      <li>Unlock Manifolds</li>
+      <li>Clear Asteroids</li>
+    </ul>
+
+    #### ✈️ The Airship
+
+    <ul style="columns: 2;">
+      <li>Clean Vent</li>
+      <li>Put Away Pistols</li>
+      <li>Put Away Rifles</li>
+      <li>Stabilize Steering</li>
+      <li>Make Burger</li>
+      <li>Clean Toilet</li>
+      <li>Decontaminate</li>
+      <li>Sort Records</li>
+      <li>Fix Shower</li>
+      <li>Pick Up Towels</li>
+      <li>Polish Ruby</li>
+      <li>Dress Mannequin</li>
+    </ul>
+
+    #### 🍄 Fungle
+
+    <ul style="columns: 1;">
+      <li>Roast Marshmallow</li>
+      <li>Collect Samples</li>
+      <li>Replace Parts</li>
+    </ul>
+  </details>
+</details>
+
+<details>
+  <summary>Disable Common Tasks</summary>
+
+  * **Type**: Toggle
+  * **Default**: `❌`
+
+  <details>
+    <summary>List of Common Tasks</summary>
+
+    #### 🛰️ The Skeld
+
+    <ul style="columns: 1;">
+      <li>Swipe Card</li>
+      <li>Fix Wiring</li>
+    </ul>
+
+    #### 🧪 MIRA HQ
+
+    <ul style="columns: 1;">
+      <li>Enter ID Code</li>
+      <li>Swipe Card</li>
+      <li>Fix Wiring</li>
+    </ul>
+
+    #### 🏔️ Polus
+
+    <ul style="columns: 1;">
+      <li>Insert Keys</li>
+      <li>Scan Boarding Pass</li>
+      <li>Swipe Card</li>
+      <li>Fix Wiring</li>
+    </ul>
+
+    #### ✈️ The Airship
+
+    <ul style="columns: 1;">
+      <li>Enter ID Code</li>
+      <li>Fix Wiring</li>
+    </ul>
+
+    #### 🍄 Fungle
+
+    <ul style="columns: 2;">
+      <li>Enter ID Code</li>
+      <li>Collect Vegetables</li>
+      <li>Mine Ores</li>
+      <li>Extract Fuel</li>
+      <li>Catch Fish</li>
+      <li>Polish Gem</li>
+      <li>Help Critter</li>
+      <li>Hoist Supplies</li>
+    </ul>
+  </details>
+</details>
+
+<details>
+  <summary>Disable Long Tasks</summary>
+
+  * **Type**: Toggle
+  * **Default**: `❌`
+
+  <details>
+    <summary>List of Long Tasks</summary>
+
+    #### 🛰️ The Skeld
+
+    <ul style="columns: 2;">
+      <li>Submit Scan</li>
+      <li>Inspect Sample</li>
+      <li>Start Reactor</li>
+      <li>Empty Chute</li>
+      <li>Clear Asteroids</li>
+      <li>Align Engine Output</li>
+    </ul>
+
+    #### 🧪 MIRA HQ
+
+    <ul style="columns: 2;">
+      <li>Start Reactor</li>
+      <li>Water Plants</li>
+    </ul>
+
+    #### 🏔️ Polus
+
+    <ul style="columns: 2;">
+      <li>Start Reactor</li>
+      <li>Clear Asteroids</li>
+      <li>Inspect Sample</li>
+      <li>Empty Chute</li>
+      <li>Fuel Engines</li>
+      <li>Open Waterways</li>
+      <li>Replace Water Jug</li>
+      <li>Reboot Wifi</li>
+    </ul>
+
+    #### ✈️ The Airship
+
+    <ul style="columns: 2;">
+      <li>Unlock Safe</li>
+      <li>Calibrate Distributor</li>
+      <li>Reset Breakers</li>
+      <li>Develop Photos</li>
+      <li>Rewind Tapes</li>
+      <li>Start Fans</li>
+    </ul>
+
+    #### 🍄 Fungle
+
+    <ul style="columns: 2;">
+      <li>Build Sandcastle</li>
+      <li>Crank Generator</li>
+      <li>Monitor Mushroom</li>
+      <li>Play Video Game</li>
+      <li>Find Signal</li>
+      <li>Throw Fisbee</li>
+      <li>Lift Weights</li>
+      <li>Collect Shells</li>
+    </ul>
+  </details>
+</details>
+
+<details>
+  <summary>Disable Situational Tasks</summary>
+
+  * **Type**: Toggle
+  * **Default**: `❌`
+
+  <details>
+    <summary>List of Situational Tasks</summary>
+
+    #### 🛰️ The Skeld
+
+    <ul style="columns: 2;">
+      <li>Upload Data</li>
+      <li>Empty Garbage</li>
+      <li>Fuel Engines</li>
+      <li>Divert Power</li>
+    </ul>
+
+    #### 🧪 MIRA HQ
+
+    <ul style="columns: 2;">
+      <li>Upload Data</li>
+      <li>Divert Power</li>
+      <li>Empty Garbage</li>
+    </ul>
+
+    #### 🏔️ Polus
+
+    <ul style="columns: 2;">
+      <li>Upload Data</li>
+      <li>Empty Garbage</li>
+      <li>Fuel Engines</li>
+      <li>Divert Power</li>
+      <li>Weather Nodes</li>
+    </ul>
+
+    #### ✈️ The Airship
+
+    <ul style="columns: 2;">
+      <li>Upload Data</li>
+      <li>Fuel Engines</li>
+      <li>Divert Power</li>
+    </ul>
+
+    #### 🍄 Fungle
+
+    <ul style="columns: 2;">
+      <li>Upload Data</li>
+      <li>Empty Garbage</li>
+      <li>Fuel Engines</li>
+      <li>Divert Power</li>
+    </ul>
+  </details>
+</details>
+
+---
+
+## 🏹 Guesser Role Mechanics
+
+<details>
+  <summary>Enable Guesser Mode</summary>
+
+  * **Type**: Toggle
+  * **Description**: Allows roles to guess and eliminate other players based on their roles.
+  * **Default**: `❌`
+
+  <details>
+    <summary>Crewmates can guess</summary>
+
+    * **Type**: Toggle
+    * **Default**: `❌`
+  </details>
+
+  <details>
+    <summary>Impostors can guess</summary>
+
+    * **Type**: Toggle
+    * **Default**: `❌`
+  </details>
+
+  <details>
+    <summary>Neutral Killers can guess</summary>
+
+    * **Type**: Toggle
+    * **Default**: `❌`
+  </details>
+
+  <details>
+    <summary>Passive Neutrals can guess</summary>
+
+    * **Type**: Toggle
+    * **Default**: `❌`
+  </details>
+
+  <details>
+    <summary>Coven can guess</summary>
+
+    * **Type**: Toggle
+    * **Default**: `❌`
+  </details>
+
+  <details>
+    <summary>Players With Betrayal Add-ons Can Guess</summary>
+
+    * **Type**: Toggle
+    * **Default**: `❌`
+  </details>
+
+  <details>
+    <summary>Can Guess Add-ons</summary>
+
+    * **Type**: Toggle
+    * **Default**: `❌`
+  </details>
+
+  <details>
+    <summary>Crewmates Can Guess Crewmate Roles</summary>
+
+    * **Type**: Toggle
+    * **Default**: `❌`
+  </details>
+
+  <details>
+    <summary>Impostors Can Guess Impostor Roles</summary>
+
+    * **Type**: Toggle
+    * **Default**: `❌`
+  </details>
+
+  <details>
+    <summary>Max Kills Per Meeting</summary>
+
+    * **Type**: Number
+    * **Range**: `1 - 15`
+    * **Default**: `15`
+  </details>
+
+  <details>
+    <summary>Max Kills Per Game</summary>
+
+    * **Type**: Number
+    * **Range**: `1 - 15`
+    * **Default**: `15`
+  </details>
+
+  <details>
+    <summary>Restrict the Number of Guessers on Each Team</summary>
+
+    * **Type**: Toggle
+    * **Default**: `❌`
+
+    <details>
+      <summary>Minimum Number of Impostor Guessers</summary>
+
+      * **Type**: Number
+      * **Range**: `1 - 15`
+      * **Default**: `15`
+    </details>
+
+    <details>
+      <summary>Maximum Number of Impostor Guessers</summary>
+
+      * **Type**: Number
+      * **Range**: `1 - 15`
+      * **Default**: `15`
+    </details>
+
+    <details>
+      <summary>Minimum Number of Neutral Guessers</summary>
+
+      * **Type**: Number
+      * **Range**: `1 - 15`
+      * **Default**: `15`
+    </details>
+
+    <details>
+      <summary>Maximum Number of Neutral Guessers</summary>
+
+      * **Type**: Number
+      * **Range**: `1 - 15`
+      * **Default**: `15`
+    </details>
+
+    <details>
+      <summary>Minimum Number of Crewmate Guessers</summary>
+
+      * **Type**: Number
+      * **Range**: `1 - 15`
+      * **Default**: `15`
+    </details>
+
+    <details>
+      <summary>Maximum Number of Crewmate Guessers</summary>
+
+      * **Type**: Number
+      * **Range**: `1 - 15`
+      * **Default**: `15`
+    </details>
+
+    <details>
+      <summary>Minimum Number of Coven Guessers</summary>
+
+      * **Type**: Number
+      * **Range**: `1 - 15`
+      * **Default**: `15`
+    </details>
+
+    <details>
+      <summary>Maximum Number of Coven Guessers</summary>
+
+      * **Type**: Number
+      * **Range**: `1 - 15`
+      * **Default**: `15`
+    </details>
+  </details>
+
+  <details>
+    <summary>Try to hide guesser's command</summary>
+
+    * **Type**: Toggle
+    * **Default**: `❌`
+  </details>
+</details>
+
+<details>
+  <summary>Guesser Doesn't Die on Misguess</summary>
+
+  * **Type**: Toggle
+  * **Description**: Prevents guessers from being punished when making incorrect guesses.
+  * **Default**: `❌`
+</details>
+
+---
