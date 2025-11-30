@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import sitemap from "@astrojs/sitemap";
 import starlightSidebarTopics from 'starlight-sidebar-topics';
+import { locales } from './src/lib/locales';
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,32 +16,7 @@ export default defineConfig({
             replacesTitle: true
         },
         defaultLocale: 'en',
-        locales: {
-            'en': {
-                label: 'English'
-            },
-            'zh-CN': {
-                label: "简体中文",
-            },
-            'zh-TW': {
-                label: '繁體中文',
-            },
-            'ru': {
-                label: 'Русский',
-            },
-            'ja': {
-                label: '日本語',
-            },
-            'pt-BR': {
-                label: 'Português (Brasil)',
-            },
-            'es': {
-                label: 'Español',
-            },
-            'de': {
-                label: 'Deutsch',
-            }
-        },
+        locales: locales,
         customCss: ["./src/styles/custom.css",],
         editLink: { baseUrl: 'https://github.com/gurge44/ehr-wiki-deploy/edit/main/src/content/docs/' },
         plugins: [
