@@ -4,10 +4,9 @@ description: Learn how the Puppeteer role works in the Endless Host Roles Among 
 shortDesc: Manipulate someone into killing for you!
 ---
 import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-**Faction:** Impostor\
-**Alignment:** Concealing\
-**Basis:** Impostor
+<RoleInfo basis="Impostor" ability="Manipulate other players"/>
 
 As the Puppeteer, you can use your kill button to manipulate another player. This player will become *puppeted*. After a configurable amount of time, the *puppeted* player will become *manipulated* and kill any player that enters their killing range **except** players with the Lazy Guy role, players with the Lazy add-on, or other Impostors, including the Puppeteer themself (unless configured otherwise).
 
