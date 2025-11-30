@@ -1,0 +1,31 @@
+{
+  "faction": "Faction",
+  "alignment": "Alignment",
+  "basis": "Basis",
+  "ability": "Ability",
+  "indicators": "Indicators",
+  "winCondition": "Win Condition",
+  "deathReason": "Death Reason",
+  "factions": {
+    "impostor": "Impostor",
+    "crewmate": "Crewmate",
+    "neutral": "Neutral",
+    "coven": "Coven",
+    "add-on": "Add-on",
+    "ghost": "Ghost"
+  },
+  "alignments": {
+    "miscellaneous": "Miscellaneous",
+    "chaos": "Chaos",
+    "investigative": "Investigative",
+    "killing": "Killing",
+    "power": "Power",
+    "support": "Support",
+    "vanilla": "Vanilla",
+    "concealing": "Concealing",
+    "madmate": "Madmate",
+    "benign": "Benign",
+    "evil": "Evil",
+    "pariah": "Pariah"
+  }
+}
