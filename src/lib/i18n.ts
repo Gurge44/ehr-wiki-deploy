@@ -11,7 +11,9 @@ export async function loadI18n() {
 
   for (const entry of entries) {
     // entry.id is the filename without extension, e.g. "en", "fr"
-    const locale = entry.id;
+
+    const locale = entry.id.split('/')[0];
+    // transform "en/strings" to "en" (for example)
     translations[locale] = entry.data;
   }
 
