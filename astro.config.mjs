@@ -9,11 +9,15 @@ export default defineConfig({
     site: 'https://ehr-wiki.gurge44.eu',
     integrations: [sitemap(), starlight({
         title: 'Endless Host Roles Wiki',
-        defaultLocale: 'root',
+        description: 'Endless Host Roles (EHR) is a host-only Among Us mod with 400+ roles, custom game modes, and full customization.',
+        logo: {
+            src: '/public/ehr_wiki.png',
+            replacesTitle: true
+        },
+        defaultLocale: 'en',
         locales: {
-            root: {
-                label: 'English',
-                lang: 'en'
+            'en': {
+                label: 'English'
             },
             'zh-CN': {
                 label: "简体中文",
@@ -36,11 +40,6 @@ export default defineConfig({
             'de': {
                 label: 'Deutsch',
             }
-        },
-        description: 'Endless Host Roles (EHR) is a host-only Among Us mod with 400+ roles, custom game modes, and full customization.',
-        logo: {
-            src: '/public/ehr_wiki.png',
-            replacesTitle: true
         },
         customCss: ["./src/styles/custom.css",],
         editLink: { baseUrl: 'https://github.com/gurge44/ehr-wiki-deploy/edit/main/src/content/docs/' },
@@ -162,4 +161,7 @@ export default defineConfig({
 
             }]
 		})],
+    redirects: {
+        "/": "/en"
+    }
 });
