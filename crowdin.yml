@@ -1,0 +1,5 @@
+files:
+  - source: /src/content/docs/**/*.*
+    ignore:
+      - /src/content/docs/%locale%/**
+    translation: /src/content/docs/%locale%/%original_file_name%
