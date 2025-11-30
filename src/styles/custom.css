@@ -20,6 +20,8 @@
   --sl-color-gray-5: #323a3a;
   --sl-color-gray-6: #212828;
   --sl-color-black: #161919;
+  --sl-color-gray-topics: #161919;
+  --sl-color-gray-topics-active: #212828;
   --sl-content-width: 45rem;
 }
 
@@ -42,6 +44,8 @@
   --sl-color-gray-5: #bec3c3;
   --sl-color-gray-6: #ebeeee;
   --sl-color-gray-7: #f5f7f7;
+  --sl-color-gray-topics: #f5f7f7;
+  --sl-color-gray-topics-active: #ffffff;
   --sl-color-black: #ffffff;
 }
 
@@ -243,4 +247,27 @@ footer {
   font-family: monospace;
   color: #10b981;
   font-weight: 600;
+}
+
+/* sidebar topics */
+
+.starlight-sidebar-topics {
+  background-color: var(--sl-color-gray-topics);
+  padding: 0.5rem 0;
+  border-radius: 0.75rem;
+}
+
+.starlight-sidebar-topics::after {
+  margin: 0;
+  border: none;
+}
+
+.starlight-sidebar-topics > li > a {
+  margin: 0 0.4rem;
+  border-radius: 0.6rem;
+}
+
+.starlight-sidebar-topics-current {
+  background-color: var(--sl-color-gray-topics-active);
+  border: 1px var(--sl-color-gray-6) solid;
 }
