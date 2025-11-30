@@ -1,0 +1,79 @@
+---
+title: Home
+template: splash
+editUrl: false
+banner:
+  content: |
+    🚧 This wiki is a work in progress. We're actively expanding and improving the documentation. <br>  
+    Want to help? <a href="https://github.com/Gurge44/ehr-wiki-deploy" target="_blank">Contribute on GitHub</a>.
+---
+
+import '@styles/home-page.css';
+import EndlessSpinner from '@components/EndlessSpinner.astro';
+import RemoveTitle from '@components/RemoveTitle.astro';
+import CTALink from '@components/CTALink.astro';
+import IndexLink from '@components/IndexLink.astro';
+
+<RemoveTitle />
+
+<EndlessSpinner />
+
+<div class="homepage-container">
+  <h1 class="homepage-title">
+    <span class="word-endless">Endless</span>
+    <span class="word-host">Host</span>
+    <span class="word-roles">Roles</span> Wiki
+  </h1>
+
+  <div class="homepage-subtitle">
+    <p>A powerful mod for <strong>Among Us</strong> that unlocks host-controlled role customization, dynamic game modes, and deep configuration options.</p>
+    <p> Whether you're a curious beginner or a seasoned modder, this wiki will help you master <strong><span style="color: #ff0000">Endless</span><span style="color: #a4ffff"> Host</span><span style="color: #fff758"> Roles</span></strong>.</p>
+  </div>
+
+  <CTALink />
+
+  <div class="feature-grid">
+    <div class="feature-card endless">
+      <h3>🔥 Endless Mode</h3>
+
+      <ul>
+        <li>🎭 400+ unique roles</li>
+        <li>🧠 Dynamic endless logic</li>
+        <li>🔁 Chaos control features</li>
+        <li>🎨 Flexible modifiers</li>
+        <li>📈 Scaling complexity</li>
+      </ul>
+    </div>
+
+    <div class="feature-card host">
+      <h3>🧠 Host Tools</h3>
+
+      <ul>
+        <li>⚙️ Prebuilt presets</li>
+        <li>🛠️ Real-time config updates</li>
+        <li>🎛️ Lobby & player tools</li>
+        <li>🧩 Mod compatibility layer</li>
+        <li>📂 Import/export settings</li>
+      </ul>
+    </div>
+
+    <div class="feature-card roles">
+      <h3>🧬 Custom Roles</h3>
+
+      <ul>
+        <li><IndexLink href="/roles/overview/crewmate">🎭 Explore all roles</IndexLink></li>
+        <li><IndexLink href="/settings/config-files">🔍 Configure logic</IndexLink></li>
+        <li><IndexLink href="/gamemodes/bedwars/overview">🎮 Play new modes</IndexLink></li>
+        <li><IndexLink href="/guides/installation">📥 Easy installation</IndexLink></li>
+
+        {/* <li><IndexLink href="/guides/faq">❓ FAQ</IndexLink></li> */}
+      </ul>
+    </div>
+  </div>
+
+  <div class="netlify-badge">
+    <a href="https://www.netlify.com">
+      <img src="https://www.netlify.com/assets/badges/netlify-badge-dark.svg" alt="Deploys by Netlify" />
+    </a>
+  </div>
+</div>
