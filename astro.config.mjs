@@ -3,45 +3,20 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import sitemap from "@astrojs/sitemap";
 import starlightSidebarTopics from 'starlight-sidebar-topics';
+import { locales } from './src/lib/locales';
 
 // https://astro.build/config
 export default defineConfig({
     site: 'https://ehr-wiki.gurge44.eu',
     integrations: [sitemap(), starlight({
         title: 'Endless Host Roles Wiki',
-        defaultLocale: 'root',
-        locales: {
-            root: {
-                label: 'English',
-                lang: 'en'
-            },
-            'zh-CN': {
-                label: "简体中文",
-            },
-            'zh-TW': {
-                label: '繁體中文',
-            },
-            'ru': {
-                label: 'Русский',
-            },
-            'ja': {
-                label: '日本語',
-            },
-            'pt-BR': {
-                label: 'Português (Brasil)',
-            },
-            'es': {
-                label: 'Español',
-            },
-            'de': {
-                label: 'Deutsch',
-            }
-        },
         description: 'Endless Host Roles (EHR) is a host-only Among Us mod with 400+ roles, custom game modes, and full customization.',
         logo: {
             src: '/public/ehr_wiki.png',
             replacesTitle: true
         },
+        defaultLocale: 'en',
+        locales: locales,
         customCss: ["./src/styles/custom.css",],
         editLink: { baseUrl: 'https://github.com/gurge44/ehr-wiki-deploy/edit/main/src/content/docs/' },
         plugins: [
@@ -69,7 +44,7 @@ export default defineConfig({
                     link: 'roles/overview/crewmate',
                     icon: 'puzzle',
                     items: [
-                        { label: 'Overview', autogenerate: { directory: 'roles/overview' }, collapsed: true },
+                        {   label: 'Overview', autogenerate: { directory: 'roles/overview' }, collapsed: true },
                         {
                             label: 'Crewmate', items: [
                                 { label: 'Vanilla', autogenerate: { directory: 'roles/crewmate/vanilla' }, collapsed: true },
@@ -99,20 +74,17 @@ export default defineConfig({
                                 { label: 'Killing', autogenerate: { directory: 'roles/neutral/killing' }, collapsed: true },
                             ], collapsed: true
                         },
-                        { label: 'Coven', autogenerate: { directory: 'roles/coven' }, collapsed: true },
+                        {   label: 'Coven', autogenerate: { directory: 'roles/coven' }, collapsed: true },
                         {
-                            label: 'Addons', items: [
-                                { label: 'Common', autogenerate: { directory: 'roles/addons/common' }, collapsed: true },
-                                { label: 'Crewmate', autogenerate: { directory: 'roles/addons/crewmate' }, collapsed: true },
-                                { label: 'Impostor', autogenerate: { directory: 'roles/addons/impostor' }, collapsed: true },
-                                { label: 'Betrayal', autogenerate: { directory: 'roles/addons/betrayal' }, collapsed: true },
-                                { label: 'Harmful', autogenerate: { directory: 'roles/addons/harmful' }, collapsed: true },
-                                { label: 'Helpful', autogenerate: { directory: 'roles/addons/helpful' }, collapsed: true },
-                                { label: 'Mixed', autogenerate: { directory: 'roles/addons/mixed' }, collapsed: true },
+                            label: 'Add-on', items: [
+                                { label: 'Betrayal', autogenerate: { directory: 'roles/add-on/betrayal' }, collapsed: true },
+                                { label: 'Harmful', autogenerate: { directory: 'roles/add-on/harmful' }, collapsed: true },
+                                { label: 'Helpful', autogenerate: { directory: 'roles/add-on/helpful' }, collapsed: true },
+                                { label: 'Mixed', autogenerate: { directory: 'roles/add-on/mixed' }, collapsed: true },
                             ], collapsed: true
                         },
-                        { label: 'Ghost', autogenerate: { directory: 'roles/ghost' }, collapsed: true },
-                        { label: 'Settings', autogenerate: { directory: 'roles/settings' } },
+                        {   label: 'Ghost', autogenerate: { directory: 'roles/ghost' }, collapsed: true },
+                        {   label: 'Settings', autogenerate: { directory: 'roles/settings' }, collapsed: true },
                     ]
                 },
                 {
@@ -162,4 +134,7 @@ export default defineConfig({
 
             }]
 		})],
+    redirects: {
+        "/": "/en"
+    }
 });
