@@ -18,7 +18,7 @@ export default defineConfig({
         defaultLocale: 'en',
         locales: locales,
         customCss: ["./src/styles/custom.css",],
-        editLink: { baseUrl: 'https://github.com/gurge44/ehr-wiki-deploy/edit/main/src/content/docs/' },
+        editLink: { baseUrl: 'https://github.com/gurge44/ehr-wiki-deploy/edit/main/' },
         plugins: [
             starlightSidebarTopics([
                 {
