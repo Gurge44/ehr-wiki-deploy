@@ -196,24 +196,6 @@ body {
   text-decoration: underline;
 }
 
-/* CTA Button in yellow */
-.cta-button {
-  margin-top: 3rem;
-  background: #fff758;
-  color: #000;
-  padding: 0.75rem 2rem;
-  border-radius: 2rem;
-  font-weight: bold;
-  text-decoration: none;
-  box-shadow: 0 0 12px #fff75880;
-  transition: background 0.3s, transform 0.2s;
-}
-
-.cta-button:hover {
-  transform: scale(1.05);
-  background: #fffa80;
-}
-
 .netlify-badge {
   margin-top: 3rem;
   opacity: 0.8;
