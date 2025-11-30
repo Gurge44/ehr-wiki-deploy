@@ -1,0 +1,198 @@
+---
+title: Installation
+description: Learn how to install and use the EHR Mod
+sidebar:
+  order: 1
+---
+
+import { FileTree } from '@astrojs/starlight/components';
+import { Icon } from '@astrojs/starlight/components';
+
+:::note
+You must be using **version 17.0.1 (2025.10.14)** of Among Us via **Steam, Epic Games, Microsoft Store or Itch.io**. Other platforms (like mobile or consoles) are not supported.
+:::
+
+## 📦 Download the Mod
+
+You can grab the latest version of **EHR** by clicking the button below:
+
+<a
+  href="https://github.com/Gurge44/EndlessHostRoles/releases/latest"
+  target="_blank"
+  rel="noopener"
+  style="
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background-color: #24292f;
+  color: #fff;
+  padding: 0.6em 1.2em;      
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  line-height: 1;
+  margin: 1em 0;
+  vertical-align: middle;
+  "
+>
+  <Icon name="github" style="position: relative; top: 0.5px;" size="1.3em" />  {/* Bigger icon */}
+  <span style="position: relative; top: -0.5px;">Download EHR</span>
+</a>
+
+:::caution
+Scroll down to the **Assets** section of the release.
+Do not download the **Source Code**. Instead, choose one of the following:
+
+* `EHR_Epic-Games_Microsoft-Store.zip`
+* `EHR_Steam.zip`
+
+This avoids common setup issues.
+:::
+
+---
+
+## 🎥 Watch the Video Tutorial
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-top: 1rem; margin-bottom: 1rem;">
+  <iframe src="https://www.youtube.com/embed/AOLqWCbbrHM" title="YouTube video player" loading="lazy" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" />
+</div>
+
+---
+
+## 📝 Text Instructions
+
+### Step 1: Extract the ZIP
+
+Once downloaded, open the ZIP file. You should see a structure like this:
+
+<FileTree>
+  * EHR
+    * dotnet
+      * … runtime files
+    * BepInEx
+      * plugins
+        * Mini.RegionInstall.dll
+        * EHR.dll
+      * …
+    * winhttp.dll
+    * **steam_appid.txt** ➤ Only present in the Steam version
+    * doorstop_config.ini
+    * changelog.txt
+    * .doorstop_version
+</FileTree>
+
+---
+
+### Step 2: Move the Files
+
+Move all files to your **Among Us game folder**:
+
+* **Steam**\
+  Right-click Among Us in your Library → Manage → Browse Local Files\
+  Typical game folder path: `C:\Program Files (x86)\Steam\steamapps\common\Among Us\`
+
+* **Epic Games**\
+  Typical game folder path: `C:\Program Files\Epic Games\AmongUs\`
+
+* **Microsoft Store**\
+  Usually found in `C:\Program Files\WindowsApps\...` (varies by system)
+
+**Optional (Steam only):**\
+You can create a new folder and copy both your game files and the mod files there if you want to keep things separate.
+
+---
+
+### Step 3: Launch the Game
+
+:::danger[Epic Games Launch Warning]
+**Important for Epic Games users:**\
+Do not run `Among Us.exe` directly from the game folder. Doing so will cause an authentication failure.\
+Always launch the game through the **Epic Games Launcher** or by clicking the **desktop shortcut** created during installation.
+:::
+
+For Steam and Microsoft Store users, double-click `Among Us.exe` inside the folder where you installed the mod.\
+If everything is set up correctly, the modded game will start and **EHR** will initialize.
+
+Once you've launched the game at least once, your directory will look like this:
+
+<FileTree>
+  * EHR
+    * Among Us_Data
+      * …
+    * BepInEx
+      * plugins
+        * EHR.dll
+        * Mini.RegionInstall.dll
+      * …
+    * dotnet
+      * … runtime files
+    * EHR_DATA
+      * Achievements.json
+      * BanList.txt
+      * BanWords.txt
+      * DenyName.txt
+      * Moderators.txt
+      * tags.txt
+      * template.txt
+      * VIPs.txt
+      * WhiteList.txt
+    * Language
+      * template.txt
+    * .doorstop_version
+    * **Among Us.exe** ➤ Launch the game using this executable (On Steam)
+    * doorstop_config.ini
+    * **steam_appid.txt** ➤ Only present in the Steam version
+    * winhttp.dll
+    * …
+</FileTree>
+
+:::note
+The `EHR_DATA` folder and its contents will only be generated after you launch the game for the first time with the mod installed.
+:::
+
+---
+
+## 🛠️ Troubleshooting
+
+### The mod isn’t loading?
+
+Here’s a quick checklist:
+
+* [x] Using Among Us **v17.0.1**?
+* [x] Installed into the **correct folder**?
+* [x] **Antivirus** didn’t delete anything?
+* [x] This log file exists?
+  * `BepInEx/log.html`
+
+If the logs are missing, the mod probably didn’t start at all.
+
+:::note[Linux Users using Wine/Proton]
+Follow [this tutorial](https://docs.bepinex.dev/articles/advanced/proton_wine.html) to configure Wine/Proton to load the winhttp.dll file properly.
+:::
+
+:::caution
+The game can take several minutes to start on the **first launch after installation**.\
+**Do not close the game using Task Manager**. Doing so will reset all progress. Just wait patiently.
+:::
+
+---
+
+### SteamworksAuthFail / Epic Account ID Error?
+
+#### If you're on Steam:
+
+* Make sure **Steam** is running before launching the game.
+* Ensure `steam_appid.txt` exists in your Among Us folder and contains:
+
+```sh
+945360
+```
+
+#### If you're on Epic:
+
+* Make sure you're **launching the game from the Epic Games Launcher directly** or its **desktop shortcut**.
+  Starting `Among Us.exe` in the mod folder does **not** work.
+
+* Some devices that are **very old** or have a **weak internet connection** may always encounter this error.\
+  In that case, contact [Innersloth Support](https://innersloth.zendesk.com).
