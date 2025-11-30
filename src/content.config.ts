@@ -5,7 +5,7 @@ import { glob } from 'astro/loaders';
 import { locales, type LocaleKey } from './lib/locales';
 
 const localePatterns: string[] = (Object.keys(locales) as LocaleKey[]).map(
-  (key) => `${key}/${key}.json`
+  (key) => `${key}/strings.json`
 );
 
 const i18n = defineCollection({
