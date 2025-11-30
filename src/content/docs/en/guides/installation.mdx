@@ -6,9 +6,10 @@ sidebar:
 ---
 import { FileTree } from '@astrojs/starlight/components';
 import { Icon } from '@astrojs/starlight/components';
+import { Steps } from '@astrojs/starlight/components';
 
 :::note
-You must be using **version 17.0.1 (2025.10.14)** of Among Us via **Steam, Epic Games, Microsoft Store or Itch.io**. Other platforms (like mobile or consoles) are not supported.
+You must be using **version 17.1.0 (2025.11.28)** of Among Us via **Steam, Epic Games, Microsoft Store or Itch.io**. Other platforms (like mobile or consoles) are not supported.
 :::
 
 ## 📦 Download the Mod
@@ -62,117 +63,106 @@ This avoids common setup issues.
 ---
 
 ## 📝 Text Instructions
+<Steps>
+1.  ### Extract the ZIP
 
-### Step 1: Extract the ZIP
+    Once downloaded, open the ZIP file. You should see a structure like this:
 
-Once downloaded, open the ZIP file. You should see a structure like this:
+    <FileTree>
 
-<FileTree>
+    - EHR
+      - dotnet
+        - … runtime files
+      - BepInEx
+        - plugins
+          - Mini.RegionInstall.dll
+          - EHR.dll
+        - …
+      - winhttp.dll
+      - **steam_appid.txt** ➤ Only present in the Steam version
+      - doorstop_config.ini
+      - changelog.txt
+      - .doorstop_version
 
-- EHR
-  - dotnet
-    - … runtime files
-  - BepInEx
-    - plugins
-      - Mini.RegionInstall.dll
-      - EHR.dll
-    - …
-  - winhttp.dll
-  - **steam_appid.txt** ➤ Only present in the Steam version
-  - doorstop_config.ini
-  - changelog.txt
-  - .doorstop_version
+    </FileTree>
 
-</FileTree>
+2.  ### Move the Files
 
----
+    Move all files to your **Among Us game folder**:
 
-### Step 2: Move the Files
+    - **Steam**  
+      Right-click Among Us in your Library → Manage → Browse Local Files  
+      Typical game folder path: `C:\Program Files (x86)\Steam\steamapps\common\Among Us\`
 
-Move all files to your **Among Us game folder**:
+    - **Epic Games**  
+      Typical game folder path: `C:\Program Files\Epic Games\AmongUs\`
 
-- **Steam**  
-  Right-click Among Us in your Library → Manage → Browse Local Files  
-  Typical game folder path: `C:\Program Files (x86)\Steam\steamapps\common\Among Us\`
+    - **Microsoft Store**  
+      Usually found in `C:\Program Files\WindowsApps\...` (varies by system)
 
-- **Epic Games**  
-  Typical game folder path: `C:\Program Files\Epic Games\AmongUs\`
+    **Optional (Steam only):**  
+    You can create a new folder and copy both your game files and the mod files there if you want to keep things separate.
 
-- **Microsoft Store**  
-  Usually found in `C:\Program Files\WindowsApps\...` (varies by system)
+3. ### Launch the Game
 
-**Optional (Steam only):**  
-You can create a new folder and copy both your game files and the mod files there if you want to keep things separate.
+    :::danger[Epic Games Launch Warning]
+    **Important for Epic Games users:**  
+    Do not run `Among Us.exe` directly from the game folder. Doing so will cause an authentication failure.  
+    Always launch the game through the **Epic Games Launcher** or by clicking the **desktop shortcut** created during installation.
+    :::
 
----
+    For Steam and Microsoft Store users, double-click `Among Us.exe` inside the folder where you installed the mod.  
+    If everything is set up correctly, the modded game will start and **EHR** will initialize.
 
-### Step 3: Launch the Game
+    Once you've launched the game at least once, your directory will look like this:
 
-:::danger[Epic Games Launch Warning]
-**Important for Epic Games users:**  
-Do not run `Among Us.exe` directly from the game folder. Doing so will cause an authentication failure.  
-Always launch the game through the **Epic Games Launcher** or by clicking the **desktop shortcut** created during installation.
-:::
+    <FileTree>
 
-For Steam and Microsoft Store users, double-click `Among Us.exe` inside the folder where you installed the mod.  
-If everything is set up correctly, the modded game will start and **EHR** will initialize.
+    - EHR
+      - Among Us_Data
+        - …
+      - BepInEx
+        - plugins
+          - EHR.dll // The file you replace when [updating](../updating) the mod
+          - Mini.RegionInstall.dll
+          - …
+      - dotnet
+        - … runtime files
+      - EHR_DATA
+        - Achievements.json
+        - BanList.txt
+        - …
+      - Language
+        - template.txt    
+      - .doorstop_version
+      - **Among Us.exe** // Launch the game using this executable (On Steam)
+      - doorstop_config.ini
+      - **steam_appid.txt** // Only present in the Steam version
+      - winhttp.dll
 
-Once you've launched the game at least once, your directory will look like this:
+    </FileTree>
 
-<FileTree>
-
-- EHR
-  - Among Us_Data
-    - …
-  - BepInEx
-    - plugins
-      - EHR.dll
-      - Mini.RegionInstall.dll
-    - …
-  - dotnet
-    - … runtime files
-  - EHR_DATA
-    - Achievements.json
-    - BanList.txt
-    - BanWords.txt
-    - DenyName.txt
-    - Moderators.txt
-    - tags.txt
-    - template.txt             
-    - VIPs.txt
-    - WhiteList.txt
-  - Language
-    - template.txt    
-  - .doorstop_version
-  - **Among Us.exe** ➤ Launch the game using this executable (On Steam)
-  - doorstop_config.ini
-  - **steam_appid.txt** ➤ Only present in the Steam version
-  - winhttp.dll 
-  - …
-
-</FileTree>
-
-:::note
-The `EHR_DATA` folder and its contents will only be generated after you launch the game for the first time with the mod installed.
-:::
-
+    :::note
+    The `EHR_DATA` folder and its contents will only be generated after you launch the game for the first time with the mod installed.
+    :::
+</Steps>
 ---
 
 ## 🛠️ Troubleshooting
 
-### The mod isn’t loading?
+### The mod isn't loading?
 
-Here’s a quick checklist:
+Here's a quick checklist:
 
 - [x] Using Among Us **v17.0.1**?
 - [x] Installed into the **correct folder**?
-- [x] **Antivirus** didn’t delete anything?
+- [x] **Antivirus** didn't delete anything?
 - [x] This log file exists?  
   - `BepInEx/log.html`
 
-If the logs are missing, the mod probably didn’t start at all.
+If the logs are missing, the mod probably didn't start at all.
 
-:::note[Linux Users using Wine/Proton]
+:::note[Mac/Linux Users]
 Follow [this tutorial](https://docs.bepinex.dev/articles/advanced/proton_wine.html) to configure Wine/Proton to load the winhttp.dll file properly.
 :::
 

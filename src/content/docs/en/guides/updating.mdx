@@ -6,6 +6,7 @@ sidebar:
 ---
 import { FileTree } from '@astrojs/starlight/components';
 import { Icon } from '@astrojs/starlight/components';
+import { Steps } from '@astrojs/starlight/components';
 
 :::caution
 This section is only for users who have **already installed the mod**.  
@@ -16,56 +17,58 @@ If you're installing EHR for the first time, follow the [Installation Guide](../
 
 Keeping your mod updated ensures compatibility with the latest features, bug fixes, and game updates.
 
-### Step 1: Download the New `EHR.dll`
+<Steps>
+1.  ### Download the New `EHR.dll`
 
-Go to the latest release page on GitHub:
+    Go to the latest release page on GitHub:
 
-<a href="https://github.com/Gurge44/EndlessHostRoles/releases/latest" target="_blank" rel="noopener" style="
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5em;
-  background-color: #24292f;
-  color: #fff;
-  padding: 0.6em 1.2em;
-  font-size: 1.2rem;
-  font-weight: 600;
-  border-radius: 6px;
-  text-decoration: none;
-  line-height: 1;
-  margin: 1em 0;
-  vertical-align: middle;
-">
-  <Icon name="github" style="position: relative; top: 0.5px;" size="1.3em" />
-  <span style="position: relative; top: -0.5px;">Latest Version</span>
-</a>
+    <a href="https://github.com/Gurge44/EndlessHostRoles/releases/latest" target="_blank" rel="noopener" style="
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5em;
+      background-color: #24292f;
+      color: #fff;
+      padding: 0.6em 1.2em;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      line-height: 1;
+      margin: 1em 0;
+      vertical-align: middle;
+    ">
+      <Icon name="github" style="position: relative; top: 0.5px;" size="1.3em" />
+      <span style="position: relative; top: -0.5px;">Latest Version</span>
+    </a>
 
-In the **Assets** section, download just the file named: `EHR.dll`
-> 💡 No need to download the full `.zip` archive! You only need the updated `EHR.dll` file.
+    In the **Assets** section, download just the file named: `EHR.dll`
+    :::note
+    No need to download the full `.zip` archive! You only need the updated `EHR.dll` file.
+    :::
 
-### Step 2: Replace the Old `EHR.dll`
+2.  ### Replace the Old `EHR.dll`
 
-**Locate your Among Us mod folder:** The folder where you installed EHR in the [Installtion Guide](/guides/installation).
+    **Locate your Among Us mod folder:** The folder where you installed EHR in the [Installtion Guide](/guides/installation).
 
-Then go to this subfolder inside:
+    Then go to this subfolder inside:
 
-<FileTree>
+    <FileTree>
 
-- EHR
-  - BepInEx
-    - plugins
-      - **EHR.dll** ➤ Replace this with the new EHR.dll file you just downloaded
-      - Mini.RegionInstall.dll
-  - …
+    - EHR
+      - BepInEx
+        - plugins
+          - **EHR.dll** ➤ Replace this with the new EHR.dll file you just downloaded
+          - Mini.RegionInstall.dll
+    - …
 
-</FileTree>
+    </FileTree>
 
 
-> Replace the existing `EHR.dll` with the one you just downloaded.
+    > Replace the existing `EHR.dll` with the one you just downloaded.
 
-### Step 3: Launch the Game
+3.  ### Launch the Game
 
-If updated correctly, the new version will load automatically.
-
----
+    If updated correctly, the new version will load automatically.
+</Steps>
 
 Need help? Join our [Discord server](https://discord.gg/m2qS2WCDuv).
