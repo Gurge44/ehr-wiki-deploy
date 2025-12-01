@@ -1,0 +1,37 @@
+---
+import { CardGrid, LinkCard } from "@astrojs/starlight/components";
+import { getCollection } from "astro:content";
+
+const nonFactionRoleLinks = ['overview', 'settings'];
+const locale: string = Astro.currentLocale as string;
+
+const roles = await getCollection("docs", ({ id }) => {
+    const segments = id.split('/');
+    const urlSegments = Astro.url.pathname.split('/').filter(item => item !== "");
+    const faction = urlSegments[3];
+    const alignment = urlSegments[4];
+
+    if (segments[0] !== "en") return false;
+    if (segments[1] !== "roles") return false;
+    if (segments[2] in nonFactionRoleLinks) return false;
+    if (faction && segments[2] !== faction) return false;
+    if (alignment && segments[3] !== alignment) return false;
+    return true;
+});
+---
+
+<div>
+    <CardGrid>
+        {
+            await roles.map((role) => (
+                <LinkCard title={role.data.title} href=`/${role.id.replace('en', locale)}` description={role.data.shortDesc ?? ""} />
+            ))
+        }
+    </CardGrid>
+</div>
+
+<style>
+    div {
+        margin-top: 2rem;
+    }
+</style>
