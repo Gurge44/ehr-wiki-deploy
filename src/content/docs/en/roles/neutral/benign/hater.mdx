@@ -1,6 +1,71 @@
 ---
 title: Hater
-description: todo
+description: Learn how the Hater role works in the Endless Host Roles Among Us mod.
+shortDesc: The Hater can only kill recruiters or loving players, but has no kill cooldown.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  faction="Neutral"
+  alignment="Benign"
+  basis="Impostor"
+  ability="Can kill Lovers or Recruiters"
+  indicators="None"
+  winCondition="Kill at least one player during the game"
+  causeOfDeath="Kill"
+/>
+
+The **Hater** is a Neutral Benign role. Despite having the Benign alignment, it is able to kill. It is one of the only roles with this property. The Hater has Impostor vision by default, and has no kill cooldown. However, the Hater is only capable of killing players with the [**Lovers**](/roles/add-ons/lovers) add-on, recruiters, like [**Cultist**](/roles/impostor/killing/cultist) or [**Jackal**](/roles/neutral/killing/jackal), or recruited players, like players with the [**Charmed**](/roles/add-ons/charmed) add-on or [**Sidekick**s](/roles/add-ons/sidekick). If the Hater attempts to kill a player that doesn't meet any of these requirements, the Hater will suicide, with the death reason **Misfire**. The Hater wins with the winning team if they kill at least one player during the game.
+
+## Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Haters that can spawn in one game by initial role selection.
+</details>
+
+<details>
+<summary>
+### Misfire Kills Target
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the player that the Hater misfired on dies along with the Hater.
+</details>
+
+<details>
+<summary>
+### Can Kill Converted Players
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Hater can kill recruited players.
+</details>
+
+<details>
+<summary>
+### Change Role When Winning Is Impossible
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the role of the Hater changes when winning becomes impossible for the Hater.
+
+<details>
+<summary>
+#### Hater Changes Into
+</summary>
+**Type:** `Select` (`Amnesiac`, `Pursuer`, `Maverick`, `Follower`, `Opportunist`, `Crewmate`, `Jester`, `Convict`)\
+**Default:** `Amnesiac`
+
+Specifies the role the Hater becomes when winning becomes impossible.
+</details>
+</details>
