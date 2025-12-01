@@ -290,3 +290,9 @@ details h3 {
   line-height: 3rem;
   text-align: start;
 }
+
+/* starlight overrides */
+
+.sl-markdown-content :not(h1, h2, h3, h4, h5, h6, .sl-heading-wrapper) + :is(.sl-heading-wrapper) {
+  margin-top: 1em;
+}
