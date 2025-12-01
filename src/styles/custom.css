@@ -271,3 +271,28 @@ footer {
   background-color: var(--sl-color-gray-topics-active);
   border: 1px var(--sl-color-gray-6) solid;
 }
+
+/* role page */
+
+summary {
+  display: flex;
+  align-items: center;
+}
+
+summary > .sl-heading-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+details h3 {
+  font-size: var(--sl-text-xl);
+  line-height: 3rem;
+  text-align: start;
+}
+
+/* starlight overrides */
+
+.sl-markdown-content :not(h1, h2, h3, h4, h5, h6, .sl-heading-wrapper) + :is(.sl-heading-wrapper) {
+  margin-top: 1em;
+}
