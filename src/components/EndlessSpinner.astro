@@ -1,5 +1,7 @@
 <!-- Load the l-infinity spinner from LDRS CDN -->
-<script type="module" src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/infinity.js"></script>
+<script
+  type="module"
+  src="https://cdn.jsdelivr.net/npm/ldrs/dist/auto/infinity.js"></script>
 
 <!-- Spinner + container for typewriter loading message -->
 <div id="global-spinner">
@@ -9,8 +11,7 @@
     stroke-length="0.4"
     bg-opacity="0.08"
     speed="0.8"
-    color="#ffff44"
-  ></l-infinity>
+    color="#ffff44"></l-infinity>
   <div class="loading-text" id="ehr-loading-text"></div>
 </div>
 
@@ -29,7 +30,7 @@
     z-index: 9999;
     opacity: 1;
     transition: opacity 0.5s ease;
-    font-family: 'Courier New', monospace;
+    font-family: "Courier New", monospace;
     color: #ffff44;
     text-align: center;
     padding: 20px;
@@ -68,7 +69,8 @@
   }
 
   @keyframes pulse-glow {
-    0%, 100% {
+    0%,
+    100% {
       filter: drop-shadow(0 0 6px #ffff44aa) drop-shadow(0 0 18px #ffff44aa);
     }
     50% {
@@ -83,53 +85,63 @@
 
 <!-- === JS === -->
 <script>
-  document.body.classList.add('loading');
+  const spinner = document.getElementById("global-spinner");
+  const hasSeenLoader = sessionStorage.getItem("hasSeenLoader");
 
-  const loadingMessages = [
-    "Syncing Host Protocol...",
-    "Booting Role Matrix...",
-    "Calibrating Endless Hosts...",
-    "Engaging Skeld Interface...",
-    "Aligning Game Modes...",
-    "Initializing Role Nexus...",
-    "Assembling Custom Teams...",
-    "Assigning Add-Ons...",
-    "Linking Vent Grid...",
-    "Injecting Reactor Cooldown...",
-    "Switching Game Presets...",
-    "Bypassing Innersloth's Restrictions..."
-  ];
+  if (!hasSeenLoader) {
+    // Mark that they've now seen it
+    sessionStorage.setItem("hasSeenLoader", "true");
+    document.body.classList.add("loading");
 
-  const message = loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
-  const textEl = document.getElementById('ehr-loading-text');
+    const loadingMessages = [
+      "Syncing Host Protocol...",
+      "Booting Role Matrix...",
+      "Calibrating Endless Hosts...",
+      "Engaging Skeld Interface...",
+      "Aligning Game Modes...",
+      "Initializing Role Nexus...",
+      "Assembling Custom Teams...",
+      "Assigning Add-Ons...",
+      "Linking Vent Grid...",
+      "Injecting Reactor Cooldown...",
+      "Switching Game Presets...",
+      "Bypassing Innersloth's Restrictions...",
+    ];
 
-  if (textEl !== null) {
-    let i = 0;
-    const typingSpeed = 50;
-    const typeWriter = () => {
-      if (i < message.length) {
-        textEl.textContent += message.charAt(i);
-        i++;
-        setTimeout(typeWriter, typingSpeed);
-      }
-    };
-    typeWriter();
+    const message =
+      loadingMessages[Math.floor(Math.random() * loadingMessages.length)];
+    const textEl = document.getElementById("ehr-loading-text");
+
+    if (textEl !== null) {
+      let i = 0;
+      const typingSpeed = 50;
+      const typeWriter = () => {
+        if (i < message.length) {
+          textEl.textContent += message.charAt(i);
+          i++;
+          setTimeout(typeWriter, typingSpeed);
+        }
+      };
+      typeWriter();
+    }
+
+    const MIN_LOAD_TIME = 2000;
+    const start = performance.now();
+
+    window.addEventListener("load", () => {
+      const elapsed = performance.now() - start;
+      const waitTime = Math.max(0, MIN_LOAD_TIME - elapsed);
+
+      setTimeout(() => {
+        if (spinner) {
+          spinner.classList.add("fade-out");
+          spinner.addEventListener("transitionend", () => spinner.remove());
+        }
+        document.body.classList.remove("loading");
+      }, waitTime);
+    });
+  } else {
+    if (spinner) spinner.remove();
+    document.body.classList.remove("loading");
   }
-
-  const MIN_LOAD_TIME = 2000;
-  const start = performance.now();
-
-  window.addEventListener('load', () => {
-    const elapsed = performance.now() - start;
-    const waitTime = Math.max(0, MIN_LOAD_TIME - elapsed);
-
-    setTimeout(() => {
-      const spinner = document.getElementById('global-spinner');
-      if (spinner) {
-        spinner.classList.add('fade-out');
-        spinner.addEventListener('transitionend', () => spinner.remove());
-      }
-      document.body.classList.remove('loading');
-    }, waitTime);
-  });
 </script>
