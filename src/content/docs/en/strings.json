@@ -5,7 +5,7 @@
   "ability": "Ability",
   "indicators": "Indicators",
   "winCondition": "Win Condition",
-  "deathReason": "Death Reason",
+  "causeOfDeath": "Cause of Death",
   "factions": {
     "impostor": "Impostor",
     "crewmate": "Crewmate",

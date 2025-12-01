@@ -11,10 +11,10 @@ interface Props {
   ability?: string;
   indicators?: string;
   winCondition?: string;
-  deathReason?: string;
+  causeOfDeath?: string;
 }
 
-const { basis, ability, indicators, winCondition, deathReason } = Astro.props;
+const { basis, ability, indicators, winCondition, causeOfDeath } = Astro.props;
 
 const { pathname } = Astro.url;
 
@@ -164,7 +164,7 @@ if (segments.length > 2) {
     }
 
     {
-      deathReason && (
+      causeOfDeath && (
         <div class="role-item full-width">
           <span class="role-label">
             <svg
@@ -181,9 +181,9 @@ if (segments.length > 2) {
                 stroke-linecap="round"
               />
             </svg>
-            {t("deathReason", lang)}
+            {t("causeOfDeath", lang)}
           </span>
-          <span class="role-value">{deathReason}</span>
+          <span class="role-value">{causeOfDeath}</span>
         </div>
       )
     }

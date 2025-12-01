@@ -3,7 +3,7 @@ import { CardGrid, LinkCard } from "@astrojs/starlight/components";
 import { getCollection } from "astro:content";
 
 const nonFactionRoleLinks = ['overview', 'settings'];
-const locale: string = Astro.currentLocale as string;
+const locale: string = Astro.currentLocale ?? 'en';
 
 const roles = await getCollection("docs", ({ id }) => {
     const segments = id.split('/');
