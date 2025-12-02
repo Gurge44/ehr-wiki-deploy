@@ -185,7 +185,7 @@ let roleKey = segments[segments.length - 1];
                 stroke-linecap="round"
               />
             </svg>
-            {t("causeOfDeath", lang)}
+            {causesOfDeath.length > 1 ? t("causesOfDeath", lang) : t("causeOfDeath", lang)}
           </span>
           <span class="role-value">
             {causesOfDeath.map((cause, i) => (
