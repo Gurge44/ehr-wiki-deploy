@@ -115,7 +115,7 @@ export default defineConfig({
                 tag: 'meta',
                 attrs: {
                     name: "og:image",
-                    content: "/ehr_logo_simple.png"
+                    content: "/ehr_wiki.png"
                 }
             },
             {
