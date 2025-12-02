@@ -17,10 +17,30 @@
 
 <script>
   const spinner = document.getElementById("global-spinner");
-  const hasSeenLoader = sessionStorage.getItem("hasSeenLoader");
 
-  if (!hasSeenLoader) {
-    sessionStorage.setItem("hasSeenLoader", "true");
+  const STORAGE_KEY = "hasSeenLoader";
+  const EXPIRY_MS = 6 * 60 * 60 * 1000; // 6 hours
+
+  function hasValidLoaderFlag() {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return false;
+
+    try {
+      const { value, timestamp } = JSON.parse(raw);
+      const age = Date.now() - timestamp;
+      return value === true && age < EXPIRY_MS;
+    } catch {
+      return false;
+    }
+  }
+
+  if (!hasValidLoaderFlag()) {
+
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({ value: true, timestamp: Date.now() }),
+    );
+
     document.body.classList.add("first-load");
     document.body.classList.add("loading");
     if (spinner) spinner.classList.add("blur-active");
@@ -77,7 +97,8 @@
     document.body.classList.remove("loading");
   }
 
-  const header = document.querySelector("header") || document.querySelector(".header");
+  const header =
+    document.querySelector("header") || document.querySelector(".header");
 
   window.addEventListener("scroll", () => {
     if (window.scrollY > 0) {
