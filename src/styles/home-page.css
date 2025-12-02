@@ -1,3 +1,7 @@
+:root {
+  --fade-delay: 0s;
+}
+
 html {
   margin: 0;
   padding: 0;
@@ -9,10 +13,8 @@ body {
   padding: 0;
   min-height: 100%;
   height: 100%;
-  background: linear-gradient(
-      rgba(0, 0, 0, 0.4), 
-      rgba(0, 0, 0, 0.45)
-    ),
+  background: linear-gradient(rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.45)),
     url('../site-assets/serene_mountain_sunrise.png') no-repeat center center fixed;
   background-size: cover;
   font-family: 'Segoe UI', sans-serif;
@@ -20,13 +22,92 @@ body {
   overflow-x: hidden;
 }
 
+body.first-load {
+  --fade-delay: 2s;
+}
+
 .header {
   background: transparent;
   transition: background 0.3s ease;
 }
 
-.content-panel:has(.sl-container>h1) {
+.content-panel:has(.sl-container>h1),
+footer {
   display: none;
+}
+
+#global-spinner {
+  position: fixed;
+  inset: 0;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  transition:
+    opacity 0.5s ease,
+    backdrop-filter 0.5s ease;
+  font-family: "Courier New", monospace;
+  color: #ffff44;
+  text-align: center;
+  padding: 20px;
+}
+
+#global-spinner.blur-active {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+#global-spinner.fade-out {
+  opacity: 0;
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+}
+
+#global-spinner .loading-text {
+  margin-top: 20px;
+  font-size: 1rem;
+  line-height: 1.4;
+  letter-spacing: 0.05em;
+  white-space: pre;
+  overflow: hidden;
+  border-right: 2px solid #ffff44;
+  width: fit-content;
+  animation: blink-caret 0.75s step-end infinite;
+  text-shadow:
+    0 0 6px rgba(255, 255, 68, 0.6),
+    0 0 12px rgba(255, 255, 68, 0.3),
+    0 0 18px rgba(255, 255, 68, 0.2);
+}
+
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+l-infinity {
+  filter: drop-shadow(0 0 6px #ffff44aa) drop-shadow(0 0 18px #ffff44aa);
+  animation: pulse-glow 2s ease-in-out infinite;
+  transition: filter 0.4s ease-in-out;
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 6px #ffff44aa) drop-shadow(0 0 18px #ffff44aa);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 12px #ffff44aa) drop-shadow(0 0 28px #ffff44aa);
+  }
+}
+
+body.loading {
+  overflow: hidden;
 }
 
 .homepage-container {
@@ -34,13 +115,34 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  min-height: 100dvh;
-  animation: bgFadeIn 1.5s ease-out;
+  margin: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.homepage-title,
+.homepage-subtitle,
+.cta-button,
+.feature-grid,
+.netlify-badge {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeIn 1.5s ease-in forwards;
 }
 
 .homepage-title {
   font-size: clamp(2.5rem, 6vw, 5rem);
-  margin-top: 3rem;
+  margin-top: 1rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
@@ -49,6 +151,7 @@ body {
   line-height: 1.2;
   text-align: center;
   text-shadow: 0 0 8px #ffffff22;
+  animation-delay: var(--fade-delay);
 }
 
 .word-endless,
@@ -85,41 +188,23 @@ body {
   text-shadow: 0 0 8px rgba(255, 247, 88, 0.4);
 }
 
-@keyframes bgFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 .homepage-subtitle {
   font-family: 'Inter', sans-serif;
   max-width: 550px;
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-style: italic;
   color: #fffde0;
   margin-top: 2rem;
-  line-height: 1.9;
+  line-height: 1.5rem;
   text-align: center;
-  animation: fadeIn 1.2s ease-in;
   text-shadow:
-    0 0 4px rgba(0, 0, 0, 0.35),
-    0 0 10px rgba(255, 255, 200, 0.1);
+  0 0 4px rgba(0, 0, 0, 0.35),
+  0 0 10px rgba(255, 255, 200, 0.1);
+  animation-delay: calc(var(--fade-delay) + 0.3s);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.cta-button {
+  animation-delay: calc(var(--fade-delay) + 0.6s);
 }
 
 .feature-grid {
@@ -129,7 +214,7 @@ body {
   max-width: 1000px;
   width: 100%;
   margin-top: 3rem;
-  animation: fadeIn 1.8s ease-in;
+  animation-delay: calc(var(--fade-delay) + 0.9s);
 }
 
 /* Base card style */
@@ -149,10 +234,12 @@ body {
   border: 1px solid #ff000080;
   box-shadow: 0 0 12px #ff000050;
 }
+
 .feature-card.endless:hover {
   transform: translateY(-4px);
   box-shadow: 0 0 18px #ff000080;
 }
+
 .feature-card.endless h3 {
   color: #ff0000;
 }
@@ -161,10 +248,12 @@ body {
   border: 1px solid #a4ffff80;
   box-shadow: 0 0 12px #a4ffff50;
 }
+
 .feature-card.host:hover {
   transform: translateY(-4px);
   box-shadow: 0 0 18px #a4ffff80;
 }
+
 .feature-card.host h3 {
   color: #a4ffff;
 }
@@ -173,10 +262,12 @@ body {
   border: 1px solid #fff75880;
   box-shadow: 0 0 12px #fff75850;
 }
+
 .feature-card.roles:hover {
   transform: translateY(-4px);
   box-shadow: 0 0 18px #fff75880;
 }
+
 .feature-card.roles h3 {
   color: #fff758;
 }
@@ -202,5 +293,5 @@ body {
 
 .netlify-badge {
   margin-top: 3rem;
-  opacity: 0.8;
+  animation-delay: calc(var(--fade-delay) + 1.5s);
 }

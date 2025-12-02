@@ -15,83 +15,15 @@
   <div class="loading-text" id="ehr-loading-text"></div>
 </div>
 
-<!-- === STYLES === -->
-<style>
-  #global-spinner {
-    position: fixed;
-    inset: 0;
-    background: transparent;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    opacity: 1;
-    transition: opacity 0.5s ease;
-    font-family: "Courier New", monospace;
-    color: #ffff44;
-    text-align: center;
-    padding: 20px;
-  }
-
-  #global-spinner.fade-out {
-    opacity: 0;
-  }
-
-  #global-spinner .loading-text {
-    margin-top: 20px;
-    font-size: 1rem;
-    line-height: 1.4;
-    letter-spacing: 0.05em;
-    white-space: pre;
-    overflow: hidden;
-    border-right: 2px solid #ffff44;
-    width: fit-content;
-    animation: blink-caret 0.75s step-end infinite;
-    text-shadow:
-      0 0 6px rgba(255, 255, 68, 0.6),
-      0 0 12px rgba(255, 255, 68, 0.3),
-      0 0 18px rgba(255, 255, 68, 0.2);
-  }
-
-  @keyframes blink-caret {
-    50% {
-      border-color: transparent;
-    }
-  }
-
-  l-infinity {
-    filter: drop-shadow(0 0 6px #ffff44aa) drop-shadow(0 0 18px #ffff44aa);
-    animation: pulse-glow 2s ease-in-out infinite;
-    transition: filter 0.4s ease-in-out;
-  }
-
-  @keyframes pulse-glow {
-    0%,
-    100% {
-      filter: drop-shadow(0 0 6px #ffff44aa) drop-shadow(0 0 18px #ffff44aa);
-    }
-    50% {
-      filter: drop-shadow(0 0 12px #ffff44aa) drop-shadow(0 0 28px #ffff44aa);
-    }
-  }
-
-  body.loading {
-    overflow: hidden;
-  }
-</style>
-
-<!-- === JS === -->
 <script>
   const spinner = document.getElementById("global-spinner");
   const hasSeenLoader = sessionStorage.getItem("hasSeenLoader");
 
   if (!hasSeenLoader) {
-    // Mark that they've now seen it
     sessionStorage.setItem("hasSeenLoader", "true");
+    document.body.classList.add("first-load");
     document.body.classList.add("loading");
+    if (spinner) spinner.classList.add("blur-active");
 
     const loadingMessages = [
       "Syncing Host Protocol...",

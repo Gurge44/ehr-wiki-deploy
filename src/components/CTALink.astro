@@ -2,7 +2,7 @@
 import { getRelativeLocaleUrl } from "astro:i18n";
 ---
 
-<a href={getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/guides/installation')}>Get Started! ➔</a>
+<a class="cta-button" href={getRelativeLocaleUrl(Astro.currentLocale ?? 'en', '/guides/installation')}>Get Started! ➔</a>
 
 <style>
 a {
