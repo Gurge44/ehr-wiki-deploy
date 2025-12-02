@@ -31,6 +31,10 @@ body.first-load {
   transition: background 0.3s ease;
 }
 
+.header.scrolled {
+  background-color: var(--sl-color-bg);
+}
+
 .content-panel:has(.sl-container>h1),
 footer {
   display: none;
@@ -141,9 +145,9 @@ body.loading {
 }
 
 .homepage-title {
-  font-size: clamp(2.5rem, 6vw, 5rem);
   margin-top: 1rem;
   display: flex;
+  color: white;
   flex-wrap: wrap;
   gap: 0.6rem;
   justify-content: center;
@@ -152,6 +156,10 @@ body.loading {
   text-align: center;
   text-shadow: 0 0 8px #ffffff22;
   animation-delay: var(--fade-delay);
+}
+
+.homepage-title > p {
+  font-size: clamp(1.5rem, 3vw, 3rem);
 }
 
 .word-endless,
@@ -210,6 +218,7 @@ body.loading {
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  place-items: center;
   gap: 2rem;
   max-width: 1000px;
   width: 100%;
@@ -219,13 +228,15 @@ body.loading {
 
 /* Base card style */
 .feature-card {
+  max-width: 320px;
+  min-height: 290px;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   background: #111;
   border-radius: 1.25rem;
   padding: 2rem;
-  text-align: left;
+  text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
