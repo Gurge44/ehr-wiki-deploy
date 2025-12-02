@@ -11,10 +11,10 @@ interface Props {
   ability?: string;
   indicators?: string;
   winCondition?: string;
-  causeOfDeath?: string;
+  causesOfDeath?: string[];
 }
 
-const { basis, ability, indicators, winCondition, causeOfDeath } = Astro.props;
+const { basis, ability, indicators, winCondition, causesOfDeath } = Astro.props;
 
 const { pathname } = Astro.url;
 
@@ -22,10 +22,11 @@ let segments = pathname.split("/").filter(Boolean);
 segments = segments.slice(segments.indexOf("roles") + 1);
 
 let factionKey = segments[0];
-let alignmentKey;
+let alignmentKey = "";
 if (segments.length > 2) {
   alignmentKey = segments[1];
 }
+let roleKey = segments[segments.length - 1];
 ---
 
 <div class={`role-info-card ${factionKey}`}>
@@ -46,7 +47,8 @@ if (segments.length > 2) {
         </svg>
         {t("faction", lang)}
       </span>
-      <span class="role-value faction-badge">{t(`factions.${factionKey}`)}</span
+      <span class="role-value faction-badge"
+        >{t(`factions.${factionKey}`, lang)}</span
       >
     </div>
 
@@ -65,7 +67,9 @@ if (segments.length > 2) {
             </svg>
             {t("alignment", lang)}
           </span>
-          <span class="role-value">{t(`alignments.${alignmentKey}`)}</span>
+          <span class="role-value">
+            {t(`alignments.${alignmentKey}`, lang)}
+          </span>
         </div>
       )
     }
@@ -164,7 +168,7 @@ if (segments.length > 2) {
     }
 
     {
-      causeOfDeath && (
+      causesOfDeath && (
         <div class="role-item full-width">
           <span class="role-label">
             <svg
@@ -183,7 +187,12 @@ if (segments.length > 2) {
             </svg>
             {t("causeOfDeath", lang)}
           </span>
-          <span class="role-value">{causeOfDeath}</span>
+          <span class="role-value">
+            {causesOfDeath.map((cause, i) => (
+            <span class="comma-separator">, </span>
+            <a href=`/${lang}/roles/settings/causes-of-death#${cause}`>{cause}</a>
+          ))}
+          </span>
         </div>
       )
     }
@@ -290,6 +299,10 @@ if (segments.length > 2) {
   .role-madmate .faction-badge {
     background: rgba(234, 88, 12, 0.2);
     border: 1px solid rgba(234, 88, 12, 0.4);
+  }
+
+  .comma-separator:first-of-type {
+    display: none;
   }
 
   @media (max-width: 768px) {

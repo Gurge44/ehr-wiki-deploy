@@ -13,7 +13,7 @@ import RoleInfo from '@components/RoleInfo.astro'
   ability="Manipulate other players"
   indicators="None"
   winCondition="Kill at least one player during the game"
-  causeOfDeath="Kill"
+  causesOfDeath={["Kill", "Misfire"]}
 />
 
 As the Puppeteer, you can use your kill button to manipulate another player. This player will become *puppeted*. After a configurable amount of time, the *puppeted* player will become *manipulated* and kill any player that enters their killing range **except** players with the Lazy Guy role, players with the Lazy add-on, or other Impostors, including the Puppeteer themself (unless configured otherwise).
