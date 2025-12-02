@@ -28,7 +28,7 @@ body {
 }
 
 body.first-load {
-  --fade-delay: 2s;
+  --fade-delay: 1s;
 }
 
 .header {

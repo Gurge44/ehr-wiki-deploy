@@ -19,27 +19,11 @@
   const spinner = document.getElementById("global-spinner");
 
   const STORAGE_KEY = "hasSeenLoader";
-  const EXPIRY_MS = 6 * 60 * 60 * 1000; // 6 hours
+  const hasSeenLoader = sessionStorage.getItem(STORAGE_KEY);
 
-  function hasValidLoaderFlag() {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return false;
+  if (!hasSeenLoader) {
 
-    try {
-      const { value, timestamp } = JSON.parse(raw);
-      const age = Date.now() - timestamp;
-      return value === true && age < EXPIRY_MS;
-    } catch {
-      return false;
-    }
-  }
-
-  if (!hasValidLoaderFlag()) {
-
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify({ value: true, timestamp: Date.now() }),
-    );
+    sessionStorage.setItem(STORAGE_KEY, "true");
 
     document.body.classList.add("first-load");
     document.body.classList.add("loading");
@@ -66,7 +50,7 @@
 
     if (textEl !== null) {
       let i = 0;
-      const typingSpeed = 50;
+      const typingSpeed = 45;
       const typeWriter = () => {
         if (i < message.length) {
           textEl.textContent += message.charAt(i);
@@ -77,12 +61,8 @@
       typeWriter();
     }
 
-    const MIN_LOAD_TIME = 2000;
-    const start = performance.now();
-
     window.addEventListener("load", () => {
-      const elapsed = performance.now() - start;
-      const waitTime = Math.max(0, MIN_LOAD_TIME - elapsed);
+      const waitTime = 1000;
 
       setTimeout(() => {
         if (spinner) {
