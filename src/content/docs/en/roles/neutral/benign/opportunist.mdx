@@ -1,6 +1,89 @@
 ---
 title: Opportunist
-description: todo
+description: Learn about the Opportunist role in the Endless Host Roles Among Us mod.
+shortDesc: Must survive till the end of the game.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Crewmate/Engineer"
+  ability="None"
+  winCondition="Survive till the end of the game"
+/>
+
+## Role Description
+
+The **Opportunist** is a Neutral Benign role. The Opportunist's win condition is simply to survive until the end of the game to win with the winning team. The Opportunist may gain immunity to normal attacks after finishing tasks if configured to do so. Many roles can become Opportunist in specific cases.
+
+## Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies how many Opportunists can appear in one game.
+</details>
+
+<details>
+<summary>
+### Immune to attacks on task completion
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Opportunist becomes immune to regular attacks after completing their tasks.
+</details>
+
+<details>
+<summary>
+### Can Vent
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Opportunist can Vent.
+</details>
+
+<details>
+<summary>
+### Override Opportunist's Tasks
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Opportunist has a custom task amount sent by the host.
+
+<details>
+<summary>
+#### Opportunist has Common Tasks
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Opportunist has Common tasks.
+</details>
+
+<details>
+<summary>
+#### Amount of Long Tasks for Opportunist
+</summary>
+**Type:** `Number`\
+**Default:** `The default amount of long tasks for crewmates`
+
+Specifies how many Long Tasks the Opportunist has.
+</details>
+
+<details>
+<summary>
+#### Amount of Short Tasks for Opportunist
+</summary>
+**Type:** `Number`\
+**Default:** `The default amount of short tasks for crewmates`
+
+Specifies how many Short Tasks the Opportunist has.
+</details>
+</details>

@@ -1,6 +1,140 @@
 ---
 title: Impartial
-description: todo
+description: Learn how the Impartial role works in the Endless Host Roles Among Us mod.
+shortDesc: Must kill a certain amount of players from each team.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="None"
+  indicators="Visible kill counter for each faction above name"
+  winCondition="Must kill a certain amount of players from each team"
+/>
+
+## Role Description
+
+The **Impartial** is a Neutral Benign role. Despite having the Benign alignment, it is able to kill. It is one of the only roles with this property. The Impartial must kill a set amount of players from each team to win with the winning team. The amount of players the Impartial must kill is displayed next to their name. It is important to note that the Impartial must kill the **exact** amount of players from each faction, and does not win if it kills more than the maximum amount, unless configured otherwise.
+
+## Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Impartials that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Minimum Number of Impostors to Kill
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the minimum amount of Impostors the Impartial must kill to satisfy their win condition.
+</details>
+
+<details>
+<summary>
+### Maximum Number of Impostors to Kill
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Impostors the Impartial can kill to satisfy their win condition.
+</details>
+
+<details>
+<summary>
+### Minimum Number of Neutrals to Kill
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the minimum amount of Neutrals the Impartial must kill to satisfy their win condition.
+</details>
+
+<details>
+<summary>
+### Maximum Number of Neutrals to Kill
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Neutrals the Impartial can kill to satisfy their win condition.
+</details>
+
+<details>
+<summary>
+### Minimum Number of Crewmates to Kill
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the minimum amount of Crewmates the Impartial must kill to satisfy their win condition.
+</details>
+
+<details>
+<summary>
+### Maximum Number of Crewmates to Kill
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Crewmates the Impartial can kill to satisfy their win condition.
+</details>
+
+<details>
+<summary>
+### Minimum Number of Coven to Kill
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the minimum amount of Coven the Impartial must kill to satisfy their win condition.
+</details>
+
+<details>
+<summary>
+### Maximum Number of Coven to Kill
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Coven the Impartial can kill to satisfy their win condition.
+</details>
+
+<details>
+<summary>
+### Can Vent
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Impartial can Vent.
+</details>
+
+<details>
+<summary>
+### Has Impostor Vision
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Impartial has Impostor Vision.
+</details>
+
+<details>
+<summary>
+### Can Win Even When Killing More of a Team than the Maximum
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Impartial wins with the winning team even if they kill more than the set maximum amount of players in a faction.
+</details>

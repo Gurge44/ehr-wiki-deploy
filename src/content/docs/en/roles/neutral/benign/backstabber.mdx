@@ -1,6 +1,63 @@
 ---
 title: Backstabber
-description: todo
+description: Learn how the Backstabber role works in the Endless Host Roles Among Us mod.
+shortDesc: The Backstabber kills a player to decide what team they win with.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="Kill a player to find your win condition"
+  winCondition="Wins with the Impostors/Wins with the winning Neutral Killer/Wins with the Crewmates"
+/>
+
+## Role Description
+
+The **Backstabber** is a Neutral Benign role. Despite having the Benign alignment, it is able to kill. It is one of the only roles with this property. The Backstabber is only able to perform a single kill each game, and their win condition changes according to the target of their kill.
+
+* If the Backstabber were to **not kill anyone**, their win condition is to win with the **Crewmates**.
+* If the Backstabber kills an **Impostor** or a **Madmate**, their win condition is to win with the **winning Neutral Killer**.
+* If the Backstabber kills a **Neutral** or **Coven** role, their win condition is to win with the **Impostors**.
+
+## Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies how many Backstabbers can appear in one game.
+</details>
+
+<details>
+<summary>
+### Can Vent
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Backstabber can Vent.
+</details>
+
+<details>
+<summary>
+### Has Impostor Vision
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Backstabber has Impostor Vision.
+</details>
+
+<details>
+<summary>
+### Revealed After Killing
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Backstabber's role becomes visible after using up their 1 kill.
+</details>

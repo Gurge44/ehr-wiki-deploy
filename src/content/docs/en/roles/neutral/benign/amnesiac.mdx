@@ -1,6 +1,121 @@
 ---
 title: Amnesiac
-description: todo
+description: Learn how the Amnesiac role works in the Endless Host Roles Among Us mod.
+shortDesc: The Amnesiac can use the report button copy the roles of dead bodies.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Crewmate/Impostor (depending on settings)"
+  ability="Copy roles of dead bodies"
+  winCondition="Wins with the copied role's win condition"
+/>
+
+## Role Description
+
+The **Amnesiac** is a Neutral Benign role that can use its report button on a player's dead body to copy their role. Optionally (in settings), the Amnesiac may have to use the kill button on an alive player to copy their role, instead of the report button. The Amnesiac may also remember player add-ons if configured to do so. The Amnesiac is also considered the base Neutral role, as erasing any other Neutral role will make that role become Amnesiac.
+
+**Related and similar roles:** [**Eraser**](/roles/coven/killing/eraser), [**Nice Eraser**](/roles/crewmate/power/nice-eraser), [**Bane**](/roles/impostor/killing/bane), [**Copycat**](/roles/impostor/killing/copycat)
+
+## Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Amnesiacs that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Role Remembering Mode
+</summary>
+**Type:** `Select (By Report, By Kill)`\
+**Default:** `By Report`
+
+Specifies how the Amnesiac remembers (copies) roles.
+</details>
+
+<details>
+<summary>
+### Can Remember Crewmate Power Roles
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Amnesiac can remember Crewmate Power roles.
+</details>
+
+<details>
+<summary>
+### If Neutral Is Incompatible, Turn Into
+</summary>
+**Type:** `Select (Amnesiac, Pursuer, Follower, Maverick)`\
+**Default:** `Amnesiac`
+
+Specifies which role the Amnesiac becomes if they attempt to remember the role of an incompatible neutral.
+</details>
+
+<details>
+<summary>
+### Can Vent
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Amnesiac can Vent.
+</details>
+
+<details>
+<summary>
+### After Remembering a Role by Reporting, Report the Body
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Amnesiac reports the body after remembering its role, if role remembering mode is set to By Report.
+</details>
+
+<details>
+<summary>
+### Sees Arrows to Dead Bodies (If Remembering by Reporting)
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Specifies whether or not the Amnesiac gets arrows above their name that point to dead bodies, if role remembering mode is set to By Report.
+
+<details>
+<summary>
+#### Minimum Arrow Show Up Delay
+</summary>
+**Type:** `Time`\
+**Default:** `1s`
+
+Specifies the minimum amount of time that has to pass after a body is killed before the arrow pointing to the body is displayed to the Amnesiac.
+</details>
+
+<details>
+<summary>
+#### Maximum Arrow Show Up Delay
+</summary>
+**Type:** `Time`\
+**Default:** `30s`
+
+Specifies the maximum amount of time that has to pass after a body is killed before the arrow pointing to the body is displayed to the Amnesiac.
+</details>
+</details>
+
+<details>
+<summary>
+### Also Remember Add-ons
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Amnesiac also remembers the add-ons of players.
+</details>

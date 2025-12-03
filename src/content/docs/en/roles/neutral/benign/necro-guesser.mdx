@@ -1,6 +1,39 @@
 ---
-title: Necro Guesser
-description: todo
+title: Necro-Guesser
+description: Learn how the Necro-Guesser works in the Endless Host Roles Among Us mod.
+shortDesc: Can guess the roles of dead players.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Crewmate"
+  ability="Guess the roles of dead players"
+  winCondition="Guess enough dead players' roles"
+/>
+
+## Role Description
+
+The **Necro-Guesser** is a Neutral Benign role. The Necro-Guesser is able to guess, however unlike other guessers, can only guess the roles of **dead** players. The Necro-Guesser must guess a set amount of dead players' roles to satisfy their win condition and win with the winning team. Guessing the role of a dead player has no effect on them and only progresses the Necro-Guesser's win condition.
+
+## Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies how many Necro-Guessers can appear in one game.
+</details>
+
+<details>
+<summary>
+### Number of Guesses Required to Win
+</summary>
+**Type:** `Number`\
+**Default:** `3`
+
+Specifies how many dead player roles the Necro-Guesser must guess to satisfy their win condition.
+</details>
