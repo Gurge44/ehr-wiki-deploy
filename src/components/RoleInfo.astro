@@ -11,7 +11,10 @@ interface Props {
   ability?: string;
   indicators?: string;
   winCondition?: string;
-  causesOfDeath?: string[];
+  causesOfDeath?: {
+    self?: string[],
+    target?: string[]
+  }
 }
 
 const { basis, ability, indicators, winCondition, causesOfDeath } = Astro.props;
@@ -185,13 +188,35 @@ let roleKey = segments[segments.length - 1];
                 stroke-linecap="round"
               />
             </svg>
-            {causesOfDeath.length > 1 ? t("causesOfDeath", lang) : t("causeOfDeath", lang)}
+            {(causesOfDeath.self?.length ?? 0) + (causesOfDeath.target?.length ?? 0) > 1 ? t("causesOfDeath", lang) : t("causeOfDeath", lang)}
           </span>
           <span class="role-value">
-            {causesOfDeath.map((cause, i) => (
-            <span class="comma-separator">, </span>
-            <a href=`/${lang}/roles/settings/causes-of-death#${cause}`>{cause}</a>
-          ))}
+            {
+              causesOfDeath.self && (
+                <div class="self-causes causes">
+                  <span class="font-bold">Self: </span>
+                    { 
+                      causesOfDeath.self?.map((cause, i) => (
+                        <>
+                          <span class="comma-separator">, </span>
+                          <a href=`/${lang}/roles/settings/causes-of-death#${cause}`>{cause}</a>
+                        </>
+                      ))
+                    }
+                </div>
+              )
+            }
+            {
+              causesOfDeath.target && (
+                <div class="target-causes causes">
+                  <span class="font-bold">Target: </span>
+                    {causesOfDeath.target.map((cause, i) => (
+                    <span class="comma-separator">, </span>
+                    <a href=`/${lang}/roles/settings/causes-of-death#${cause}`>{cause}</a>
+                  ))}
+                </div>
+              )
+            }
           </span>
         </div>
       )
@@ -301,7 +326,11 @@ let roleKey = segments[segments.length - 1];
     border: 1px solid rgba(234, 88, 12, 0.4);
   }
 
-  .comma-separator:first-of-type {
+  .causes:not(:first-child) {
+    margin-top: 0.3rem;
+  }
+
+  .causes .comma-separator:nth-child(2) {
     display: none;
   }
 
