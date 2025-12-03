@@ -1,6 +1,49 @@
 ---
 title: Dealer
-description: todo
+description: Learn how the Dealer role works in the Endless Host Roles Among Us mod.
+shortDesc: The Dealer must give players addons to win.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="Give players addons"
+  winCondition="Give players enough addons to win"
+/>
+
+## Role Description
+
+The **Dealer** is a Neutral Benign role. The Dealer can use their kill button on a player to give them an add-on. The add-on given can be any add-on other than Betrayal add-ons and Role Specific add-ons. After the Dealer gives the specified amount of add-ons, their win condition is satisfied, and they win with the winning team, alive or not.
+
+## Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Dealers that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Add-ons Assign Target Sees The Add-on
+</summary>
+**Type:** `Select (On The Next Meeting, After 5 Seconds, Instantly)`\
+**Default:** `On The Next Meeting`
+
+Specifies when the target of the Dealer's ability is able to see the Add-on given.
+</details>
+
+<details>
+<summary>
+### Number Of Add-ons Needed To Give To Win
+</summary>
+**Type:** `Number`\
+**Default:** `5`
+
+Specifies the amount of add-ons the Dealer needs to give to satisfy their win condition.
+</details>

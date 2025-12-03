@@ -1,6 +1,49 @@
 ---
 title: Investor
-description: todo
+description: Learn how the Investor role works in the Endless Host Roles Among Us mod.
+shortDesc: The Investor can mark players to win.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="Can mark players to win"
+  winCondition="Wins if a percentage of marked players win."
+/>
+
+## Role Description
+
+The **Investor** is a Neutral Benign role. The Investor can use the kill button to mark a player. The Investor wins with the winning team if a percentage or more of all marked players win. If the Investor only marks 1 player, they will win regardless of the set percentage, acting as a [**Follower**](/roles/neutral/benign/follower). The percentage is configured in settings.
+
+## Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Investors that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Initial Ability Uses
+</summary>
+**Type:** `Number`\
+**Default:** `5`
+
+Specifies how many ability uses the Investor has.
+</details>
+
+<details>
+<summary>
+### Minimum Percentage of Winning Marked Players Needed to Win
+</summary>
+**Type:** `Percentage`\
+**Default:** `50%`
+
+Specifies the minimum percentage of marked players that must win for the Investor to win.
+</details>

@@ -1,6 +1,59 @@
 ---
 title: Maverick
-description: todo
+description: Learn how the Maverick role works in the Endless Host Roles Among Us mod.
+shortDesc: Must survive and kill the required amount of players.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="None"
+  winCondition="Survive and kill the required amount of players"
+/>
+
+## Role Description
+
+The **Maverick** is a Neutral Benign role. However, it is able to kill. It is one of the only roles with this property. The Maverick must survive until the end of the game, and must also kill a certain amount of players configured in settings. If both of these requirements are met, the Maverick wins with the winning team.
+
+## Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies how many Mavericks can appear in one game.
+</details>
+
+<details>
+<summary>
+### Can Vent
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Maverick can Vent.
+</details>
+
+<details>
+<summary>
+### Has Impostor Vision
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Maverick has Impostor Vision.
+</details>
+
+<details>
+<summary>
+### Minimum number of kills required
+</summary>
+**Type:** `Number`\
+**Default:** `2`
+
+Specifies how many kills the Maverick must make to satisfy their win condition.
+</details>

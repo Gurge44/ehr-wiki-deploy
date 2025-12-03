@@ -1,6 +1,100 @@
 ---
 title: Lawyer
-description: todo
+description: Learn how the Lawyer role works in the Endless Host Roles Among us mod.
+shortDesc: The Lawyer gets a client and wins with them.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Crewmate"
+  ability="None"
+indicators="◇ Symbol next to your name"
+  winCondition="Wins with their client"
+/>
+
+## Role Description
+
+The **Lawyer** is a Neutral Benign role that gets a client at the very start of the game. They know what role their client is. If their client is to ever die, their role is changed to the one specified in the settings, by default they become an [**Amnesiac**](/roles/neutral/benign/amnesiac).
+
+## Options
+
+<details>
+<summary>
+### Can Target Impostors
+</summary>
+**Type:** `Toggle`\
+**Default:** `Y/N`
+
+Can an Impostor be the lawyer's client.
+</details>
+
+<details>
+<summary>
+### Can Target Neutral Killings
+</summary>
+**Type:** `Toggle`\
+**Default:** `Y/N`
+
+Can a Neutral killer be the lawyer's client.
+</details>
+
+<details>
+<summary>
+### Can Target Crewmates
+</summary>
+**Type:** `Toggle`\
+**Default:** `Y/N`
+
+Can a Crewmate be the lawyer's client.
+</details>
+
+<details>
+<summary>
+### Can Target Coven
+</summary>
+**Type:** `Toggle`\
+**Default:** `Y/N`
+
+Can a Coven member be the lawyer's client.
+</details>
+
+<details>
+<summary>
+### Can Target Jester
+</summary>
+**Type:** `Toggle`\
+**Default:** `Y/N`
+
+Can the Jester be the Lawyer's client.
+</details>
+
+<details>
+<summary>
+### Knows Their Target's Role
+</summary>
+**Type:** `Toggle`\
+**Default:** `Y/N`
+
+Does the Lawyer know what role their client is.
+</details>
+
+<details>
+<summary>
+### Target Knows Their Lawyer
+</summary>
+**Type:** `Toggle`\
+**Default:** `Y/N`
+
+Does the client know their lawyer.
+</details>
+
+<details>
+<summary>
+### When Target Dies, Lawyer Becomes
+</summary>
+**Type:** `Select (Amnesiac/Crewmate/Jester/Opportunist)`\
+**Default:** `Amnesiac`
+
+Which role does the Lawyer change to when their client dies.
+</details>
