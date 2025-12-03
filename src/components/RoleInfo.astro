@@ -11,10 +11,13 @@ interface Props {
   ability?: string;
   indicators?: string;
   winCondition?: string;
-  causeOfDeath?: string;
+  causesOfDeath?: {
+    self?: string[],
+    target?: string[]
+  }
 }
 
-const { basis, ability, indicators, winCondition, causeOfDeath } = Astro.props;
+const { basis, ability, indicators, winCondition, causesOfDeath } = Astro.props;
 
 const { pathname } = Astro.url;
 
@@ -22,10 +25,11 @@ let segments = pathname.split("/").filter(Boolean);
 segments = segments.slice(segments.indexOf("roles") + 1);
 
 let factionKey = segments[0];
-let alignmentKey;
+let alignmentKey = "";
 if (segments.length > 2) {
   alignmentKey = segments[1];
 }
+let roleKey = segments[segments.length - 1];
 ---
 
 <div class={`role-info-card ${factionKey}`}>
@@ -46,7 +50,8 @@ if (segments.length > 2) {
         </svg>
         {t("faction", lang)}
       </span>
-      <span class="role-value faction-badge">{t(`factions.${factionKey}`)}</span
+      <span class="role-value faction-badge"
+        >{t(`factions.${factionKey}`, lang)}</span
       >
     </div>
 
@@ -65,7 +70,9 @@ if (segments.length > 2) {
             </svg>
             {t("alignment", lang)}
           </span>
-          <span class="role-value">{t(`alignments.${alignmentKey}`)}</span>
+          <span class="role-value">
+            {t(`alignments.${alignmentKey}`, lang)}
+          </span>
         </div>
       )
     }
@@ -164,7 +171,7 @@ if (segments.length > 2) {
     }
 
     {
-      causeOfDeath && (
+      causesOfDeath && (
         <div class="role-item full-width">
           <span class="role-label">
             <svg
@@ -181,9 +188,36 @@ if (segments.length > 2) {
                 stroke-linecap="round"
               />
             </svg>
-            {t("causeOfDeath", lang)}
+            {(causesOfDeath.self?.length ?? 0) + (causesOfDeath.target?.length ?? 0) > 1 ? t("causesOfDeath", lang) : t("causeOfDeath", lang)}
           </span>
-          <span class="role-value">{causeOfDeath}</span>
+          <span class="role-value">
+            {
+              causesOfDeath.self && (
+                <div class="self-causes causes">
+                  <span class="font-bold">{t("self", lang)}: </span>
+                    { 
+                      causesOfDeath.self?.map((cause, i) => (
+                        <>
+                          <span class="comma-separator">, </span>
+                          <a href=`/${lang}/roles/settings/causes-of-death#${cause}`>{cause}</a>
+                        </>
+                      ))
+                    }
+                </div>
+              )
+            }
+            {
+              causesOfDeath.target && (
+                <div class="target-causes causes">
+                  <span class="font-bold">{t("target", lang)}: </span>
+                    {causesOfDeath.target.map((cause, i) => (
+                    <span class="comma-separator">, </span>
+                    <a href=`/${lang}/roles/settings/causes-of-death#${cause}`>{cause}</a>
+                  ))}
+                </div>
+              )
+            }
+          </span>
         </div>
       )
     }
@@ -290,6 +324,14 @@ if (segments.length > 2) {
   .role-madmate .faction-badge {
     background: rgba(234, 88, 12, 0.2);
     border: 1px solid rgba(234, 88, 12, 0.4);
+  }
+
+  .causes:not(:first-child) {
+    margin-top: 0.3rem;
+  }
+
+  .causes .comma-separator:nth-child(2) {
+    display: none;
   }
 
   @media (max-width: 768px) {
