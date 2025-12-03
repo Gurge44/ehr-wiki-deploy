@@ -194,7 +194,7 @@ let roleKey = segments[segments.length - 1];
             {
               causesOfDeath.self && (
                 <div class="self-causes causes">
-                  <span class="font-bold">Self: </span>
+                  <span class="font-bold">{t("self", lang)}: </span>
                     { 
                       causesOfDeath.self?.map((cause, i) => (
                         <>
@@ -209,7 +209,7 @@ let roleKey = segments[segments.length - 1];
             {
               causesOfDeath.target && (
                 <div class="target-causes causes">
-                  <span class="font-bold">Target: </span>
+                  <span class="font-bold">{t("target", lang)}: </span>
                     {causesOfDeath.target.map((cause, i) => (
                     <span class="comma-separator">, </span>
                     <a href=`/${lang}/roles/settings/causes-of-death#${cause}`>{cause}</a>
