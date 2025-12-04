@@ -9,22 +9,22 @@ import RoleInfo from '@components/RoleInfo.astro'
 <RoleInfo
   basis="Crewmate"
   ability="None"
-indicators="◇ Symbol next to your name"
+  indicators="◇ Symbol next to your name"
   winCondition="Wins with their client"
 />
 
 ## Role Description
 
-The **Lawyer** is a Neutral Benign role that gets a client at the very start of the game. They know what role their client is. If their client is to ever die, their role is changed to the one specified in the settings, by default they become an [**Amnesiac**](/roles/neutral/benign/amnesiac).
+The **Lawyer** is a Neutral Benign role that gets a client at the very start of the game. They know what role their client is. If their client is to ever die, their role is changed to the one specified in the settings, by default they become an [**Amnesiac**](../../benign/amnesiac).
 
-## Options
+## Role Options
 
 <details>
 <summary>
 ### Can Target Impostors
 </summary>
 **Type:** `Toggle`\
-**Default:** `Y/N`
+**Default:** `OFF`
 
 Can an Impostor be the lawyer's client.
 </details>
@@ -34,7 +34,7 @@ Can an Impostor be the lawyer's client.
 ### Can Target Neutral Killings
 </summary>
 **Type:** `Toggle`\
-**Default:** `Y/N`
+**Default:** `OFF`
 
 Can a Neutral killer be the lawyer's client.
 </details>
@@ -44,7 +44,7 @@ Can a Neutral killer be the lawyer's client.
 ### Can Target Crewmates
 </summary>
 **Type:** `Toggle`\
-**Default:** `Y/N`
+**Default:** `OFF`
 
 Can a Crewmate be the lawyer's client.
 </details>
@@ -54,7 +54,7 @@ Can a Crewmate be the lawyer's client.
 ### Can Target Coven
 </summary>
 **Type:** `Toggle`\
-**Default:** `Y/N`
+**Default:** `OFF`
 
 Can a Coven member be the lawyer's client.
 </details>
@@ -64,7 +64,7 @@ Can a Coven member be the lawyer's client.
 ### Can Target Jester
 </summary>
 **Type:** `Toggle`\
-**Default:** `Y/N`
+**Default:** `OFF`
 
 Can the Jester be the Lawyer's client.
 </details>
@@ -74,7 +74,7 @@ Can the Jester be the Lawyer's client.
 ### Knows Their Target's Role
 </summary>
 **Type:** `Toggle`\
-**Default:** `Y/N`
+**Default:** `OFF`
 
 Does the Lawyer know what role their client is.
 </details>
@@ -84,7 +84,7 @@ Does the Lawyer know what role their client is.
 ### Target Knows Their Lawyer
 </summary>
 **Type:** `Toggle`\
-**Default:** `Y/N`
+**Default:** `OFF`
 
 Does the client know their lawyer.
 </details>

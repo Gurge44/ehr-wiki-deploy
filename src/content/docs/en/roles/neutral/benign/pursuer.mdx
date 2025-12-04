@@ -1,6 +1,49 @@
 ---
 title: Pursuer
-description: todo
+description: Learn how the Pursuer role works in the Endless Host Roles Among Us mod.
+shortDesc: The Pursuer can cause someone's kill to fail.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="Cause a player to shoot a blank when killing"
+  winCondition="Survive till the end of the game"
+/>
+
+## Role Description
+
+The **Pursuer** is a Neutral Benign role. The Pursuer can use their kill button on a target. The next time that target attempts to kill, a shield animation will be played on their body, and their kill cooldown will be reset, effectively causing their kill attempt to fail. The Pursuer wins with the winning team if they survive until the end of the game. There is a limit to how many times the Pursuer can use their ability. Some roles can become Pursuer in specific cases.
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies how many Pursuers can appear in one game.
+</details>
+
+<details>
+<summary>
+### Ability Cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `15s`
+
+Specifies the cooldown for the Pursuer's ability.
+</details>
+
+<details>
+<summary>
+### Max number of uses
+</summary>
+**Type:** `Number`\
+**Default:** `2`
+
+Specifies how many times the Pursuer can use its ability.
+</details>

@@ -1,6 +1,33 @@
 ---
 title: Provocateur
-description: todo
+description: Learn how the Provocateur role works in the Endless Host Roles Among Us mod.
+shortDesc: The Provocatuer can kill one person per game to win if that person loses.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="Can kill one person to win if they lose."
+  winCondition="You win with the winning team if the target of your kill loses by the end of the game."
+  causesOfDeath={{
+    target: ["Destroyed"]
+  }}
+/>
+
+## Role Description
+
+The **Provocateur** is a Neutral Benign role. **It stands out as one of the few Benign roles equipped with a killing ability.** The Provocateur is granted one kill per game, and their primary win condition is achieved if the player they target and kill ultimately loses the game.
+When the Provocateur executes this ability, the target's death reason is registered as **Destroyed**. This death reason is notably shared with the [**Juggernaut**](../../killing/juggernaut).
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies how many Provocateurs can appear in one game.
+</details>

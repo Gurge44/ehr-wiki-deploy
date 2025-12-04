@@ -1,6 +1,91 @@
 ---
 title: Shifter
-description: todo
+description: Learn how the Shifter role works in The Endless Host Roles Among Us mod.
+shortDesc: The Shifter may shift with their target to swap roles.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="Swap roles with a player"
+  indicators="Roles being swapped"
+  winCondition="Cannot win"
+/>
+
+## Role Description
+
+The **Shifter** is a Neutral Benign role that may use their kill button on another player to swap roles: the Shifter takes on the target's role, and the target becomes the Shifter. **It is crucial to note that a player cannot win if they are the Shifter when the game concludes.**
+
+**Related Roles:** [**Pawn**](../../benign/pawn), [**Amnesiac**](../../benign/amnesiac), [**Schrödinger's Cat**](../../benign/schrodingers-cat)
+
+## Role Options
+
+<details>
+<summary>
+### Ability Cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `0-120` (Range)\
+**Description:** Specifies the duration until the Shifter can shift roles again.
+</details>
+
+<details>
+<summary>
+### Can Vent
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Is the Shifter allowed to use vents.
+</details>
+
+<details>
+<summary>
+### Shifter Has Impostor Vision
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides if the Shifter can see normally when lights are out and further than crewmates.
+</details>
+
+<details>
+<summary>
+### Can Guess in Guesser Mode
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether the Shifter can guess when guesser mode is enabled.
+</details>
+
+<details>
+<summary>
+### Shifter Can Be Killed
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether killers can kill the Shifter.
+</details>
+
+<details>
+<summary>
+### Shifter Can Be Voted
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether players can eject the Shifter.
+</details>
+
+<details>
+<summary>
+### Can Vote
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether the Shifter is allowed to vote during meetings.
+</details>

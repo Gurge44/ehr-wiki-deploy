@@ -1,6 +1,99 @@
 ---
 title: Specter
-description: todo
+description: Learn how the Specter role works in the Endless Host Roles Among Us.
+shortDesc: The Specter must die and finish their tasks to win.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Crewmate"
+  ability="Wins if dead with tasks done"
+  winCondition="Be dead, and have your tasks done by the end of the game."
+/>
+
+## Role Description
+
+The **Specter** is a Neutral Benign role. The Specter must complete their tasks, and also must be dead by the end of the game. If both of these requirements are met, the Specter wins with the winning team. The Specter is allowed to do tasks while alive. The Specter may also win alone if configured to do so.
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies how many Specters can appear in one game.
+</details>
+
+<details>
+<summary>
+### Can Vent
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Specter can Vent.
+</details>
+
+<details>
+<summary>
+### Snatches Victory
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Specter wins alone after finishing tasks instead of with the winning team.
+</details>
+
+<details>
+<summary>
+### Can Guess In Guesser Mode
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Specter can Guess in Guesser mode.
+</details>
+
+<details>
+<summary>
+### Override Specter's Tasks
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Specter gets a custom amount of tasks set by the host.
+
+<details>
+<summary>
+#### Specter has Common Tasks
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Specter gets Common Tasks.
+</details>
+
+<details>
+<summary>
+#### Amount of Long Tasks for Specter
+</summary>
+**Type:** `Number`\
+**Default:** `The default amount of long tasks for crewmates`
+
+Specifies how many Long Tasks the Specter has.
+</details>
+
+<details>
+<summary>
+#### Amount of Short Tasks for Specter
+</summary>
+**Type:** `Number`\
+**Default:** `The default amount of short tasks for crewmates`
+
+Specifies how many Short Tasks the Specter has.
+</details>
+</details>

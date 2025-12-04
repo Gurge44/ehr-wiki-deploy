@@ -1,6 +1,41 @@
 ---
 title: Schrödinger's Cat
-description: todo
+description: Learn how the Schrödinger's Cat role works in The Endless Host Roles Among us mod.
+shortDesc: The Schrödinger's Cat takes on their attacker's role.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Crewmate"
+  ability="Take on your killer's role"
+  winCondition="Wins with their attacker"
+/>
+
+## Role Description
+
+The **Schrödinger's Cat** is a Neutral Benign role that has the ability to survive a kill attempt, subsequently becoming their attacker's role and winning alongside them. If configured to be fragile, they will take on the role of anyone who targets them with a kill ability.
+
+**Related Roles:** [**Amnesiac**](../../benign/amnesiac)
+
+## Role Options
+
+<details>
+<summary>
+### Wins with Crewmates if Not Attacked
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether the Schrödinger's Cat wins with the Crewmates if they are not attacked during the game.
+</details>
+
+<details>
+<summary>
+### Steals the exact Impostor role instead of Renegade
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether the Schrödinger's Cat takes on the Impostor's exact role if attacked by an Impostor, instead of changing to the [**Renegade**](../../../impostor/madmate/renegade) role.
+</details>

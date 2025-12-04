@@ -1,6 +1,101 @@
 ---
 title: Soul Hunter
-description: todo
+description: Learn how the Soul Hunter role works in the Endless Host Roles Among Us mod.
+shortDesc: The Soul Hunter must collect souls to win at the end of the game.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="Mark and kill players for their souls"
+  winCondition="Get enough player souls"
+  causesOfDeath={{
+    target: ["Kill"]
+  }}
+/>
+
+## Role Description
+
+The **Soul Hunter** is a Neutral Benign role. **It possesses a unique killing ability, making it one of the few Benign roles capable of eliminating other players.**
+
+The Soul Hunter can mark a player using the kill button. In the next meeting, the marked player will be notified. Following the meeting, the Soul Hunter will be unable to move (frozen) for a configurable amount of seconds. After being unfrozen, the Soul Hunter must kill their target within a specified time limit.
+
+* If successful, the Soul Hunter **gains a soul**.
+* If they fail to kill the target in time, they **lose a soul**.
+
+During this kill period, the marked player is restricted: they cannot kill, call a meeting, or kill the Soul Hunter.
+
+The Soul Hunter must reach a certain amount of souls by the end of the game to win with the winning team. The amount of souls the Soul Hunter has cannot go below zero. The Soul Hunter also loses a soul if the marked player dies by anything other than the Soul Hunter in the allowed killing time, unless configured otherwise.
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Soul Hunters that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Can Vent
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Soul Hunter can Vent.
+</details>
+
+<details>
+<summary>
+### Has Impostor Vision
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Soul Hunter has Impostor Vision.
+</details>
+
+<details>
+<summary>
+### Number of Souls Required To Win
+</summary>
+**Type:** `Number`\
+**Default:** `3`
+
+Specifies how many Souls the Soul Hunter must get to satisfy their win condition.
+</details>
+
+<details>
+<summary>
+### Waiting Time After Meeting
+</summary>
+**Type:** `Time`\
+**Default:** `3s`
+
+Specifies the amount of time the Soul Hunter is frozen for after a meeting when having a marked player.
+</details>
+
+<details>
+<summary>
+### Time To Kill Target
+</summary>
+**Type:** `Time`\
+**Default:** `30s`
+
+Specifies how much time the Soul Hunter has to kill its marked player.
+</details>
+
+<details>
+<summary>
+### Gain Soul When Target Dies By Other Means
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Soul Hunter gains a soul instead of losing one when the marked player dies to anything other than the Soul Hunter in the specified killing time.
+</details>

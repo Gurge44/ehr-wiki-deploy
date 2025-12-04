@@ -1,6 +1,26 @@
 ---
 title: Ruthless Romantic
-description: todo
+description: Learn how the Ruthless Romantic role works in the Endless Host Roles Among Us mod.
+shortDesc: The Ruthless Romantic must kill everyone to avenge its partner.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="None"
+  winCondition="Be the last standing"
+  causesOfDeath={{
+    target: ["Kill"]
+  }}
+/>
+
+## Role Description
+
+The **Ruthless Romantic** is a Neutral Killing role. This role cannot be obtained by any regular means, but is only possible to get by being the [**Romantic**](../../benign/romantic) and having your partner die under specific role conditions. The Ruthless Romantic is a regular killer, and must be the last player standing. If they win, their partner wins along with them.
+
+## Role Options
+
+<Aside type="note">
+This role cannot be selected at the start of the game and has no customizable options. Its behavior is inherited or configured via the original **Romantic** role's settings.
+</Aside>

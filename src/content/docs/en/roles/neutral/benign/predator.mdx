@@ -1,6 +1,70 @@
 ---
 title: Predator
-description: todo
+description: Learn how the Predator role works in The Endless Host Roles Among us mod.
+shortDesc: The Predator has to kill 1 of their prey.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="Can kill"
+  winCondition="Wins with the winning team if they kill 1 prey"
+  causesOfDeath={{
+    self: ["Suicide"],
+    target: ["Kill"]
+  }}
+/>
+
+## Role Description
+
+The **Predator** is a Neutral Benign role (one of the only to have the ability to kill) that gets 3 target roles (**Prey**) at the start of the game. They must kill at least one of their prey roles to win with the winning team at the end. If they kill a non-prey target, the Predator commits suicide.
+
+## Role Options
+
+<details>
+<summary>
+### Amount of Roles to Choose From
+</summary>
+**Type:** `Number`\
+**Default:** `3`\
+**Description:** Specifies how many targets (Prey) the Predator gets.
+</details>
+
+<details>
+<summary>
+### Maximum Number of Impostor Roles to Choose From
+</summary>
+**Type:** `Number`\
+**Default:** `0-3` (Range)\
+**Description:** Specifies how many Impostor roles can be chosen as Prey.
+</details>
+
+<details>
+<summary>
+### Kill Cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `0-120` (Range)\
+**Description:** The time until the Predator can kill a prey.
+</details>
+
+<details>
+<summary>
+### Can Vent
+</summary>
+**Type:** `Toggle`\
+**Default:** `Y/N`
+
+Can the Predator vent.
+</details>
+
+<details>
+<summary>
+### Has Impostor Vision
+</summary>
+**Type:** `Toggle`\
+**Default:** `Y/N`
+
+Does the Predator see normally when lights are out and further than crewmates.
+</details>

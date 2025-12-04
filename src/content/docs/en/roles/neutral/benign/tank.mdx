@@ -1,6 +1,69 @@
 ---
 title: Tank
-description: todo
+description: Learn how the Tank role works in the Endless Host Roles Among Us mod.
+shortDesc: The Tank must vent in every vent on the map to win.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Engineer"
+  ability="Venting"
+  winCondition="Vent in every vent in the map"
+/>
+
+## Role Description
+
+The **Tank** is a Neutral Benign role. The Tank has lower movement speed than other players, and may be immune to being killed and/or guessed (configurable in Role Options). The Tank must enter every vent available on the map to satisfy their win condition and win with the winning team. This means they must **enter** every unique vent location in the game; merely exiting through one does not progress the Tank's win condition.
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies how many Tanks can appear in one game.
+</details>
+
+<details>
+<summary>
+### Speed
+</summary>
+**Type:** `Multiplier`\
+**Default:** `0.9x`
+
+Specifies the movement speed multiplier of the Tank.
+</details>
+
+<details>
+<summary>
+### Can Be Guessed
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Tank can be Guessed by Guessers.
+</details>
+
+<details>
+<summary>
+### Can be Killed
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Tank can be killed by regular killing methods.
+</details>
+
+<details>
+<summary>
+### Vent Cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `15s`
+
+Specifies the Venting cooldown for the Tank.
+</details>
