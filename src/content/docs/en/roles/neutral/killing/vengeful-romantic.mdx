@@ -1,6 +1,31 @@
 ---
 title: Vengeful Romantic
-description: todo
+description: Learn how the Vengeful Romantic role works in the Endless Host Roles Among Us mod.
+shortDesc: The Vengeful Romantic has one shot to avenge its fallen partner.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="Kill one person to avenge your partner"
+  winCondition="Kill the player that killed your partner"
+  causesOfDeath={{
+    self: ["Misfire"],
+    target: ["Kill"]
+  }}
+/>
+
+## Role Description
+
+The **Vengeful Romantic** is a Neutral Killing role. This role cannot be obtained by any regular means, but is only possible to get by being the [**Romantic**](../../benign/romantic) and having your partner die under specific role conditions.
+
+The Vengeful Romantic must kill the player that killed their partner. If they succeed in doing this, the Vengeful Romantic and its partner win with the winning team at the end of the game.
+
+If the Vengeful Romantic attempts to kill the wrong person, it **misfires** instead. If the person that killed the Vengeful Romantic's partner dies by means other than the Vengeful Romantic, the Vengeful Romantic cannot win.
+
+## Role Options
+
+<Aside type="note">
+This role cannot be selected at the start of the game and has no customizable options. Its behavior is inherited or configured via the original **Romantic** role's settings.
+</Aside>

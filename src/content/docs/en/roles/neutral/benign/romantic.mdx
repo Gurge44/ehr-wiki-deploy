@@ -1,6 +1,171 @@
 ---
 title: Romantic
-description: todo
+description: Learn how the Romantic role works in the Endless Host Roles Among Us mod.
+shortDesc: The Romantic can choose a partner to win with them.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="Pick a partner to win with them"
+  indicators="Rose colored heart symbol"
+  winCondition="Wins with its target"
+/>
+
+## Role Description
+
+The **Romantic** is a Neutral Benign role. The Romantic can use its kill button to choose its partner. The Romantic sees a rose-colored heart symbol next to its partner's name, only visible to the Romantic. If the Romantic's partner is enabled to see the Romantic, they will see the same symbol next to the Romantic's name, only visible to the Partner. If the Romantic and the Partner are alive, they win with each other normally. The Romantic can use the kill button on anyone after choosing a partner to give the partner a temporary shield from attacks.
+
+If the Partner of the Romantic dies, the Romantic will become a different role, depending on what the partner's role was:
+
+* If the Partner had any type of kill button and wasn't an Impostor, the Romantic will become that **exact role of the Partner**.
+* If the partner was a Neutral that couldn't kill, or if the partner died by something that wasn't caused by a different player (like a suicide or disconnecting), the Romantic will become the [**Ruthless Romantic**](../../killing/ruthless-romantic).
+* If the partner was an Impostor role, the Romantic will become a [**Renegade**](../../../impostor/madmate/renegade).
+* If the partner was none of the previously mentioned cases, the Romantic will become the [**Vengeful Romantic**](../../killing/vengeful-romantic).
+
+It is also important to note that the Romantic is a **Unique role**, meaning its Max setting is not configurable, and is always set to 1.
+
+**Related Roles:** [**Ruthless Romantic**](../../killing/ruthless-romantic), [**Vengeful Romantic**](../../killing/vengeful-romantic), [**Renegade**](../../../impostor/madmate/renegade)
+
+## Role Options
+
+<details>
+<summary>
+### Pick Partner Cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `7s`
+
+Specifies the cooldown of the Romantic for picking a partner.
+</details>
+
+<details>
+<summary>
+### Protect Cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `25s`
+
+Specifies the cooldown of the Romantic for applying a shield to their partner.
+</details>
+
+<details>
+<summary>
+### Protect Duration
+</summary>
+**Type:** `Time`\
+**Default:** `10s`
+
+Specifies how long the shield lasts for the partner.
+</details>
+
+<details>
+<summary>
+### Romantic knows their target's role
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Romantic can see its partner's role.
+</details>
+
+<details>
+<summary>
+### Target knows who the Romantic is
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Romantic's partner knows who the Romantic is.
+</details>
+
+<details>
+<summary>
+### Romantic gets the converted add-ons of their partner
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Romantic obtains the betrayal add-ons of the partner after choosing them.
+</details>
+
+<details>
+<summary>
+### Romantic has arrows pointing to their Partner
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Romantic gets an arrow that points to its partner's location.
+</details>
+
+<details>
+<summary>
+### Partner has arrows pointing to the Romantic
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Partner of the Romantic gets an arrow that points to the Romantic's location.
+</details>
+
+<details>
+<summary>
+### Vengeful Romantic Kill Cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `22.5s`
+
+Specifies the kill cooldown of the Vengeful Romantic.
+</details>
+
+<details>
+<summary>
+### Vengeful Romantic Can Vent
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Vengeful Romantic can Vent.
+</details>
+
+<details>
+<summary>
+### Vengeful Romantic has Impostor Vision
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Vengeful Romantic has Impostor Vision.
+</details>
+
+<details>
+<summary>
+### Ruthless Romantic Kill Cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `22.5s`
+
+Specifies the kill cooldown of the Ruthless Romantic.
+</details>
+
+<details>
+<summary>
+### Ruthless Romantic Can Vent
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Ruthless Romantic can Vent.
+</details>
+
+<details>
+<summary>
+### Ruthless Romantic has Impostor Vision
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Ruthless Romantic has Impostor Vision.
+</details>

@@ -16,9 +16,9 @@ import RoleInfo from '@components/RoleInfo.astro'
 
 The **Amnesiac** is a Neutral Benign role that can use its report button on a player's dead body to copy their role. Optionally (in settings), the Amnesiac may have to use the kill button on an alive player to copy their role, instead of the report button. The Amnesiac may also remember player add-ons if configured to do so. The Amnesiac is also considered the base Neutral role, as erasing any other Neutral role will make that role become Amnesiac.
 
-**Related and similar roles:** [**Eraser**](/roles/coven/killing/eraser), [**Nice Eraser**](/roles/crewmate/power/nice-eraser), [**Bane**](/roles/impostor/killing/bane), [**Copycat**](/roles/impostor/killing/copycat)
+The **Amnesiac** is also unable to copy **Neutral Unique Roles**. Unique roles do not have a configurable Max setting, and their Max is always set to 1, if they are enabled. The Amnesiac may copy Crewmate and Impostor Unique Roles, but cannot copy Neutral ones. The Neutral Unique Roles are: [**Romantic**](../../benign/romantic), [**Cultist**](../../killing/cultist), [**Magician**](../../killing/magician), [**Necromancer**](../../killing/necromancer), [**Spiritcaller**](../../killing/spiritcaller), and [**Virus**](../../killing/virus). If the Amnesiac attempts to copy one of these roles, they will change into a different role defined in the role options.
 
-## Options
+## Role Options
 
 <details>
 <summary>
@@ -27,7 +27,7 @@ The **Amnesiac** is a Neutral Benign role that can use its report button on a pl
 **Type:** `Number`\
 **Default:** `1`
 
-Specifies the maximum amount of Amnesiacs that can appear in one game.
+Specifies the amount of Amnesiacs that can appear in one game.
 </details>
 
 <details>

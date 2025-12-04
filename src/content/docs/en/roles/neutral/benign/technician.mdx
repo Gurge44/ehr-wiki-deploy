@@ -1,6 +1,76 @@
 ---
 title: Technician
-description: todo
+description: Learn how the Technician role works in The endless host roles among us mod.
+shortDesc: The Technician must fix sabotages to satisfy their win condition.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Crewmate"
+  ability="None"
+  winCondition="Fix sabotages for points to win with the winning team"
+/>
+
+## Role Description
+
+The **Technician** is a Neutral Benign role that must fix sabotages to satisfy their win condition. If they haven't gained enough points by the end of the game, they will lose instead of winning with the winning team. Different sabotages may award more or fewer points, as configured in the role options.
+
+**Related Roles:** [**Mechanic**](../../../crewmate/support/mechanic)
+
+## Role Options
+
+<details>
+<summary>
+### Wins Alone
+</summary>
+**Type:** `Toggle`\
+**Default:** `Y/N`
+
+Decides whether the Technician wins alone after they satisfy their win condition, rather than with the winning team.
+</details>
+
+<details>
+<summary>
+### Required points to win
+</summary>
+**Type:** `Number`\
+**Default:** `1-5` (Range)\
+**Description:** Specifies how many points the Technician needs to gain to satisfy their win condition.
+</details>
+
+<details>
+<summary>
+### Points gained for fixing Lights
+</summary>
+**Type:** `Number`\
+**Default:** `1-5` (Range)\
+**Description:** Specifies how many points the Technician gains for fixing lights.
+</details>
+
+<details>
+<summary>
+### Points gained for fixing Comms
+</summary>
+**Type:** `Number`\
+**Default:** `1-5` (Range)\
+**Description:** Specifies how many points the Technician gains for fixing comms.
+</details>
+
+<details>
+<summary>
+### Points gained for fixing O2
+</summary>
+**Type:** `Number`\
+**Default:** `1-5` (Range)\
+**Description:** Specifies how many points the Technician gains for fixing O2.
+</details>
+
+<details>
+<summary>
+### Points gained for fixing Reactor
+</summary>
+**Type:** `Number`\
+**Default:** `1-5` (Range)\
+**Description:** Specifies how many points the Technician gains for fixing Reactor.
+</details>

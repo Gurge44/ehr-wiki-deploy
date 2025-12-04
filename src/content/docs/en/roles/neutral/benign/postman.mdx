@@ -1,6 +1,84 @@
 ---
 title: Postman
-description: todo
+description: Learn how the Postman role works in the Endless Host Roles Among Us mod.
+shortDesc: The Postman must deliver mail to players to win.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="Deliver mail to players"
+  winCondition="Deliver enough mail to players"
+  causesOfDeath={{
+    self: ["Suicide"]
+  }}
+/>
+
+## Role Description
+
+The **Postman** is a Neutral Benign role. The Postman can use the kill button to deliver mail. This does not have an effect on the target. The Postman will always have a target, and they can only deliver mail to that target. Attempting to deliver mail to a different person will cause the Postman to die, with the death reason **Suicide**.
+
+When the Postman delivers mail to all alive players, the Postman wins with the winning team. The Postman gets a new target when the current target dies. However, the Postman may die if their current target dies if configured to do so.
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Postmans that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Deliver Cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `10s`
+
+Specifies the cooldown of the Postman for delivering mail.
+</details>
+
+<details>
+<summary>
+### Can Vent
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Postman can Vent.
+</details>
+
+<details>
+<summary>
+### Has Impostor Vision
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Postman has Impostor Vision.
+</details>
+
+<details>
+<summary>
+### Postman dies when the current target dies
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Postman suicides when their current target dies.
+</details>
+
+<details>
+<summary>
+### Postman has an arrow pointing towards their current target
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not an arrow is displayed above the Postman's name that points to their current target's location.
+</details>
