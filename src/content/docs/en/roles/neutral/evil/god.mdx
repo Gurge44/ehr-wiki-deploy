@@ -1,6 +1,68 @@
 ---
 title: God
-description: todo
+description: Learn how the God role works in the Endless Host Roles Among Us mod.
+shortDesc: The God knows the roles of all players and must survive till the end of the game to win.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Crewmate"
+  ability="Can see all player roles"
+  winCondition="Survive till the end of the game"
+/>
+
+<Aside type="caution">
+The God role cannot receive any add-ons throughout the game.
+</Aside>
+
+## Role Description
+
+The **God** is a Neutral Chaos role. The God can see the roles of all players, and must survive until the end of the game to win. Unlike cooperative Benign roles such as [**Opportunist**](../../benign/opportunist) or [**Pursuer**](.././benign/pursuer), the God wins **alone** if they survive until the end. Depending on the host's settings, the God might only be able to see the Factions of all players instead of the specific roles. Players may be notified during meetings if the God is still alive.
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Gods that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Inform player at meetings that God is still alive
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+If on, at the start of each meeting where God is still alive, a coral colored message is sent through the lowest ID player visible to all: `-> [Message about God] <-`\
+The message reads in normal colored text: "During the meeting, each player felt a revelation from heaven, and it turned out that God is still alive!"
+</details>
+
+<details>
+<summary>
+### Can Guess in Guesser Mode
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the God can guess if Guesser Mode is enabled.
+</details>
+
+<details>
+<summary>
+### God knows other players'
+</summary>
+**Type:** `Select (Alignments, Roles)`\
+**Default:** `Roles`
+
+Decides what is revealed to the God: either Alignments or specific Roles.
+</details>
+
+<Aside type="danger">
+**Immediate Win Risk:** Enabling the God to guess in Guesser Mode while also allowing them to know players' Roles (the default setting) is not recommended, as it permits the God to guess every player's role immediately, resulting in an instant win.
+</Aside>

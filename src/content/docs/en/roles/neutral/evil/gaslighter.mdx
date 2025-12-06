@@ -1,6 +1,69 @@
 ---
 title: Gaslighter
-description: todo
+description: Learn how the Gaslighter role works in The endless host roles among us mod.
+shortDesc: The Gaslighter has multiple abilities that vary per round.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="Kill, Knight, Curse, Shield (Cycles)"
+  winCondition="Depends on the settings"
+  causesOfDeath={{
+    target: ["Kill", "Spelled"]
+  }}
+/>
+
+## Role Description
+
+The **Gaslighter** is a Neutral Evil role that has varying abilities each round. The ability cycle and their effects are as follows:
+
+- **Round 1:** Normal Kill.
+- **Round 2:** **Knight** people, granting the target an extra vote in the next meeting.
+- **Round 3:** **Curse** a player. If the Gaslighter is not ejected during the next meeting, the cursed player dies.
+- **Round 4:** **Shield** players, stopping a kill attempt against them.
+
+**Related Roles:** [**Monarch**](../../../crewmate/support/monarch), [**Witch**](../../../impostor/killing/witch), [**Medic**](../../../crewmate/support/medic)
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Gaslighters that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Kill cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `22.5s`
+
+Specifies the cooldown the Gaslighter has to wait before using their varying ability.
+</details>
+
+<details>
+<summary>
+### Win condition
+</summary>
+**Type:** `Select (Crewmates lose, last standing, alive at the end)`\
+**Default:** `crewmates lose`
+
+Defines how the Gaslighter wins the game.
+</details>
+
+<details>
+<summary>
+### Cycle repeats
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the ability cycle repeats after Round 4.
+</details>

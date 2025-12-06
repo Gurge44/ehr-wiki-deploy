@@ -1,6 +1,39 @@
 ---
 title: Collector
-description: todo
+description: Learn how the Collector role works in the Endless Host Roles Among Us mod.
+shortDesc: The Collector must collect enough votes to win.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Crewmate"
+  ability="Collect Votes"
+  winCondition="Collect enough votes to win"
+/>
+
+## Role Description
+
+The **Collector** is a Neutral Evil role. When the Collector votes for a player, they gain a number of points equal to how many players voted that player. This amount also includes the Collector's own vote. When the Collector accumulates enough points, the Collector wins alone. The required amount of points is set by the host. The Collector may also override other win conditions like [**Jester**](../../evil/jester) or [**Executioner**](../../evil/executioner).
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Collectors that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Required amount of votes
+</summary>
+**Type:** `Number`\
+**Default:** `30`
+
+Specifies the amount of points the Collector needs to get to win.
+</details>

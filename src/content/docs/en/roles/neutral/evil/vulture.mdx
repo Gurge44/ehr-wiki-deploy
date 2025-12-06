@@ -1,6 +1,112 @@
 ---
 title: Vulture
-description: todo
+description: Learn how the Vulture role works in the Endless Host Roles Among Us mod.
+shortDesc: The Vulture must eat enough bodies to win.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Crewmate/Engineer"
+  ability="Eat bodies"
+  indicators="None"
+  winCondition="Eat enough bodies to win alone."
+/>
+
+## Role Description
+
+The **Vulture** is a Neutral Evil role. When the Vulture attempts to report a body, and its eat ability cooldown is up, the body will be eaten by the Vulture. Bodies eaten by the Vulture cannot be reported. If the Vulture's eat ability is still on cooldown, they report the body regularly.
+
+The Vulture also has a limit on how many bodies it can eat per round. If this limit is reached, regardless of the eat ability cooldown, the body will be reported instead of eaten. The Vulture must eat a certain amount of bodies during the game to win alone.
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Vultures that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Arrow pointing to dead bodies
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not arrows are displayed to the Vulture that point to dead bodies.
+</details>
+
+<details>
+<summary>
+### Bodies needed to Win
+</summary>
+**Type:** `Number`\
+**Default:** `4`
+
+Specifies the amount of dead bodies the Vulture must eat to win.
+</details>
+
+<details>
+<summary>
+### Can Vent
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Vulture can Vent.
+</details>
+
+<details>
+<summary>
+### Eat Cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `20s`
+
+Specifies the cooldown of the Vulture for eating bodies.
+</details>
+
+<details>
+<summary>
+### Maximum eaten bodies possible per round
+</summary>
+**Type:** `Number`\
+**Default:** `2`
+
+Specifies the maximum amount of bodies the Vulture is able to eat each round.
+</details>
+
+<details>
+<summary>
+### Has Impostor Vision
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Vulture has Impostor Vision.
+</details>
+
+<details>
+<summary>
+### Change role when winning is impossible
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Vulture's role changes when its win condition becomes impossible to satisfy.
+
+<details>
+<summary>
+#### Role to change to
+</summary>
+**Type:** `Select (Amnesiac, Pursuer, Maverick, Follower, Opportunist, Crewmate, Jester)`\
+**Default:** `Amnesiac`
+
+Specifies which role the Vulture turns into when winning becomes impossible.
+</details>
+</details>

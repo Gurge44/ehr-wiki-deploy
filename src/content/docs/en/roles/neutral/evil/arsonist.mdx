@@ -1,6 +1,79 @@
 ---
 title: Arsonist
-description: todo
+description: Learn how the Arsonist role works in the Endless Host Roles Among Us mod.
+shortDesc: The Arsonist can douse everyone to set them ablaze.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="Douse players and set them on fire."
+  indicators="Empty Orange Triangle, Full Orange Triangle"
+  winCondition="Douse Everyone and burn them alive"
+  causesOfDeath={{
+    target: ["Burned"]
+  }}
+/>
+
+## Role Description
+
+The **Arsonist** is a Neutral Evil role. The Arsonist can use the kill button to begin dousing a target. The Arsonist must remain near the target for a certain duration, which is set by the host.
+
+When the Arsonist begins dousing, an **Empty Orange Triangle** will be displayed next to the target's name. The required duration is displayed on the kill button cooldown. If the Arsonist moves away from the target during this process, the douse progress will be reset to 0. If the Arsonist successfully remains near the player for the entire duration, the target will be fully doused, and the empty triangle will be replaced with a **Full Orange Triangle** marker. After fully dousing a player, the Arsonist's cooldown will be reset to its original value.
+
+When the Arsonist douses **all alive players**, they can use the vent or pet button to ignite and burn everyone, killing all players except the Arsonist, who wins alone. Players who die from this ability have the death reason **Burned**.
+
+The Arsonist may also be able to ignite all currently marked players, burning them without necessarily ending the game, if configured in the options.
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Arsonists that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Douse Duration
+</summary>
+**Type:** `Time`\
+**Default:** `3s`
+
+Specifies how long the Arsonist must stay near their target to fully douse them.
+</details>
+
+<details>
+<summary>
+### Cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `10s`
+
+Specifies the cooldown of the Arsonist for dousing players.
+</details>
+
+<details>
+<summary>
+### Can Ignite Anytime
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Arsonist can ignite at any time instead of being restricted to only being able to ignite when all players are doused.
+</details>
+
+<details>
+<summary>
+### Arsonist keeps game going
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Arsonist prevents the game from ending if it is alive.
+</details>
