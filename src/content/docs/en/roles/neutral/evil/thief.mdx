@@ -1,6 +1,54 @@
 ---
 title: Thief
-description: todo
+description: Learn how the Thief role works in the Endless Host Roles Among Us mod.
+shortDesc: The Thief can kill a player to take on their role.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="Kill and take on your target's role"
+  winCondition="Win with the obtained role."
+  causesOfDeath={{
+    target: ["Kill"]
+  }}
+/>
+
+## Role Description
+
+The **Thief** is a Neutral Evil role that cannot win while it is this role. It is one of the only Neutral Evil roles to have a kill button, which must be used to kill an evil-aligned player and take on that player's role. Upon successfully obtaining a new role, the Thief's win condition changes to that of the new role.
+
+**Related Roles:** [**Amnesiac**](../../benign/amnesiac)
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Thieves that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Can steal Coven roles
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Thief can take on a Coven member's role.
+</details>
+
+<details>
+<summary>
+### Impostor vision
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Thief has Impostor vision.
+</details>

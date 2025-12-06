@@ -1,6 +1,44 @@
 ---
 title: Innocent
-description: todo
+description: Learn how the Innocent role works in The Endless Host Roles Among Us mod.
+shortDesc: The Innocent frames others for their death.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="Frame a player for your death"
+  winCondition="Have your framed target be ejected"
+  causesOfDeath={{
+    self: ["Suicide"],
+  }}
+/>
+
+## Role Description
+
+The **Innocent** is a Neutral Evil role that uses their kill button to frame a player. The Innocent then immediately dies, ensuring the framed target is blamed for the kill. If the framed target is subsequently ejected in a meeting, the Innocent wins the game.
+
+The Innocent can win together with: [**Jester**](../../evil/jester) and [**Executioner**](../../evil/executioner).
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Innocents that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Innocent win with framed Impostor
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Innocent wins with the Impostor's team if the framed Impostor is ejected.
+</details>

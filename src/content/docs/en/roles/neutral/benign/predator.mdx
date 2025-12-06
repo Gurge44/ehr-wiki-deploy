@@ -1,6 +1,6 @@
 ---
 title: Predator
-description: Learn how the Predator role works in The Endless Host Roles Among us mod.
+description: Learn how the Predator role works in The Endless Host Roles Among Us mod.
 shortDesc: The Predator has to kill 1 of their prey.
 ---
 import { Aside } from '@astrojs/starlight/components';
@@ -18,17 +18,28 @@ import RoleInfo from '@components/RoleInfo.astro'
 
 ## Role Description
 
-The **Predator** is a Neutral Benign role (one of the only to have the ability to kill) that gets 3 target roles (**Prey**) at the start of the game. They must kill at least one of their prey roles to win with the winning team at the end. If they kill a non-prey target, the Predator commits suicide.
+The **Predator** is a Neutral Benign role. **It stands out as one of the few Benign roles equipped with a killing ability.** The Predator is provided a list of roles, referred to as "prey," at the start of the game. They must successfully kill at least one of these roles to satisfy their win condition. If the Predator kills any player who is *not* one of their designated prey roles, the Predator will suicide.
 
 ## Role Options
 
 <details>
 <summary>
-### Amount of Roles to Choose From
+### Max
 </summary>
 **Type:** `Number`\
-**Default:** `3`\
-**Description:** Specifies how many targets (Prey) the Predator gets.
+**Default:** `1`
+
+Specifies the maximum amount of Predators that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Amount of Roles to choose from
+</summary>
+**Type:** `Number`\
+**Default:** `3`
+
+Specifies the amount of roles that the Predator can choose from to kill one of them to satisfy their win condition.
 </details>
 
 <details>
@@ -36,8 +47,9 @@ The **Predator** is a Neutral Benign role (one of the only to have the ability t
 ### Maximum Number of Impostor Roles to Choose From
 </summary>
 **Type:** `Number`\
-**Default:** `0-3` (Range)\
-**Description:** Specifies how many Impostor roles can be chosen as Prey.
+**Default:** `1`
+
+Specifies the maximum number of Impostor roles that can appear in the Predator's role choices.
 </details>
 
 <details>
@@ -45,8 +57,9 @@ The **Predator** is a Neutral Benign role (one of the only to have the ability t
 ### Kill Cooldown
 </summary>
 **Type:** `Time`\
-**Default:** `0-120` (Range)\
-**Description:** The time until the Predator can kill a prey.
+**Default:** `15s`
+
+Specifies the Kill Cooldown of the Predator.
 </details>
 
 <details>
@@ -54,9 +67,9 @@ The **Predator** is a Neutral Benign role (one of the only to have the ability t
 ### Can Vent
 </summary>
 **Type:** `Toggle`\
-**Default:** `Y/N`
+**Default:** `OFF`
 
-Can the Predator vent.
+Decides whether or not the Predator can Vent.
 </details>
 
 <details>
@@ -64,7 +77,7 @@ Can the Predator vent.
 ### Has Impostor Vision
 </summary>
 **Type:** `Toggle`\
-**Default:** `Y/N`
+**Default:** `OFF`
 
-Does the Predator see normally when lights are out and further than crewmates.
+Decides whether or not the Predator has Impostor Vision.
 </details>

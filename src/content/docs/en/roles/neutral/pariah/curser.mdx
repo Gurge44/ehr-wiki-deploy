@@ -1,6 +1,91 @@
 ---
 title: Curser
-description: todo
+description: Learn how the Curser role works in the Endless Host Roles Among Us mod.
+shortDesc: The Curser may curse a player with a debuff.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="Curse a player with a permanent debuff"
+  winCondition="Win if the crewmates lose."
+/>
+
+## Role Description
+
+The **Curser** is a Neutral Pariah role. They can use their kill button on a player. Clicking it once reveals the target's **alignment** to the Curser, and clicking it twice applies a **random, permanent debuff** to the target.
+
+**Related Roles:** [**Donut Delivery**](../../crewmate/support/donut-delivery)
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Cursers that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Initial ability uses
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies how many ability uses the Curser starts with.
+</details>
+
+<details>
+<summary>
+### Ability cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `15s`
+
+Specifies how long the Curser has to wait to curse a player.
+</details>
+
+<details>
+<summary>
+### Impostor vision
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Curser has Impostor vision.
+</details>
+
+<details>
+<summary>
+### Can Vent
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Curser can Vent.
+</details>
+
+<details>
+<summary>
+### Permanent Lower vision
+</summary>
+**Type:** `Multiplier`\
+**Default:** `0.3x`
+
+Specifies the decreased vision multiplier applied when a player receives a curse.
+</details>
+
+<details>
+<summary>
+### Permanent lower speed
+</summary>
+**Type:** `Multiplier`\
+**Default:** `0.7x`
+
+Specifies the decreased speed multiplier applied when a player receives a curse.
+</details>

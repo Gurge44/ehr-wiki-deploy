@@ -1,6 +1,76 @@
 ---
 title: Clerk
-description: todo
+description: Learn how the Clerk role works in the Endless Host Roles Among Us mod.
+shortDesc: The Clerk can collect tax from crewmates.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Crewmate"
+  ability="Vote for someone to collect tax from them!"
+  indicators="A message will appear telling that the Clerk has collected tax from someone."
+  winCondition="Win if Crewmates lose or if tasks are completed."
+  causesOfDeath={{
+    target: ["Tax-Collected"]
+  }}
+/>
+
+## Role Description
+
+The **Clerk** is a Neutral Pariah role. They may vote for someone in a meeting to check their taxes.
+If the target has completed a task in the last round (or finished all tasks, or has none remaining), the target receives a **tax refund** (a speed and vision boost for the next round). Otherwise, the target **dies**.
+
+The Clerk only wins with the Crewmates if the game ends due to a task win (meaning everyone "did their taxes"). The Clerk otherwise wins if the Crewmates lose.
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Sets the maximum number of Clerks that can appear in a match.
+</details>
+
+<details>
+<summary>
+### Initial Ability Uses
+</summary>
+**Type:** `Number`\
+**Default:** `5`
+
+Determines how many collect tax votes the Clerk starts with.
+</details>
+
+<details>
+<summary>
+### Can Use Ability on First Meeting
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Allows or prevents the Clerk from using their ability during the first meeting.
+</details>
+
+<details>
+<summary>
+### Increased Speed
+</summary>
+**Type:** `Multiplier`\
+**Default:** `1.8x`
+
+Specifies the speed boost granted to a player who receives a tax refund.
+</details>
+
+<details>
+<summary>
+### Increased Vision
+</summary>
+**Type:** `Multiplier`\
+**Default:** `1x`
+
+Specifies the vision boost granted to a player who receives a tax refund.
+</details>

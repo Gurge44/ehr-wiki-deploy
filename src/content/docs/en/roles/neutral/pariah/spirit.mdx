@@ -1,6 +1,42 @@
 ---
 title: Spirit
-description: todo
+description: Learn how the Spirit role works in The endless host roles among us mod.
+shortDesc: The Spirit may candle-swap 2 players.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Shapeshifter"
+  ability="Swap 2 players' interactions"
+  indicators="A Spirit has swapped you and someone else!"
+  winCondition="Eject all evils to win."
+/>
+
+## Role Description
+
+The **Spirit** is a Neutral Pariah role with the ability to place a candle onto a player. If two players have candles, interactions targeting one player are swapped and applied to the other player instead.
+
+**Related Roles:** [**Seamstress**](../../neutral/pariah/seamstress)
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Spirits that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Shapeshift cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `15s`
+
+Specifies how long the Spirit has to wait to Shapeshift to place a candle on a player.
+</details>

@@ -1,6 +1,104 @@
 ---
 title: Terrorist
-description: todo
+description: Learn how the Terrorist role works in the Endless Host Roles Among Us mod.
+shortDesc: The Terrorist must finish their tasks, THEN die.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Engineer/Crewmate"
+  ability="Kill everyone after dying with finished tasks"
+  winCondition="Finish tasks, then die, to win alone."
+  causesOfDeath={{
+    target: ["Exploded"]
+  }}
+/>
+
+## Role Description
+
+The **Terrorist** is a Neutral Evil role. The Terrorist must complete all their tasks, **then** die. This order cannot be reversed. If both of these requirements are met, the Terrorist will cause all other players to die, with the death reason **Exploded**, and the Terrorist will win alone.
+
+Due to the Terrorist causing all players to die, it can override win conditions for other roles like, [**Collector**](../../evil/collector), [**Executioner**](../../evil/executioner), and [**God**](../../evil/god).
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Terrorists that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Can Win By Suicide
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Terrorist wins if they died with the death reason Suicide.
+</details>
+
+<details>
+<summary>
+### Can Guess in Guesser Mode
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Terrorist can guess in Guesser Mode.
+</details>
+
+<details>
+<summary>
+### Can Vent
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Terrorist can Vent.
+</details>
+
+<details>
+<summary>
+### Override Terrorist's Tasks
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Terrorist has a custom amount of tasks set by the host.
+
+<details>
+<summary>
+#### Terrorist has Common Tasks
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Terrorist has Common Tasks.
+</details>
+
+<details>
+<summary>
+#### Amount of Long Tasks for Terrorist
+</summary>
+**Type:** `Number`\
+**Default:** `The default amount of Long Tasks for crewmates`
+
+Specifies how many Long Tasks the Terrorist has.
+</details>
+
+<details>
+<summary>
+#### Amount of Short Tasks for Terrorist
+</summary>
+**Type:** `Number`\
+**Default:** `The default amount of Short Tasks for crewmates`
+
+Specifies how many Short Tasks the Terrorist has.
+</details>
+</details>

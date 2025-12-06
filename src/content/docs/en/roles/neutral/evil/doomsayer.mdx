@@ -1,6 +1,124 @@
 ---
 title: Doomsayer
-description: todo
+description: Learn how the Doomsayer role works in The endless host roles among us mod.
+shortDesc: The Doomsayer has to guess 3 players roles to win.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Crewmate"
+  ability="Guessing"
+  winCondition="Guess 3 players' roles"
+  causesOfDeath={{
+    target: ["Guessed"]
+  }}
+/>
+
+## Role Description
+
+The **Doomsayer** is a Neutral Evil role that has the ability to guess other players' roles. Their goal is to correctly doom or guess three players' roles to satisfy their win condition and win the game. If the "Kill guessed players" option is enabled, successful guesses will result in the target's death.
+
+**Related Roles:** [**Augur**](../../../coven/augur), [**Evil Guesser**](../../../impostor/killing/evil-guesser), [**Nice Guesser**](../../../crewmate/killing/nice-guesser), [**Necro-guesser**](../../../neutral/benign/necro-guesser)
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Doomsayers that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Guesses to win
+</summary>
+**Type:** `Number`\
+**Default:** `3`
+
+Specifies how many successful guesses the Doomsayer needs to win.
+</details>
+
+<details>
+<summary>
+### Can Guess Impostors/Crewmates/Neutrals/Coven/Add-ons
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Determines whether the Doomsayer can guess players belonging to these specific factions or possessing add-ons.
+</details>
+
+<details>
+<summary>
+### Advanced settings
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Toggles additional, advanced settings for the role.
+
+<details>
+<summary>
+#### Guesses per meeting
+</summary>
+**Type:** `Number`\
+**Default:** `2`
+
+Specifies how many times the Doomsayer can guess during a single meeting.
+</details>
+
+<details>
+<summary>
+#### Kill guessed players
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether successful guesses kill their target.
+</details>
+
+<details>
+<summary>
+#### Kill Doomsayer if misguessing
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether the Doomsayer dies via suicide upon misguessing a role.
+</details>
+
+<details>
+<summary>
+#### Misguessing prevents guessing until next meeting
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether misguessing a role prevents the Doomsayer from making further guesses until the next meeting is called.
+</details>
+</details>
+
+<details>
+<summary>
+### Impostor Vision
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether the Doomsayer has Impostor vision.
+</details>
+
+<details>
+<summary>
+### Hide command
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether the Doomsayer's guessing command is hidden.
+</details>

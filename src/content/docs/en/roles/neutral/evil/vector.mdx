@@ -1,6 +1,99 @@
 ---
 title: Vector
-description: todo
+description: Learn how the Vector role works in the Endless Host Roles Among Us mod.
+shortDesc: The Vector must vent a certain number of times to win.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Engineer"
+  ability="None (unless you consider venting an ability)"
+  winCondition="Vent a certain number of times to win alone."
+/>
+
+## Role Description
+
+The **Vector** is a Neutral Evil role. The Vector must Vent a certain amount of times to win the game alone. Only **Entering** a vent progresses the Vector's win condition, meaning exiting does not. The amount of times the Vector must vent may differ between each map, as configured in the role options.
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Vectors that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Vent Cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `0s`
+
+Specifies the cooldown of the Vector for Venting.
+</details>
+
+<details>
+<summary>
+### Number of Vents to Win on Skeld
+</summary>
+**Type:** `Number`\
+**Default:** `80`
+
+Specifies the amount of times the Vector must Vent on the Skeld map to win.
+</details>
+
+<details>
+<summary>
+### Number of Vents to Win on Mira
+</summary>
+**Type:** `Number`\
+**Default:** `80`
+
+Specifies the amount of times the Vector must Vent on the Mira HQ map to win.
+</details>
+
+<details>
+<summary>
+### Number of Vents to Win on Polus
+</summary>
+**Type:** `Number`\
+**Default:** `80`
+
+Specifies the amount of times the Vector must Vent on the Polus map to win.
+</details>
+
+<details>
+<summary>
+### Number of Vents to Win on Dleks
+</summary>
+**Type:** `Number`\
+**Default:** `80`
+
+Specifies the amount of times the Vector must Vent on the Dleks map to win.
+</details>
+
+<details>
+<summary>
+### Number of Vents to Win on Airship
+</summary>
+**Type:** `Number`\
+**Default:** `80`
+
+Specifies the amount of times the Vector must Vent on the Airship map to win.
+</details>
+
+<details>
+<summary>
+### Number of Vents to Win on Fungle
+</summary>
+**Type:** `Number`\
+**Default:** `80`
+
+Specifies the amount of times the Vector must Vent on the Fungle map to win.
+</details>

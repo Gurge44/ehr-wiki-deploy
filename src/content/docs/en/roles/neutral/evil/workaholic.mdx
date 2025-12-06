@@ -1,6 +1,123 @@
 ---
 title: Workaholic
-description: todo
+description: Learn how the Workaholic role works in the Endless Host Roles Among Us mod.
+shortDesc: The Workaholic must finish their tasks to win.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Engineer"
+  ability="Kill everyone after finishing tasks"
+  indicators="None"
+  winCondition="Finish tasks to kill everyone and win alone."
+  causesOfDeath={{
+    target: ["Ashamed"]
+  }}
+/>
+
+## Role Description
+
+The **Workaholic** is a Neutral Evil role. When the Workaholic completes its tasks, it will kill everyone other than itself, with the death reason **Ashamed**, and will win alone. The Workaholic may or may not be able to win after death, and may have its role revealed to everyone, depending on the host's settings.
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Workaholics that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Can't Win After They Died
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Workaholic is unable to win after death.
+</details>
+
+<details>
+<summary>
+### Vent Cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `30s`
+
+Specifies the cooldown of the Workaholic for Venting.
+</details>
+
+<details>
+<summary>
+### Everyone knows who the Workaholic is
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Workaholic's role is revealed to everyone.
+</details>
+
+<details>
+<summary>
+### Override Workaholic's Tasks
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Workaholic has a custom amount of tasks set by the host.
+
+<details>
+<summary>
+#### Workaholic has Common Tasks
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Workaholic has Common Tasks.
+</details>
+
+<details>
+<summary>
+#### Amount of Long Tasks for Workaholic
+</summary>
+**Type:** `Number`\
+**Default:** `The default amount of Long Tasks for crewmates`
+
+Specifies how many Long Tasks the Workaholic has.
+</details>
+
+<details>
+<summary>
+#### Amount of Short Tasks for Workaholic
+</summary>
+**Type:** `Number`\
+**Default:** `The default amount of Short Tasks for crewmates`
+
+Specifies how many Short Tasks the Workaholic has.
+</details>
+</details>
+
+<details>
+<summary>
+### Can Guess in Guesser Mode
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether or not the Workaholic can guess in Guesser Mode.
+</details>
+
+<details>
+<summary>
+### Workaholic Speed
+</summary>
+**Type:** `Multiplier`\
+**Default:** `1.5x`
+
+Specifies the movement speed of the Workaholic.
+</details>
