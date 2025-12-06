@@ -1,6 +1,44 @@
 ---
 title: Seamstress
-description: todo
+description: Learn how the Seamstress role works in The endless host roles among us mod.
+shortDesc: The Seamstress may link 2 players with their thread.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Shapeshifter"
+  ability="Link two players together"
+  indicators="You've been sewn by a Seamstress!"
+  winCondition="Win if the crewmates lose."
+/>
+
+## Role Description
+
+The **Seamstress** is a Neutral Pariah role. They may sew two players together using their **Shapeshift menu**.
+
+Interactions performed on one sewn player (such as ability use or status effects) will also affect the other linked player, but this **excludes kills**. The sew link breaks automatically when a meeting is called.
+
+**Related Roles:** [**Spirit**](../../neutral/pariah/spirit)
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Seamstresses that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Shapeshift cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `15s`
+
+Specifies the cooldown before the Seamstress can shapeshift or sew another player.
+</details>

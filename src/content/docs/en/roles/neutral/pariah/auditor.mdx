@@ -1,6 +1,92 @@
 ---
 title: Auditor
-description: todo
+description: Learn how the Auditor role works in The endless host roles among us mod.
+shortDesc: The Auditor may audit or smokebomb others.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Phantom"
+  ability="Smokebomb and Audit others"
+  winCondition="Win if the crewmates lose."
+/>
+
+## Role Description
+
+The **Auditor** is a Neutral Pariah role that can switch between Auditing and Smokebombing modes. While in both modes, using the action reveals the target's role to the Auditor.
+
+- **Auditing:** This action, in addition to revealing the role, either takes one ability use or all ability uses from your target.
+- **Smokebombing:** This action, in addition to revealing the role, temporarily lowers the target's vision.
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Auditors that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Lowered vision
+</summary>
+**Type:** `Multiplier`\
+**Default:** `0.3x`
+
+Specifies the vision multiplier for a smokebombed player.
+</details>
+
+<details>
+<summary>
+### Lowered vision duration
+</summary>
+**Type:** `Time`\
+**Default:** `10s`
+
+Specifies how long the lowered vision lasts.
+</details>
+
+<details>
+<summary>
+### Steal all charges
+</summary>
+**Type:** `Toggle`\
+**Default:** `OFF`
+
+Decides whether the Auditor takes one ability charge or all remaining ability charges from the target.
+</details>
+
+<details>
+<summary>
+### Initial ability uses
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies how many ability uses the Auditor starts the game with.
+</details>
+
+<details>
+<summary>
+### Smokebomb cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `30s`
+
+Specifies how long the Auditor has to wait before they can Smokebomb again.
+</details>
+
+<details>
+<summary>
+### Audit cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `30s`
+
+Specifies how long the Auditor has to wait before they can Audit again.
+</details>

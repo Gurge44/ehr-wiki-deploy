@@ -1,6 +1,55 @@
 ---
 title: Starspawn
-description: todo
+description: Learn how the Starspawn role works in The endless host roles among us mod.
+shortDesc: The Starspawn may call daybreak to stop meeting abilities.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Impostor"
+  ability="Call daybreak and isolate"
+  indicators="The Starspawn has called daybreak!"
+  winCondition="Win if the crewmates lose."
+/>
+
+## Role Description
+
+The **Starspawn** is a Neutral Pariah role. It possesses two distinct abilities: **Isolate** (used during the round) and **Daybreak** (used during a meeting).
+
+- **Isolate:** The Starspawn may isolate a player using their kill button. Isolated players cannot be interacted with, unless the player attempting the interaction is not a Crewmate.
+- **Daybreak:** The Starspawn may call daybreak during a meeting, notifying everyone and stopping players from using meeting abilities (such as guessing).
+
+**Related Roles:** [**Socialite**](../../crewmate/investigative/socialite)
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Starspawns that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Initial ability uses
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies how many ability uses the Starspawn starts with.
+</details>
+
+<details>
+<summary>
+### Ability cooldown
+</summary>
+**Type:** `Time`\
+**Default:** `30s`
+
+Specifies how long until the Starspawn can use their ability.
+</details>

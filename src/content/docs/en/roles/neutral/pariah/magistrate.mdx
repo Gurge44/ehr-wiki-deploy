@@ -1,6 +1,44 @@
 ---
 title: Magistrate
-description: todo
+description: Learn how the Magistrate role works in The endless host roles among us mod.
+shortDesc: The Magistrate may call court once per game.
 ---
+import { Aside } from '@astrojs/starlight/components';
+import RoleInfo from '@components/RoleInfo.astro'
 
-todo
+<RoleInfo
+  basis="Crewmate"
+  ability="Call Court (once per game)"
+  indicators="A Magistrate has called court!"
+  winCondition="Win if the crewmates lose."
+/>
+
+## Role Description
+
+The **Magistrate** is a Neutral Pariah role that may call court once per game during a meeting. When court is called, every other player's name is temporarily set to **"Jury"** and the Magistrate's name is set to **"Court"**.
+
+During this time, everyone's avatar in the chat is shown as grey with no accessories, and the Magistrate gains extra votes, giving them significant voting power during the Court session.
+
+**Related Roles:** [**Camouflager**](../../impostor/support/camouflager)
+
+## Role Options
+
+<details>
+<summary>
+### Max
+</summary>
+**Type:** `Number`\
+**Default:** `1`
+
+Specifies the maximum amount of Magistrates that can appear in one game.
+</details>
+
+<details>
+<summary>
+### Extra Votes
+</summary>
+**Type:** `Number`\
+**Default:** `3`
+
+Specifies how many extra Votes the Magistrate gains during court.
+</details>
