@@ -5,6 +5,7 @@ shortDesc: The Auditor may audit or smokebomb others.
 ---
 import { Aside } from '@astrojs/starlight/components';
 import RoleInfo from '@components/RoleInfo.astro'
+import RoleOption from '@components/RoleOption.astro'
 
 <RoleInfo
   basis="Phantom"
@@ -25,68 +26,61 @@ The **Auditor** is a Neutral Pariah role that can switch between Auditing and Sm
 <summary>
 ### Max
 </summary>
-**Type:** `Number`\
-**Default:** `1`
-
-Specifies the maximum amount of Auditors that can appear in one game.
+<RoleOption numeric={{default: 1, min: 1, max: 15}}>
+  Specifies the maximum amount of Auditors that can appear in one game.
+</RoleOption>
 </details>
 
 <details>
 <summary>
 ### Lowered vision
 </summary>
-**Type:** `Multiplier`\
-**Default:** `0.3x`
-
-Specifies the vision multiplier for a smokebombed player.
+<RoleOption multiplier={{default: 0.3}}>
+  Specifies the vision multiplier for a smokebombed player.
+</RoleOption>
 </details>
 
 <details>
 <summary>
 ### Lowered vision duration
 </summary>
-**Type:** `Time`\
-**Default:** `10s`
-
-Specifies how long the lowered vision lasts.
+<RoleOption time={{default: 10}}>
+  Specifies how long the lowered vision lasts.
+</RoleOption>
 </details>
 
 <details>
 <summary>
 ### Steal all charges
 </summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether the Auditor takes one ability charge or all remaining ability charges from the target.
+<RoleOption toggle={{default: false}}>
+  Decides whether the Auditor takes one ability charge or all remaining ability charges from the target.
+</RoleOption>
 </details>
 
 <details>
 <summary>
 ### Initial ability uses
 </summary>
-**Type:** `Number`\
-**Default:** `1`
-
-Specifies how many ability uses the Auditor starts the game with.
+<RoleOption numeric={{default: 1}}>
+  Specifies how many ability uses the Auditor starts the game with.
+</RoleOption>
 </details>
 
 <details>
 <summary>
 ### Smokebomb cooldown
 </summary>
-**Type:** `Time`\
-**Default:** `30s`
-
-Specifies how long the Auditor has to wait before they can Smokebomb again.
+<RoleOption time={{default: 30}}>
+  Specifies how long the Auditor has to wait before they can Smokebomb again.
+</RoleOption>
 </details>
 
 <details>
 <summary>
 ### Audit cooldown
 </summary>
-**Type:** `Time`\
-**Default:** `30s`
-
-Specifies how long the Auditor has to wait before they can Audit again.
+<RoleOption time={{default: 30}}>
+  Specifies how long the Auditor has to wait before they can Audit again.
+</RoleOption>
 </details>

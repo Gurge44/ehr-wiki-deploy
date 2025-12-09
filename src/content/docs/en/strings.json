@@ -30,5 +30,16 @@
     "benign": "Benign",
     "evil": "Evil",
     "pariah": "Pariah"
+  },
+  "default": "Default",
+  "range": "Range",
+  "multiplier": "Multiplier",
+  "units": {
+    "multiplier": "x",
+    "seconds": "s"
+  },
+  "toggle": {
+    "on": "On",
+    "off": "Off"
   }
 }
