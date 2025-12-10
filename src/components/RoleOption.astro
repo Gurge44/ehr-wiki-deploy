@@ -13,24 +13,24 @@ interface Props {
     toggle?: { default: boolean };
 
     /**
-     * Numeric option.
+     * number option.
      * `default` is the starting value.
      * `min` and `max` define the allowed range and are optional.
      * `step` is optional.
      */
-    numeric?: { default: number; min?: number; max?: number };
+    number?: { default: number; min?: number; max?: number };
 
     /**
      * Multiplier option.
      * `default` is a string like "1.25".
-     * `min`, `max`, `step` are optional numeric bounds.
+     * `min`, `max`, `step` are optional number bounds.
      */
     multiplier?: { default: number; min?: number; max?: number };
 
     /**
      * Time option.
      * `default` is a number like "15.5".
-     * `min`, `max`, `step` are optional numeric bounds (seconds).
+     * `min`, `max`, `step` are optional number bounds (seconds).
      */
     time?: { default: number; min?: number; max?: number };
 
@@ -46,7 +46,7 @@ interface Props {
     array?: { options: string[] };
 }
 
-const { toggle, numeric, multiplier, time, array } = Astro.props;
+const { toggle, number, multiplier, time, array } = Astro.props;
 ---
 
 <section class="card">
@@ -69,19 +69,19 @@ const { toggle, numeric, multiplier, time, array } = Astro.props;
     }
 
     {
-        numeric && (
-            <div class="numeric-display">
+        number && (
+            <div class="number-display">
                 <div class="option-type">
-                    <span class="font-bold">{t("type", lang)}: </span>{t("types.numeric", lang)}
+                    <span class="font-bold">{t("type", lang)}: </span>{t("types.number", lang)}
                 </div>
-                <span class="numeric-value">
+                <span class="number-value">
                     <span>{t("default", lang)}: </span>
-                    <span class="font-monospace">{numeric.default}</span>
+                    <span class="font-monospace">{number.default}</span>
                 </span>
-                {(numeric.min || numeric.max) && (
-                    <span class="numeric-range">
+                {(number.min || number.max) && (
+                    <span class="number-range">
                         <span>{t("range", lang)}: </span>
-                        [<span class="font-monospace">{numeric.min ?? "?"}-{numeric.max ?? "?"}</span>]
+                        [<span class="font-monospace">{number.min ?? "?"}-{number.max ?? "?"}</span>]
                     </span>
                 )}
             </div>
@@ -172,15 +172,15 @@ const { toggle, numeric, multiplier, time, array } = Astro.props;
         padding: 0.1rem 0.2rem;
     }
 
-    /* Numeric */
-    .numeric-display {
+    /* number */
+    .number-display {
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
         margin-top: 0.75rem;
     }
 
-    .numeric-range {
+    .number-range {
         margin-top: 0;
     }
 
