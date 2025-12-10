@@ -1,0 +1,228 @@
+---
+import { t, loadI18n } from "../lib/i18n";
+
+await loadI18n();
+const lang = Astro.currentLocale;
+
+// SettingsCard.astro
+interface Props {
+    /**
+     * Toggle option.
+     * Pass `default: true` for ON, `default: false` for OFF.
+     */
+    toggle?: { default: boolean };
+
+    /**
+     * number option.
+     * `default` is the starting value.
+     * `min` and `max` define the allowed range and are optional.
+     * `step` is optional.
+     */
+    number?: { default: number; min?: number; max?: number };
+
+    /**
+     * Multiplier option.
+     * `default` is a string like "1.25".
+     * `min`, `max`, `step` are optional number bounds.
+     */
+    multiplier?: { default: number; min?: number; max?: number };
+
+    /**
+     * Time option.
+     * `default` is a number like "15.5".
+     * `min`, `max`, `step` are optional number bounds (seconds).
+     */
+    time?: { default: number; min?: number; max?: number };
+
+    /**
+     * Array option.
+     * IMPORTANT: Put the default item as the **first element** in `options`.
+     * The component will treat `options[0]` as the default.
+     *
+     * Example:
+     * array: { options: ["Amnesiac", "Pursuer", "Follower", "Maverick"] }
+     * → "Amnesiac" will be displayed as the default.
+     */
+    array?: { options: string[] };
+}
+
+const { toggle, number, multiplier, time, array } = Astro.props;
+---
+
+<section class="card">
+    {
+        toggle && (
+            <div class="toggle-display">
+                <div class="option-type">
+                    <span class="font-bold">{t("type", lang)}: </span>{t("types.toggle", lang)}
+                </div>
+                <span class="toggle-value">
+                    <span class="font-bold">{t("default", lang)}:</span>
+                    <span class="font-monospace">
+                        {toggle.default === true
+                            ? t("toggles.on", lang).toLocaleUpperCase()
+                            : t("toggles.off", lang).toLocaleUpperCase()}
+                    </span>
+                </span>
+            </div>
+        )
+    }
+
+    {
+        number && (
+            <div class="number-display">
+                <div class="option-type">
+                    <span class="font-bold">{t("type", lang)}: </span>{t("types.number", lang)}
+                </div>
+                <span class="number-value">
+                    <span>{t("default", lang)}: </span>
+                    <span class="font-monospace">{number.default}</span>
+                </span>
+                {(number.min || number.max) && (
+                    <span class="number-range">
+                        <span>{t("range", lang)}: </span>
+                        [<span class="font-monospace">{number.min ?? "?"}-{number.max ?? "?"}</span>]
+                    </span>
+                )}
+            </div>
+        )
+    }
+
+    {
+        multiplier && (
+            <div class="multiplier-display">
+                <div class="option-type">
+                    <span class="font-bold">{t("type", lang)}: </span>{t("types.multiplier", lang)}
+                </div>
+                <span class="multiplier-value">
+                    <span>{t("default", lang)}:</span>
+                    <span class="font-monospace">{multiplier.default}{t("units.multiplier", lang)}</span>
+                </span>
+                {(multiplier.min || multiplier.max) && (
+                    <span class="multiplier-range">
+                        {t("range", lang)}: [<span class="font-monospace">{multiplier.min ?? "?"}{t("units.multiplier", lang)}-{multiplier.max ?? "?"}{t("units.multiplier", lang)}</span>]
+                    </span>
+                )}
+            </div>
+        )
+    }
+
+    {
+        time && (
+            <div class="time-display">
+                <div class="option-type">
+                    <span class="font-bold">{t("type", lang)}: </span>{t("types.time", lang)}
+                </div>
+                <span class="time-value">
+                    <span>{t("default", lang)}:</span>
+                    <span class="font-monospace">
+                        {time.default}{t("units.seconds", lang)}
+                    </span>
+                </span>
+                {(time.min || time.max) && (
+                    <span class="time-range">
+                        {t("range", lang)}: [
+                        <span class="font-monospace">
+                            {time.min ?? "?"}
+                            {t("units.seconds", lang)} - {time.max ?? "?"}
+                            {t("units.seconds", lang)}
+                        </span>
+                        ]
+                    </span>
+                )}
+            </div>
+        )
+    }
+
+    {
+        array && (
+            <div class="array-display">
+                <div class="option-type">
+                    <span class="font-bold">{t("type", lang)}: </span>{t("types.array", lang)}
+                </div>
+                <div class="array-options">
+                    {array.options.map((opt, i) => (
+                        <>
+                            {i > 0 && <span class="comma-separator">,</span>}
+                            <span
+                                class={`array-tag ${i === 0 ? "default" : ""}`}
+                            >
+                                {opt}
+                            </span>
+                        </>
+                    ))}
+                </div>
+            </div>
+        )
+    }
+
+    <div class="card-text">
+        <p class="card-desc"><slot /></p>
+    </div>
+</section>
+
+<style>
+    .card {
+        margin-top: 0;
+    }
+
+    .font-monospace {
+        font-size: 0.9rem;
+        background-color: var(--sl-color-gray-6);
+        padding: 0.1rem 0.2rem;
+    }
+
+    /* number */
+    .number-display {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        margin-top: 0.75rem;
+    }
+
+    .number-range {
+        margin-top: 0;
+    }
+
+    .time-display,
+    .multiplier-display,
+    .toggle-display {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        margin-top: 0.75rem;
+    }
+
+    .time-range,
+    .multiplier-range {
+        color: var(--sl-color-text-secondary);
+    }
+
+    .array-options {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 0.4rem;
+    }
+
+    .comma-separator {
+        padding-right: 0.3rem;
+    }
+
+    .comma-separator:first-of-type {
+        display: none;
+    }
+
+    .array-tag {
+        font-family: monospace;
+        font-size: 0.875rem;
+        border-radius: 8px;
+        background-color: var(--sl-color-gray-6);
+        color: var(--sl-color-text-secondary);
+        border: 1px solid var(--sl-color-border);
+        padding: 0 0.3rem;
+    }
+
+    .array-tag.default {
+        text-decoration: underline;
+    }
+</style>

@@ -1,10 +1,11 @@
 ---
 title: Amnesiac
 description: Learn how the Amnesiac role works in the Endless Host Roles Among Us mod.
-shortDesc: The Amnesiac can use the report button copy the roles of dead bodies.
+shortDesc: Copy the roles of dead bodies!
 ---
 import { Aside } from '@astrojs/starlight/components';
 import RoleInfo from '@components/RoleInfo.astro'
+import RoleOption from '@components/RoleOption.astro'
 
 <RoleInfo
   basis="Crewmate/Impostor (depending on settings)"
@@ -24,89 +25,80 @@ The **Amnesiac** is also unable to copy **Neutral Unique Roles**. Unique roles d
 <summary>
 ### Max
 </summary>
-**Type:** `Number`\
-**Default:** `1`
-
-Specifies the amount of Amnesiacs that can appear in one game.
+<RoleOption number={{default: 1, min: 1, max: 15}}>
+  Specifies the maximum amount of Amnesiacs that can appear in one game.
+</RoleOption>
 </details>
 
 <details>
 <summary>
 ### Role Remembering Mode
 </summary>
-**Type:** `Select (By Report, By Kill)`\
-**Default:** `By Report`
-
-Specifies how the Amnesiac remembers (copies) roles.
+<RoleOption array={{options: ['By Report', 'By Kill']}}>
+  Specifies how the Amnesiac remembers (copies) roles.
+</RoleOption>
 </details>
 
 <details>
 <summary>
 ### Can Remember Crewmate Power Roles
 </summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Amnesiac can remember Crewmate Power roles.
+<RoleOption toggle={{default: false}}>
+  Decides whether or not the Amnesiac can remember Crewmate Power roles.
+</RoleOption>
 </details>
 
 <details>
 <summary>
 ### If Neutral Is Incompatible, Turn Into
 </summary>
-**Type:** `Select (Amnesiac, Pursuer, Follower, Maverick)`\
-**Default:** `Amnesiac`
 
-Specifies which role the Amnesiac becomes if they attempt to remember the role of an incompatible neutral.
+<RoleOption array={{options: ['Amnesiac', 'Pursuer', 'Follower', 'Maverick']}}>
+  Specifies which role the Amnesiac becomes if they attempt to remember the role of an incompatible neutral.
+</RoleOption>
 </details>
 
 <details>
 <summary>
 ### Can Vent
 </summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
+<RoleOption toggle={{default: false}}>
 Decides whether or not the Amnesiac can Vent.
+</RoleOption>
 </details>
 
 <details>
 <summary>
 ### After Remembering a Role by Reporting, Report the Body
 </summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Amnesiac reports the body after remembering its role, if role remembering mode is set to By Report.
+<RoleOption toggle={{default: false}}>
+  Decides whether or not the Amnesiac reports the body after remembering its role, if role remembering mode is set to By Report.
+</RoleOption>
 </details>
 
 <details>
 <summary>
 ### Sees Arrows to Dead Bodies (If Remembering by Reporting)
 </summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Specifies whether or not the Amnesiac gets arrows above their name that point to dead bodies, if role remembering mode is set to By Report.
-
+<RoleOption toggle={{default: false}}>
+  Specifies whether or not the Amnesiac gets arrows above their name that point to dead bodies, if role remembering mode is set to By Report.
+</RoleOption>
 <details>
 <summary>
 #### Minimum Arrow Show Up Delay
 </summary>
-**Type:** `Time`\
-**Default:** `1s`
-
-Specifies the minimum amount of time that has to pass after a body is killed before the arrow pointing to the body is displayed to the Amnesiac.
+<RoleOption time={{default: 1}}>
+  Specifies the minimum amount of time that has to pass after a body is killed before the arrow pointing to the body is displayed to the Amnesiac.
+</RoleOption>
 </details>
 
 <details>
 <summary>
 #### Maximum Arrow Show Up Delay
 </summary>
-**Type:** `Time`\
-**Default:** `30s`
-
-Specifies the maximum amount of time that has to pass after a body is killed before the arrow pointing to the body is displayed to the Amnesiac.
+<RoleOption time={{default: 30}}>
+  Specifies the maximum amount of time that has to pass after a body is killed before the arrow pointing to the body is displayed to the Amnesiac.
+</RoleOption>
 </details>
 </details>
 
@@ -114,8 +106,7 @@ Specifies the maximum amount of time that has to pass after a body is killed bef
 <summary>
 ### Also Remember Add-ons
 </summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Amnesiac also remembers the add-ons of players.
+<RoleOption toggle={{default: false}}>
+  Decides whether or not the Amnesiac also remembers the add-ons of players.
+</RoleOption>
 </details>
