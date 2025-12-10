@@ -33,12 +33,19 @@
   },
   "default": "Default",
   "range": "Range",
-  "multiplier": "Multiplier",
+  "type": "Type",
+  "types": {
+    "time": "Time",
+    "toggle": "Toggle",
+    "multiplier": "Multiplier",
+    "numeric": "Numeric",
+    "array": "Array"
+  },
   "units": {
     "multiplier": "x",
     "seconds": "s"
   },
-  "toggle": {
+  "toggles": {
     "on": "On",
     "off": "Off"
   }

@@ -275,6 +275,7 @@ footer {
 summary {
   display: flex;
   align-items: center;
+  margin-bottom: 0;
 }
 
 summary > .sl-heading-wrapper {
