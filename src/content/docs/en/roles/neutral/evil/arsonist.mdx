@@ -4,7 +4,8 @@ description: Learn how the Arsonist role works in the Endless Host Roles Among U
 shortDesc: The Arsonist can douse everyone to set them ablaze.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -28,52 +29,37 @@ The Arsonist may also be able to ignite all currently marked players, burning th
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Arsonists that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Arsonists that can appear in one game.
-</details>
+<RoleOption time={{default: 3}}>
+  <Fragment slot='title'>
+    ### Douse Duration
+  </Fragment>
+  Specifies how long the Arsonist must stay near their target to fully douse them.
+</RoleOption>
 
-<details>
-<summary>
-### Douse Duration
-</summary>
-**Type:** `Time`\
-**Default:** `3s`
+<RoleOption time={{default: 10}}>
+  <Fragment slot='title'>
+    ### Cooldown
+  </Fragment>
+  Specifies the cooldown of the Arsonist for dousing players.
+</RoleOption>
 
-Specifies how long the Arsonist must stay near their target to fully douse them.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Ignite Anytime
+  </Fragment>
+  Decides whether or not the Arsonist can ignite at any time instead of being restricted to only being able to ignite when all players are doused.
+</RoleOption>
 
-<details>
-<summary>
-### Cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `10s`
-
-Specifies the cooldown of the Arsonist for dousing players.
-</details>
-
-<details>
-<summary>
-### Can Ignite Anytime
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Arsonist can ignite at any time instead of being restricted to only being able to ignite when all players are doused.
-</details>
-
-<details>
-<summary>
-### Arsonist keeps game going
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Arsonist prevents the game from ending if it is alive.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Arsonist Keeps Game Going
+  </Fragment>
+  Decides whether or not the Arsonist prevents the game from ending if it is alive.
+</RoleOption>

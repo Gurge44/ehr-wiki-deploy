@@ -35,131 +35,194 @@ interface Props {
     time?: { default: number; min?: number; max?: number };
 
     /**
-     * Array option.
+     * Time option.
+     * `default` is a number like "15.5".
+     * `min`, `max`, `step` are optional number bounds (seconds).
+     */
+    percentage?: { default: number; min?: number; max?: number };
+
+    /**
+     * Select option.
      * IMPORTANT: Put the default item as the **first element** in `options`.
      * The component will treat `options[0]` as the default.
      *
      * Example:
-     * array: { options: ["Amnesiac", "Pursuer", "Follower", "Maverick"] }
+     * select: { options: ["Amnesiac", "Pursuer", "Follower", "Maverick"] }
      * → "Amnesiac" will be displayed as the default.
      */
-    array?: { options: string[] };
+    select?: { options: string[] };
 }
 
-const { toggle, number, multiplier, time, array } = Astro.props;
+const { toggle, number, multiplier, time, percentage, select } = Astro.props;
 ---
 
-<section class="card">
-    {
-        toggle && (
-            <div class="toggle-display">
-                <div class="option-type">
-                    <span class="font-bold">{t("type", lang)}: </span>{t("types.toggle", lang)}
-                </div>
-                <span class="toggle-value">
-                    <span class="font-bold">{t("default", lang)}:</span>
-                    <span class="font-monospace">
-                        {toggle.default === true
-                            ? t("toggles.on", lang).toLocaleUpperCase()
-                            : t("toggles.off", lang).toLocaleUpperCase()}
-                    </span>
-                </span>
-            </div>
-        )
-    }
-
-    {
-        number && (
-            <div class="number-display">
-                <div class="option-type">
-                    <span class="font-bold">{t("type", lang)}: </span>{t("types.number", lang)}
-                </div>
-                <span class="number-value">
-                    <span>{t("default", lang)}: </span>
-                    <span class="font-monospace">{number.default}</span>
-                </span>
-                {(number.min || number.max) && (
-                    <span class="number-range">
-                        <span>{t("range", lang)}: </span>
-                        [<span class="font-monospace">{number.min ?? "?"}-{number.max ?? "?"}</span>]
-                    </span>
-                )}
-            </div>
-        )
-    }
-
-    {
-        multiplier && (
-            <div class="multiplier-display">
-                <div class="option-type">
-                    <span class="font-bold">{t("type", lang)}: </span>{t("types.multiplier", lang)}
-                </div>
-                <span class="multiplier-value">
-                    <span>{t("default", lang)}:</span>
-                    <span class="font-monospace">{multiplier.default}{t("units.multiplier", lang)}</span>
-                </span>
-                {(multiplier.min || multiplier.max) && (
-                    <span class="multiplier-range">
-                        {t("range", lang)}: [<span class="font-monospace">{multiplier.min ?? "?"}{t("units.multiplier", lang)}-{multiplier.max ?? "?"}{t("units.multiplier", lang)}</span>]
-                    </span>
-                )}
-            </div>
-        )
-    }
-
-    {
-        time && (
-            <div class="time-display">
-                <div class="option-type">
-                    <span class="font-bold">{t("type", lang)}: </span>{t("types.time", lang)}
-                </div>
-                <span class="time-value">
-                    <span>{t("default", lang)}:</span>
-                    <span class="font-monospace">
-                        {time.default}{t("units.seconds", lang)}
-                    </span>
-                </span>
-                {(time.min || time.max) && (
-                    <span class="time-range">
-                        {t("range", lang)}: [
+<details>
+    <summary>
+        <slot name="title" />
+    </summary>
+    <div class="card">
+        {
+            toggle && (
+                <div class="toggle-display">
+                    <div class="option-type">
+                        <span class="font-bold">{t("type", lang)}: </span>
+                        {t("types.toggle", lang)}
+                    </div>
+                    <span class="toggle-value">
+                        <span class="font-bold">{t("default", lang)}:</span>
                         <span class="font-monospace">
-                            {time.min ?? "?"}
-                            {t("units.seconds", lang)} - {time.max ?? "?"}
+                            {toggle.default === true
+                                ? t("toggles.on", lang).toLocaleUpperCase()
+                                : t("toggles.off", lang).toLocaleUpperCase()}
+                        </span>
+                    </span>
+                </div>
+            )
+        }
+
+        {
+            number && (
+                <div class="number-display">
+                    <div class="option-type">
+                        <span class="font-bold">{t("type", lang)}: </span>
+                        {t("types.number", lang)}
+                    </div>
+                    <span class="number-value">
+                        <span class="font-bold">{t("default", lang)}: </span>
+                        <span class="font-monospace">{number.default}</span>
+                    </span>
+                    {(number.min || number.max) && (
+                        <span class="number-range">
+                            <span>{t("range", lang)}: </span>[
+                            <span class="font-monospace">
+                                {number.min ?? "?"}-{number.max ?? "?"}
+                            </span>
+                            ]
+                        </span>
+                    )}
+                </div>
+            )
+        }
+
+        {
+            multiplier && (
+                <div class="multiplier-display">
+                    <div class="option-type">
+                        <span class="font-bold">{t("type", lang)}: </span>
+                        {t("types.multiplier", lang)}
+                    </div>
+                    <span class="multiplier-value">
+                        <span class="font-bold">{t("default", lang)}:</span>
+                        <span class="font-monospace">
+                            {multiplier.default}
+                            {t("units.multiplier", lang)}
+                        </span>
+                    </span>
+                    {(multiplier.min || multiplier.max) && (
+                        <span class="multiplier-range">
+                            {t("range", lang)}: [
+                            <span class="font-monospace">
+                                {multiplier.min ?? "?"}
+                                {t("units.multiplier", lang)}-
+                                {multiplier.max ?? "?"}
+                                {t("units.multiplier", lang)}
+                            </span>
+                            ]
+                        </span>
+                    )}
+                </div>
+            )
+        }
+
+        {
+            time && (
+                <div class="time-display">
+                    <div class="option-type">
+                        <span class="font-bold">{t("type", lang)}: </span>
+                        {t("types.time", lang)}
+                    </div>
+                    <span class="time-value">
+                        <span class="font-bold">{t("default", lang)}:</span>
+                        <span class="font-monospace">
+                            {time.default}
                             {t("units.seconds", lang)}
                         </span>
-                        ]
                     </span>
-                )}
-            </div>
-        )
-    }
-
-    {
-        array && (
-            <div class="array-display">
-                <div class="option-type">
-                    <span class="font-bold">{t("type", lang)}: </span>{t("types.array", lang)}
-                </div>
-                <div class="array-options">
-                    {array.options.map((opt, i) => (
-                        <>
-                            {i > 0 && <span class="comma-separator">,</span>}
-                            <span
-                                class={`array-tag ${i === 0 ? "default" : ""}`}
-                            >
-                                {opt}
+                    {(time.min || time.max) && (
+                        <span class="time-range">
+                            {t("range", lang)}: [
+                            <span class="font-monospace">
+                                {time.min ?? "?"}
+                                {t("units.seconds", lang)} - {time.max ?? "?"}
+                                {t("units.seconds", lang)}
                             </span>
-                        </>
-                    ))}
+                            ]
+                        </span>
+                    )}
                 </div>
-            </div>
-        )
-    }
+            )
+        }
 
-    <div class="card-text">
-        <p class="card-desc"><slot /></p>
+        {
+            percentage && (
+                <div class="percentage-display">
+                    <div class="option-type">
+                        <span class="font-bold">{t("type", lang)}: </span>
+                        {t("types.percentage", lang)}
+                    </div>
+
+                    <span class="percentage-value">
+                        <span class="font-bold">{t("default", lang)}:</span>
+                        <span class="font-monospace">
+                            {percentage.default}%
+                        </span>
+                    </span>
+
+                    {(percentage.min || percentage.max) && (
+                        <span class="percentage-range">
+                            {t("range", lang)}: [
+                            <span class="font-monospace">
+                                {percentage.min ?? "?"}% - {percentage.max ?? "?"}%
+                            </span>
+                            ]
+                        </span>
+                    )}
+                </div>
+            )
+        }
+
+        {
+            select && (
+                <div class="select-display">
+                    <div class="option-type">
+                        <span class="font-bold">{t("type", lang)}: </span>
+                        {t("types.select", lang)}
+                    </div>
+                    <div class="select-options">
+                        {select.options.map((opt, i) => (
+                            <>
+                                {i > 0 && (
+                                    <span class="comma-separator">,</span>
+                                )}
+                                <span
+                                    class={`select-tag ${i === 0 ? "default" : ""}`}
+                                >
+                                    {opt}
+                                </span>
+                            </>
+                        ))}
+                    </div>
+                </div>
+            )
+        }
+
+        <div class="card-text">
+            <p class="card-desc"><slot /></p>
+        </div>
+
+        <slot name="sub-options" />
     </div>
-</section>
+</details>
 
 <style>
     .card {
@@ -198,7 +261,7 @@ const { toggle, number, multiplier, time, array } = Astro.props;
         color: var(--sl-color-text-secondary);
     }
 
-    .array-options {
+    .select-options {
         display: flex;
         flex-wrap: wrap;
         margin-top: 0.4rem;
@@ -212,7 +275,7 @@ const { toggle, number, multiplier, time, array } = Astro.props;
         display: none;
     }
 
-    .array-tag {
+    .select-tag {
         font-family: monospace;
         font-size: 0.875rem;
         border-radius: 8px;
@@ -222,7 +285,7 @@ const { toggle, number, multiplier, time, array } = Astro.props;
         padding: 0 0.3rem;
     }
 
-    .array-tag.default {
+    .select-tag.default {
         text-decoration: underline;
     }
 </style>

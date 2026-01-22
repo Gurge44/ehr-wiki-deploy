@@ -4,7 +4,8 @@ description: Learn how the Hater role works in the Endless Host Roles Among Us m
 shortDesc: The Hater can only kill recruiters or loving players, but has no kill cooldown.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -23,52 +24,39 @@ The **Hater** is a Neutral Benign role. Despite having the Benign alignment, it 
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Haters that can spawn in one game by initial role selection.
+</RoleOption>
 
-Specifies the maximum amount of Haters that can spawn in one game by initial role selection.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Misfire Kills Target
+  </Fragment>
+  Decides whether or not the player that the Hater misfired on dies along with the Hater.
+</RoleOption>
 
-<details>
-<summary>
-### Misfire Kills Target
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Kill Converted Players
+  </Fragment>
+  Decides whether or not the Hater can kill recruited players.
+</RoleOption>
 
-Decides whether or not the player that the Hater misfired on dies along with the Hater.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Change Role When Winning Is Impossible
+  </Fragment>
+  Decides whether or not the role of the Hater changes when winning becomes impossible for the Hater.
 
-<details>
-<summary>
-### Can Kill Converted Players
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Hater can kill recruited players.
-</details>
-
-<details>
-<summary>
-### Change Role When Winning Is Impossible
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the role of the Hater changes when winning becomes impossible for the Hater.
-
-<details>
-<summary>
-#### Hater Changes Into
-</summary>
-**Type:** `Select` (`Amnesiac`, `Pursuer`, `Maverick`, `Follower`, `Opportunist`, `Crewmate`, `Jester`, `Convict`)\
-**Default:** `Amnesiac`
-
-Specifies the role the Hater becomes when winning becomes impossible.
-</details>
-</details>
+  <Fragment slot='sub-options'>
+    <RoleOption select={{default: "Amnesiac", options: ["Amnesiac", "Pursuer", "Maverick", "Follower", "Opportunist", "Crewmate", "Jester", "Convict"]}}>
+      <Fragment slot='title'>
+        #### Hater Changes Into
+      </Fragment>
+      Specifies the role the Hater becomes when winning becomes impossible.
+    </RoleOption>
+  </Fragment>
+</RoleOption>

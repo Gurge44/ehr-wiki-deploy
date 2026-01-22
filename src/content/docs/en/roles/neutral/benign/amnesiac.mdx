@@ -21,92 +21,76 @@ The **Amnesiac** is also unable to copy **Neutral Unique Roles**. Unique roles d
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
+
 <RoleOption number={{default: 1, min: 1, max: 15}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
   Specifies the maximum amount of Amnesiacs that can appear in one game.
 </RoleOption>
-</details>
 
-<details>
-<summary>
-### Role Remembering Mode
-</summary>
-<RoleOption array={{options: ['By Report', 'By Kill']}}>
+<RoleOption select={{options: ['By Report', 'By Kill']}}>
+  <Fragment slot='title'>
+    ### Role Remembering Mode
+  </Fragment>
   Specifies how the Amnesiac remembers (copies) roles.
 </RoleOption>
-</details>
 
-<details>
-<summary>
-### Can Remember Crewmate Power Roles
-</summary>
 <RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Remember Crewmate Power Roles
+  </Fragment>
   Decides whether or not the Amnesiac can remember Crewmate Power roles.
 </RoleOption>
-</details>
 
-<details>
-<summary>
-### If Neutral Is Incompatible, Turn Into
-</summary>
-
-<RoleOption array={{options: ['Amnesiac', 'Pursuer', 'Follower', 'Maverick']}}>
+<RoleOption select={{options: ['Amnesiac', 'Pursuer', 'Follower', 'Maverick']}}>
+  <Fragment slot='title'>
+    ### If Neutral Is Incompatible, Turn Into
+  </Fragment>
   Specifies which role the Amnesiac becomes if they attempt to remember the role of an incompatible neutral.
 </RoleOption>
-</details>
 
-<details>
-<summary>
-### Can Vent
-</summary>
 <RoleOption toggle={{default: false}}>
-Decides whether or not the Amnesiac can Vent.
+  <Fragment slot='title'>
+    ### Can Vent
+  </Fragment>
+  Decides whether or not the Amnesiac can Vent.
 </RoleOption>
-</details>
 
-<details>
-<summary>
-### After Remembering a Role by Reporting, Report the Body
-</summary>
 <RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### After Remembering a Role by Reporting, Report the Body
+  </Fragment>
   Decides whether or not the Amnesiac reports the body after remembering its role, if role remembering mode is set to By Report.
 </RoleOption>
-</details>
 
-<details>
-<summary>
-### Sees Arrows to Dead Bodies (If Remembering by Reporting)
-</summary>
 <RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Sees Arrows to Dead Bodies (If Remembering by Reporting)
+  </Fragment>
+
   Specifies whether or not the Amnesiac gets arrows above their name that point to dead bodies, if role remembering mode is set to By Report.
-</RoleOption>
-<details>
-<summary>
-#### Minimum Arrow Show Up Delay
-</summary>
-<RoleOption time={{default: 1}}>
-  Specifies the minimum amount of time that has to pass after a body is killed before the arrow pointing to the body is displayed to the Amnesiac.
-</RoleOption>
-</details>
 
-<details>
-<summary>
-#### Maximum Arrow Show Up Delay
-</summary>
-<RoleOption time={{default: 30}}>
-  Specifies the maximum amount of time that has to pass after a body is killed before the arrow pointing to the body is displayed to the Amnesiac.
+  <Fragment slot='sub-options'>
+    <RoleOption time={{default: 1}}>
+      <Fragment slot='title'>
+        #### Minimum Arrow Show Up Delay
+      </Fragment>
+      Specifies the minimum amount of time that has to pass after a body is killed before the arrow pointing to the body is displayed to the Amnesiac.
+    </RoleOption>
+    
+    <RoleOption time={{default: 30}}>
+      <Fragment slot='title'>
+        #### Maximum Arrow Show Up Delay
+      </Fragment>
+      Specifies the maximum amount of time that has to pass after a body is killed before the arrow pointing to the body is displayed to the Amnesiac.
+    </RoleOption>
+  </Fragment>
 </RoleOption>
-</details>
-</details>
 
-<details>
-<summary>
-### Also Remember Add-ons
-</summary>
 <RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Also Remember Add-ons
+  </Fragment>
   Decides whether or not the Amnesiac also remembers the add-ons of players.
 </RoleOption>
-</details>

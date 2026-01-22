@@ -4,7 +4,8 @@ description: Learn how the Pawn role works in the Endless Host Roles Among Us mo
 shortDesc: The Pawn must finish their tasks then choose a new role.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Crewmate"
@@ -18,62 +19,46 @@ The **Pawn** is a Neutral Benign role. After the Pawn finishes its tasks, in mee
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Pawns that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Pawns can appear in one game.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Keeps The Game Going
+  </Fragment>
+  Decides whether or not the Pawn prevents the game from ending if it is alive.
+</RoleOption>
 
-<details>
-<summary>
-### Keeps The Game Going
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Override Pawn's Tasks
+  </Fragment>
+  Decides whether or not the Pawn has a custom amount of tasks set by the host.
 
-Decides whether or not the Pawn prevents the game from ending if it is alive.
-</details>
+  <Fragment slot='sub-options'>
+    <RoleOption toggle={{default: false}}>
+      <Fragment slot='title'>
+        #### Pawn Has Common Tasks
+      </Fragment>
+      Decides whether or not the Pawn has Common Tasks.
+    </RoleOption>
 
-<details>
-<summary>
-### Override Pawn's Tasks
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+    <RoleOption number={{}}>
+      <Fragment slot='title'>
+        #### Amount of Long Tasks for Pawn
+      </Fragment>
+      Specifies how many Long Tasks the Pawn has.
+    </RoleOption>
 
-Decides whether or not the Pawn has a custom amount of tasks set by the host.
-
-<details>
-<summary>
-#### Pawn has Common Tasks
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Pawn has Common Tasks.
-</details>
-
-<details>
-<summary>
-#### Amount of Long Tasks for Pawn
-</summary>
-**Type:** `Number`\
-**Default:** `The default amount of Long Tasks for crewmates`
-
-Specifies how many Long Tasks the Pawn has.
-</details>
-
-<details>
-<summary>
-#### Amount of Short Tasks for Pawn
-</summary>
-**Type:** `Number`\
-**Default:** `The default amount of Short Tasks for crewmates`
-
-Specifies how many Short Tasks the Pawn has.
-</details>
-</details>
+    <RoleOption number={{}}>
+      <Fragment slot='title'>
+        #### Amount of Short Tasks for Pawn
+      </Fragment>
+      Specifies how many Short Tasks the Pawn has.
+    </RoleOption>
+  </Fragment>
+</RoleOption>

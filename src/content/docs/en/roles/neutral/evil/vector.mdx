@@ -4,7 +4,8 @@ description: Learn how the Vector role works in the Endless Host Roles Among Us 
 shortDesc: The Vector must vent a certain number of times to win.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Engineer"
@@ -18,82 +19,58 @@ The **Vector** is a Neutral Evil role. The Vector must Vent a certain amount of 
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Vectors that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Vectors that can appear in one game.
-</details>
+<RoleOption time={{default: 0}}>
+  <Fragment slot='title'>
+    ### Vent Cooldown
+  </Fragment>
+  Specifies the cooldown of the Vector for Venting.
+</RoleOption>
 
-<details>
-<summary>
-### Vent Cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `0s`
+<RoleOption number={{default: 80}}>
+  <Fragment slot='title'>
+    ### Number of Vents to Win on Skeld
+  </Fragment>
+  Specifies the amount of times the Vector must Vent on the Skeld map to win.
+</RoleOption>
 
-Specifies the cooldown of the Vector for Venting.
-</details>
+<RoleOption number={{default: 80}}>
+  <Fragment slot='title'>
+    ### Number of Vents to Win on Mira
+  </Fragment>
+  Specifies the amount of times the Vector must Vent on the Mira HQ map to win.
+</RoleOption>
 
-<details>
-<summary>
-### Number of Vents to Win on Skeld
-</summary>
-**Type:** `Number`\
-**Default:** `80`
+<RoleOption number={{default: 80}}>
+  <Fragment slot='title'>
+    ### Number of Vents to Win on Polus
+  </Fragment>
+  Specifies the amount of times the Vector must Vent on the Polus map to win.
+</RoleOption>
 
-Specifies the amount of times the Vector must Vent on the Skeld map to win.
-</details>
+<RoleOption number={{default: 80}}>
+  <Fragment slot='title'>
+    ### Number of Vents to Win on Dleks
+  </Fragment>
+  Specifies the amount of times the Vector must Vent on the Dleks map to win.
+</RoleOption>
 
-<details>
-<summary>
-### Number of Vents to Win on Mira
-</summary>
-**Type:** `Number`\
-**Default:** `80`
+<RoleOption number={{default: 80}}>
+  <Fragment slot='title'>
+    ### Number of Vents to Win on Airship
+  </Fragment>
+  Specifies the amount of times the Vector must Vent on the Airship map to win.
+</RoleOption>
 
-Specifies the amount of times the Vector must Vent on the Mira HQ map to win.
-</details>
-
-<details>
-<summary>
-### Number of Vents to Win on Polus
-</summary>
-**Type:** `Number`\
-**Default:** `80`
-
-Specifies the amount of times the Vector must Vent on the Polus map to win.
-</details>
-
-<details>
-<summary>
-### Number of Vents to Win on Dleks
-</summary>
-**Type:** `Number`\
-**Default:** `80`
-
-Specifies the amount of times the Vector must Vent on the Dleks map to win.
-</details>
-
-<details>
-<summary>
-### Number of Vents to Win on Airship
-</summary>
-**Type:** `Number`\
-**Default:** `80`
-
-Specifies the amount of times the Vector must Vent on the Airship map to win.
-</details>
-
-<details>
-<summary>
-### Number of Vents to Win on Fungle
-</summary>
-**Type:** `Number`\
-**Default:** `80`
-
-Specifies the amount of times the Vector must Vent on the Fungle map to win.
-</details>
+<RoleOption number={{default: 80}}>
+  <Fragment slot='title'>
+    ### Number of Vents to Win on Fungle
+  </Fragment>
+  Specifies the amount of times the Vector must Vent on the Fungle map to win.
+</RoleOption>

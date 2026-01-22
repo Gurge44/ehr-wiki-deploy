@@ -4,7 +4,8 @@ description: Learn how the Jester role works in the Endless Host Roles Among Us 
 shortDesc: The Jester's goal is to get themselves ejected to win.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Crewmate/Engineer (depending on settings)"
@@ -18,52 +19,37 @@ The **Jester** is a Neutral Evil role. They win the game alone by successfully t
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Sets the maximum number of Jesters that can appear in a match.
+</RoleOption>
 
-Sets the maximum number of Jesters that can appear in a match.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Call Emergency Meetings
+  </Fragment>
+  Determines whether the Jester can call emergency meetings.
+</RoleOption>
 
-<details>
-<summary>
-### Can call emergency meetings
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Vent
+  </Fragment>
+  Allows the Jester to use vents like Impostors.
+</RoleOption>
 
-Determines whether the Jester can call emergency meetings.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Has Impostor Vision
+  </Fragment>
+  Grants the Jester the same vision range as Impostors.
+</RoleOption>
 
-<details>
-<summary>
-### Can Vent
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Allows the Jester to use vents like Impostors.
-</details>
-
-<details>
-<summary>
-### Has Impostor Vision
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Grants the Jester the same vision range as Impostors.
-</details>
-
-<details>
-<summary>
-### Sunnyboy Chance
-</summary>
-**Type:** `Percentage`\
-**Default:** `0%`
-
-Specifies the chance for the **Sunnyboy** sub-role to spawn instead of the regular Jester.
-</details>
+<RoleOption percentage={{default: 0}}>
+  <Fragment slot='title'>
+    ### Sunnyboy Chance
+  </Fragment>
+  Specifies the chance for the Sunnyboy sub-role to spawn instead of the regular Jester.
+</RoleOption>

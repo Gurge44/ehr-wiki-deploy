@@ -4,7 +4,8 @@ description: Learn how the Vulture role works in the Endless Host Roles Among Us
 shortDesc: The Vulture must eat enough bodies to win.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Crewmate/Engineer"
@@ -21,92 +22,67 @@ The Vulture also has a limit on how many bodies it can eat per round. If this li
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Vultures that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Vultures that can appear in one game.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Arrow Pointing to Dead Bodies
+  </Fragment>
+  Decides whether or not arrows are displayed to the Vulture that point to dead bodies.
+</RoleOption>
 
-<details>
-<summary>
-### Arrow pointing to dead bodies
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption number={{default: 4}}>
+  <Fragment slot='title'>
+    ### Bodies Needed to Win
+  </Fragment>
+  Specifies the amount of dead bodies the Vulture must eat to win.
+</RoleOption>
 
-Decides whether or not arrows are displayed to the Vulture that point to dead bodies.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Vent
+  </Fragment>
+  Decides whether or not the Vulture can Vent.
+</RoleOption>
 
-<details>
-<summary>
-### Bodies needed to Win
-</summary>
-**Type:** `Number`\
-**Default:** `4`
+<RoleOption time={{default: 20}}>
+  <Fragment slot='title'>
+    ### Eat Cooldown
+  </Fragment>
+  Specifies the cooldown of the Vulture for eating bodies.
+</RoleOption>
 
-Specifies the amount of dead bodies the Vulture must eat to win.
-</details>
+<RoleOption number={{default: 2}}>
+  <Fragment slot='title'>
+    ### Maximum Eaten Bodies Possible per Round
+  </Fragment>
+  Specifies the maximum amount of bodies the Vulture is able to eat each round.
+</RoleOption>
 
-<details>
-<summary>
-### Can Vent
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Has Impostor Vision
+  </Fragment>
+  Decides whether or not the Vulture has Impostor Vision.
+</RoleOption>
 
-Decides whether or not the Vulture can Vent.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Change Role When Winning Is Impossible
+  </Fragment>
+  Decides whether or not the Vulture's role changes when its win condition becomes impossible to satisfy.
 
-<details>
-<summary>
-### Eat Cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `20s`
-
-Specifies the cooldown of the Vulture for eating bodies.
-</details>
-
-<details>
-<summary>
-### Maximum eaten bodies possible per round
-</summary>
-**Type:** `Number`\
-**Default:** `2`
-
-Specifies the maximum amount of bodies the Vulture is able to eat each round.
-</details>
-
-<details>
-<summary>
-### Has Impostor Vision
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Vulture has Impostor Vision.
-</details>
-
-<details>
-<summary>
-### Change role when winning is impossible
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Vulture's role changes when its win condition becomes impossible to satisfy.
-
-<details>
-<summary>
-#### Role to change to
-</summary>
-**Type:** `Select (Amnesiac, Pursuer, Maverick, Follower, Opportunist, Crewmate, Jester)`\
-**Default:** `Amnesiac`
-
-Specifies which role the Vulture turns into when winning becomes impossible.
-</details>
-</details>
+  <Fragment slot='sub-options'>
+    <RoleOption select={{options: ['Amnesiac', 'Pursuer', 'Maverick', 'Follower', 'Opportunist', 'Crewmate', 'Jester'], default: 'Amnesiac'}}>
+      <Fragment slot='title'>
+        #### Role to Change To
+      </Fragment>
+      Specifies which role the Vulture turns into when winning becomes impossible.
+    </RoleOption>
+  </Fragment>
+</RoleOption>

@@ -4,7 +4,8 @@ description: Learn how the Lawyer role works in the Endless Host Roles Among us 
 shortDesc: The Lawyer gets a client and wins with them.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Crewmate"
@@ -19,82 +20,58 @@ The **Lawyer** is a Neutral Benign role that gets a client at the very start of 
 
 ## Role Options
 
-<details>
-<summary>
-### Can Target Impostors
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Target Impostors
+  </Fragment>
+  Can an Impostor be the Lawyer's client.
+</RoleOption>
 
-Can an Impostor be the lawyer's client.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Target Neutral Killings
+  </Fragment>
+  Can a Neutral killer be the Lawyer's client.
+</RoleOption>
 
-<details>
-<summary>
-### Can Target Neutral Killings
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Target Crewmates
+  </Fragment>
+  Can a Crewmate be the Lawyer's client.
+</RoleOption>
 
-Can a Neutral killer be the lawyer's client.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Target Coven
+  </Fragment>
+  Can a Coven member be the Lawyer's client.
+</RoleOption>
 
-<details>
-<summary>
-### Can Target Crewmates
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Target Jester
+  </Fragment>
+  Can the Jester be the Lawyer's client.
+</RoleOption>
 
-Can a Crewmate be the lawyer's client.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Knows Their Target's Role
+  </Fragment>
+  Does the Lawyer know what role their client is.
+</RoleOption>
 
-<details>
-<summary>
-### Can Target Coven
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Target Knows Their Lawyer
+  </Fragment>
+  Does the client know their Lawyer.
+</RoleOption>
 
-Can a Coven member be the lawyer's client.
-</details>
-
-<details>
-<summary>
-### Can Target Jester
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Can the Jester be the Lawyer's client.
-</details>
-
-<details>
-<summary>
-### Knows Their Target's Role
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Does the Lawyer know what role their client is.
-</details>
-
-<details>
-<summary>
-### Target Knows Their Lawyer
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Does the client know their lawyer.
-</details>
-
-<details>
-<summary>
-### When Target Dies, Lawyer Becomes
-</summary>
-**Type:** `Select (Amnesiac/Crewmate/Jester/Opportunist)`\
-**Default:** `Amnesiac`
-
-Which role does the Lawyer change to when their client dies.
-</details>
+<RoleOption select={{default: "Amnesiac", options: ["Amnesiac", "Crewmate", "Jester", "Opportunist"]}}>
+  <Fragment slot='title'>
+    ### When Target Dies, Lawyer Becomes
+  </Fragment>
+  Which role the Lawyer changes to when their client dies.
+</RoleOption>

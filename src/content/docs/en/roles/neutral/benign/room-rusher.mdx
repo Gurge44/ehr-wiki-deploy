@@ -4,7 +4,8 @@ description: Learn how the Room Rusher role works in the Endless Host Roles Amon
 shortDesc: The Room Rusher must get to enough rooms before the timer expires.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Engineer"
@@ -26,70 +27,48 @@ If the Room Rusher reaches a certain amount of points by the end of the game, th
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies how many Room Rushers can appear in one game.
+</RoleOption>
 
-Specifies how many Room Rushers can appear in one game.
-</details>
+<RoleOption multiplier={{default: 1}}>
+  <Fragment slot='title'>
+    ### Global Time Multiplier (for adjusting the difficulty)
+  </Fragment>
+  Specifies the amount that the timer is multiplied by in-game. This allows hosts to adjust the difficulty of playing Room Rusher.
+</RoleOption>
 
-<details>
-<summary>
-### Global Time Multiplier (for adjusting the difficulty)
-</summary>
-**Type:** `Multiplier`\
-**Default:** `1x`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max Number of Vent Uses
+  </Fragment>
+  Specifies the amount of times the Room Rusher can vent.
+</RoleOption>
 
-Specifies the amount that the timer is multiplied by in-game. This allows hosts to adjust the difficulty of playing Room Rusher.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Display the Name of the Room to Get to
+  </Fragment>
+  Decides whether or not to display text above the Room Rusher's name that says the name of the room the Room Rusher must go to.
+</RoleOption>
 
-<details>
-<summary>
-### Max Number of Vent Uses
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Display an Arrow to the Room to Get to
+  </Fragment>
+  Decides whether or not to display an Arrow above the Room Rusher's name that points to the room the Room Rusher must go to.
 
-Specifies the amount of times the Room Rusher can vent.
+  <Aside type="caution">
+    Turning this setting to off along with the one above it will cause the Room Rusher to have to look around the map aimlessly to find the room, as they have no indicator of where it is.
+  </Aside>
+</RoleOption>
 
-<Aside type="note">
-This option has the word Number misspelled to "Numer" in-game.
-</Aside>
-</details>
-
-<details>
-<summary>
-### Display the Name of the Room to Get to
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not to display text above the Room Rusher's name that says the name of the room the Room Rusher must go to.
-</details>
-
-<details>
-<summary>
-### Display an Arrow to the Room to Get to
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not to display an Arrow above the Room Rusher's name that points to the room the Room Rusher must go to.
-
-<Aside type="caution">
-Turning this setting to off along with the one above it will cause the Room Rusher to have to look around the map aimlessly to find the room, as they have no indicator of where it is.
-</Aside>
-</details>
-
-<details>
-<summary>
-### Number of rooms to get to for the win condition to satisfy
-</summary>
-**Type:** `Number`\
-**Default:** `20`
-
-Specifies how many rooms the Room Rusher must go to to satisfy their win condition.
-</details>
+<RoleOption number={{default: 20}}>
+  <Fragment slot='title'>
+    ### Number of Rooms to Get to for the Win Condition to Satisfy
+  </Fragment>
+  Specifies how many rooms the Room Rusher must go to to satisfy their win condition.
+</RoleOption>

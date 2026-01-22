@@ -4,7 +4,8 @@ description: Learn how the Thief role works in the Endless Host Roles Among Us m
 shortDesc: The Thief can kill a player to take on their role.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -23,32 +24,23 @@ The **Thief** is a Neutral Evil role that cannot win while it is this role. It i
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Thieves that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Thieves that can appear in one game.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Steal Coven Roles
+  </Fragment>
+  Decides whether or not the Thief can take on a Coven member's role.
+</RoleOption>
 
-<details>
-<summary>
-### Can steal Coven roles
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Thief can take on a Coven member's role.
-</details>
-
-<details>
-<summary>
-### Impostor vision
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Thief has Impostor vision.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Impostor Vision
+  </Fragment>
+  Decides whether or not the Thief has Impostor vision.
+</RoleOption>

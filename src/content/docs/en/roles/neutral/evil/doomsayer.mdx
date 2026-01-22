@@ -4,7 +4,8 @@ description: Learn how the Doomsayer role works in The endless host roles among 
 shortDesc: The Doomsayer has to guess 3 players roles to win.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Crewmate"
@@ -23,102 +24,74 @@ The **Doomsayer** is a Neutral Evil role that has the ability to guess other pla
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Doomsayers that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Doomsayers that can appear in one game.
-</details>
+<RoleOption number={{default: 3}}>
+  <Fragment slot='title'>
+    ### Guesses to Win
+  </Fragment>
+  Specifies how many successful guesses the Doomsayer needs to win.
+</RoleOption>
 
-<details>
-<summary>
-### Guesses to win
-</summary>
-**Type:** `Number`\
-**Default:** `3`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Guess Impostors/Crewmates/Neutrals/Coven/Add-ons
+  </Fragment>
+  Determines whether the Doomsayer can guess players belonging to these specific factions or possessing add-ons.
+</RoleOption>
 
-Specifies how many successful guesses the Doomsayer needs to win.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Advanced Settings
+  </Fragment>
+  Toggles additional, advanced settings for the role.
 
-<details>
-<summary>
-### Can Guess Impostors/Crewmates/Neutrals/Coven/Add-ons
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+  <Fragment slot='sub-options'>
+    <RoleOption number={{default: 2}}>
+      <Fragment slot='title'>
+        #### Guesses per Meeting
+      </Fragment>
+      Specifies how many times the Doomsayer can guess during a single meeting.
+    </RoleOption>
 
-Determines whether the Doomsayer can guess players belonging to these specific factions or possessing add-ons.
-</details>
+    <RoleOption toggle={{default: false}}>
+      <Fragment slot='title'>
+        #### Kill Guessed Players
+      </Fragment>
+      Decides whether successful guesses kill their target.
+    </RoleOption>
 
-<details>
-<summary>
-### Advanced settings
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+    <RoleOption toggle={{default: false}}>
+      <Fragment slot='title'>
+        #### Kill Doomsayer if Misguessing
+      </Fragment>
+      Decides whether the Doomsayer dies via suicide upon misguessing a role.
+    </RoleOption>
 
-Toggles additional, advanced settings for the role.
+    <RoleOption toggle={{default: false}}>
+      <Fragment slot='title'>
+        #### Misguessing Prevents Guessing Until Next Meeting
+      </Fragment>
+      Decides whether misguessing a role prevents the Doomsayer from making further guesses until the next meeting is called.
+    </RoleOption>
+  </Fragment>
+</RoleOption>
 
-<details>
-<summary>
-#### Guesses per meeting
-</summary>
-**Type:** `Number`\
-**Default:** `2`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Impostor Vision
+  </Fragment>
+  Decides whether the Doomsayer has Impostor vision.
+</RoleOption>
 
-Specifies how many times the Doomsayer can guess during a single meeting.
-</details>
-
-<details>
-<summary>
-#### Kill guessed players
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether successful guesses kill their target.
-</details>
-
-<details>
-<summary>
-#### Kill Doomsayer if misguessing
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether the Doomsayer dies via suicide upon misguessing a role.
-</details>
-
-<details>
-<summary>
-#### Misguessing prevents guessing until next meeting
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether misguessing a role prevents the Doomsayer from making further guesses until the next meeting is called.
-</details>
-</details>
-
-<details>
-<summary>
-### Impostor Vision
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether the Doomsayer has Impostor vision.
-</details>
-
-<details>
-<summary>
-### Hide command
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether the Doomsayer's guessing command is hidden.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Hide Command
+  </Fragment>
+  Decides whether the Doomsayer's guessing command is hidden.
+</RoleOption>

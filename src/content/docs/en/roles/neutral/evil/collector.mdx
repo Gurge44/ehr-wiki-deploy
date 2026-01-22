@@ -4,7 +4,8 @@ description: Learn how the Collector role works in the Endless Host Roles Among 
 shortDesc: The Collector must collect enough votes to win.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Crewmate"
@@ -18,22 +19,16 @@ The **Collector** is a Neutral Evil role. When the Collector votes for a player,
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Collectors that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Collectors that can appear in one game.
-</details>
-
-<details>
-<summary>
-### Required amount of votes
-</summary>
-**Type:** `Number`\
-**Default:** `30`
-
-Specifies the amount of points the Collector needs to get to win.
-</details>
+<RoleOption number={{default: 30}}>
+  <Fragment slot='title'>
+    ### Required Amount of Votes
+  </Fragment>
+  Specifies the amount of points the Collector needs to get to win.
+</RoleOption>

@@ -4,7 +4,8 @@ description: Learn how the Tank role works in the Endless Host Roles Among Us mo
 shortDesc: The Tank must vent in every vent on the map to win.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Engineer"
@@ -18,52 +19,37 @@ The **Tank** is a Neutral Benign role. The Tank has lower movement speed than ot
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies how many Tanks can appear in one game.
+</RoleOption>
 
-Specifies how many Tanks can appear in one game.
-</details>
+<RoleOption multiplier={{default: 0.9}}>
+  <Fragment slot='title'>
+    ### Speed
+  </Fragment>
+  Specifies the movement speed multiplier of the Tank.
+</RoleOption>
 
-<details>
-<summary>
-### Speed
-</summary>
-**Type:** `Multiplier`\
-**Default:** `0.9x`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Be Guessed
+  </Fragment>
+  Decides whether or not the Tank can be Guessed by Guessers.
+</RoleOption>
 
-Specifies the movement speed multiplier of the Tank.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Be Killed
+  </Fragment>
+  Decides whether or not the Tank can be killed by regular killing methods.
+</RoleOption>
 
-<details>
-<summary>
-### Can Be Guessed
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Tank can be Guessed by Guessers.
-</details>
-
-<details>
-<summary>
-### Can be Killed
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Tank can be killed by regular killing methods.
-</details>
-
-<details>
-<summary>
-### Vent Cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `15s`
-
-Specifies the Venting cooldown for the Tank.
-</details>
+<RoleOption time={{default: 15}}>
+  <Fragment slot='title'>
+    ### Vent Cooldown
+  </Fragment>
+  Specifies the Venting cooldown for the Tank.
+</RoleOption>

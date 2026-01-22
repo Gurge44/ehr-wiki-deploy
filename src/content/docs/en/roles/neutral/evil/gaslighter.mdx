@@ -4,7 +4,8 @@ description: Learn how the Gaslighter role works in The endless host roles among
 shortDesc: The Gaslighter has multiple abilities that vary per round.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -28,42 +29,30 @@ The **Gaslighter** is a Neutral Evil role that has varying abilities each round.
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Gaslighters that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Gaslighters that can appear in one game.
-</details>
+<RoleOption time={{default: 22.5}}>
+  <Fragment slot='title'>
+    ### Kill Cooldown
+  </Fragment>
+  Specifies the cooldown the Gaslighter has to wait before using their varying ability.
+</RoleOption>
 
-<details>
-<summary>
-### Kill cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `22.5s`
+<RoleOption select={{options: ['Crewmates lose', 'last standing', 'alive at the end'], default: 'Crewmates lose'}}>
+  <Fragment slot='title'>
+    ### Win Condition
+  </Fragment>
+  Defines how the Gaslighter wins the game.
+</RoleOption>
 
-Specifies the cooldown the Gaslighter has to wait before using their varying ability.
-</details>
-
-<details>
-<summary>
-### Win condition
-</summary>
-**Type:** `Select (Crewmates lose, last standing, alive at the end)`\
-**Default:** `crewmates lose`
-
-Defines how the Gaslighter wins the game.
-</details>
-
-<details>
-<summary>
-### Cycle repeats
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the ability cycle repeats after Round 4.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Cycle Repeats
+  </Fragment>
+  Decides whether or not the ability cycle repeats after Round 4.
+</RoleOption>

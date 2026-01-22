@@ -4,7 +4,8 @@ description: Learn how the Terrorist role works in the Endless Host Roles Among 
 shortDesc: The Terrorist must finish their tasks, THEN die.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Engineer/Crewmate"
@@ -23,82 +24,60 @@ Due to the Terrorist causing all players to die, it can override win conditions 
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Terrorists that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Terrorists that can appear in one game.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Win By Suicide
+  </Fragment>
+  Decides whether or not the Terrorist wins if they died with the death reason Suicide.
+</RoleOption>
 
-<details>
-<summary>
-### Can Win By Suicide
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Guess in Guesser Mode
+  </Fragment>
+  Decides whether or not the Terrorist can guess in Guesser Mode.
+</RoleOption>
 
-Decides whether or not the Terrorist wins if they died with the death reason Suicide.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Vent
+  </Fragment>
+  Decides whether or not the Terrorist can Vent.
+</RoleOption>
 
-<details>
-<summary>
-### Can Guess in Guesser Mode
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Override Terrorist's Tasks
+  </Fragment>
+  Decides whether or not the Terrorist has a custom amount of tasks set by the host.
 
-Decides whether or not the Terrorist can guess in Guesser Mode.
-</details>
+  <Fragment slot='sub-options'>
+    <RoleOption toggle={{default: false}}>
+      <Fragment slot='title'>
+        #### Terrorist Has Common Tasks
+      </Fragment>
+      Decides whether or not the Terrorist has Common Tasks.
+    </RoleOption>
 
-<details>
-<summary>
-### Can Vent
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+    <RoleOption number={{}}>
+      <Fragment slot='title'>
+        #### Amount of Long Tasks for Terrorist
+      </Fragment>
+      Specifies how many Long Tasks the Terrorist has.
+    </RoleOption>
 
-Decides whether or not the Terrorist can Vent.
-</details>
-
-<details>
-<summary>
-### Override Terrorist's Tasks
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Terrorist has a custom amount of tasks set by the host.
-
-<details>
-<summary>
-#### Terrorist has Common Tasks
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Terrorist has Common Tasks.
-</details>
-
-<details>
-<summary>
-#### Amount of Long Tasks for Terrorist
-</summary>
-**Type:** `Number`\
-**Default:** `The default amount of Long Tasks for crewmates`
-
-Specifies how many Long Tasks the Terrorist has.
-</details>
-
-<details>
-<summary>
-#### Amount of Short Tasks for Terrorist
-</summary>
-**Type:** `Number`\
-**Default:** `The default amount of Short Tasks for crewmates`
-
-Specifies how many Short Tasks the Terrorist has.
-</details>
-</details>
+    <RoleOption number={{}}>
+      <Fragment slot='title'>
+        #### Amount of Short Tasks for Terrorist
+      </Fragment>
+      Specifies how many Short Tasks the Terrorist has.
+    </RoleOption>
+  </Fragment>
+</RoleOption>

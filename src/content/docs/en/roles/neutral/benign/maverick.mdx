@@ -4,7 +4,8 @@ description: Learn how the Maverick role works in the Endless Host Roles Among U
 shortDesc: Must survive and kill the required amount of players.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -18,42 +19,30 @@ The **Maverick** is a Neutral Benign role. However, it is able to kill. It is on
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies how many Mavericks can appear in one game.
+</RoleOption>
 
-Specifies how many Mavericks can appear in one game.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Vent
+  </Fragment>
+  Decides whether or not the Maverick can Vent.
+</RoleOption>
 
-<details>
-<summary>
-### Can Vent
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Has Impostor Vision
+  </Fragment>
+  Decides whether or not the Maverick has Impostor Vision.
+</RoleOption>
 
-Decides whether or not the Maverick can Vent.
-</details>
-
-<details>
-<summary>
-### Has Impostor Vision
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Maverick has Impostor Vision.
-</details>
-
-<details>
-<summary>
-### Minimum number of kills required
-</summary>
-**Type:** `Number`\
-**Default:** `2`
-
-Specifies how many kills the Maverick must make to satisfy their win condition.
-</details>
+<RoleOption number={{default: 2}}>
+  <Fragment slot='title'>
+    ### Minimum Number of Kills Required
+  </Fragment>
+  Specifies how many kills the Maverick must make to satisfy their win condition.
+</RoleOption>

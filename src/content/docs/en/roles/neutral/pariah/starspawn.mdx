@@ -4,7 +4,8 @@ description: Learn how the Starspawn role works in The endless host roles among 
 shortDesc: The Starspawn may call daybreak to stop meeting abilities.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -24,32 +25,23 @@ The **Starspawn** is a Neutral Pariah role. It possesses two distinct abilities:
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Starspawns that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Starspawns that can appear in one game.
-</details>
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Initial Ability Uses
+  </Fragment>
+  Specifies how many ability uses the Starspawn starts with.
+</RoleOption>
 
-<details>
-<summary>
-### Initial ability uses
-</summary>
-**Type:** `Number`\
-**Default:** `1`
-
-Specifies how many ability uses the Starspawn starts with.
-</details>
-
-<details>
-<summary>
-### Ability cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `30s`
-
-Specifies how long until the Starspawn can use their ability.
-</details>
+<RoleOption time={{default: 30}}>
+  <Fragment slot='title'>
+    ### Ability Cooldown
+  </Fragment>
+  Specifies how long until the Starspawn can use their ability.
+</RoleOption>

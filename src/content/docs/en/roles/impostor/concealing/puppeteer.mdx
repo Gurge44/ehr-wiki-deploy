@@ -4,7 +4,8 @@ description: Learn how the Puppeteer role works in the Endless Host Roles Among 
 shortDesc: Manipulate someone into killing for you!
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -20,160 +21,113 @@ A layer of difficulty can be added to the role by configuring a lower maximum nu
 
 ## Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  The cap for how many of this role can spawn.
+</RoleOption>
 
-The cap for how many of this role can spawn.
-</details>
+<RoleOption time={{default: 22.5}}>
+  <Fragment slot='title'>
+    ### Puppet Cooldown
+  </Fragment>
+  The amount of time after the start of each round until the Puppeteer can use their puppet ability.
+</RoleOption>
 
-<details>
-<summary>
-### Puppet Cooldown
-</summary>
-**Type:** `Time (2.5s - 60s)`\
-**Default:** `22.5`
+<RoleOption toggle={{default: true}}>
+  <Fragment slot='title'>
+    ### Can Kill Normally
+  </Fragment>
+  Whether the Puppeteer can kill normally. If enabled, the Puppeteer must press the kill button twice to perform a kill.
 
-The amount of time after the start of each round until the Puppeteer can use their puppet ability.
-</details>
+  <Fragment slot='sub-options'>
+    <RoleOption time={{default: 25}}>
+      <Fragment slot='title'>
+        #### Puppeteer Kill Cooldown
+      </Fragment>
+      If *Can Kill Normally* is enabled, this is the time after the start of each round until the Puppeteer can perform a kill.
+    </RoleOption>
+  </Fragment>
+</RoleOption>
 
-<details>
-<summary>
-### Can Kill Normally
-</summary>
-**Type:** `Toggle`\
-**Default:** `ON`
+<RoleOption time={{default: 3}}>
+  <Fragment slot='title'>
+    ### Minimum Delay Before The Puppeted Player Can Kill
+  </Fragment>
+  The minimum delay before the *puppeted* player becomes *manipulated* and able to kill anyone who enters their range. This should never be lower than the maximum delay.
+</RoleOption>
 
-Whether the Puppeteer can kill normally. If this is enabled, the Puppeteer should press the kill button twice to perform a kill.
+<RoleOption time={{default: 7}}>
+  <Fragment slot='title'>
+    ### Maximum Delay Before The Puppeted Player Can Kill
+  </Fragment>
+  The maximum delay before the *puppeted* player becomes *manipulated* and able to kill anyone who enters their range. This should never be lower than the minimum delay.
+</RoleOption>
 
-<details>
-<summary>
-#### Puppeteer Kill Cooldown
-</summary>
-**Type:** `Time (2.5s - 60s)`\
-**Default:** `25s`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Manipulation Ends After a Specific Time
+  </Fragment>
+  Whether the *puppeted* player is *manipulated* indefinitely or for a limited time. If enabled, the player will return to normal after the specified duration.
 
-If *Can Kill Normally* is enabled, the amount of time after the start of each round until the Puppeteer can perform a kill.
-</details>
-</details>
+  <Fragment slot='sub-options'>
+    <RoleOption time={{default: 30}}>
+      <Fragment slot='title'>
+        #### Time After The Manipulation Ends
+      </Fragment>
+      The amount of time until the *manipulated* player loses the effect.  
+      This timer starts **after the manipulation begins**, not after the initial puppeting.
+    </RoleOption>
+  </Fragment>
+</RoleOption>
 
-<details>
-<summary>
-### Minimum Delay Before The Puppeted Player Can Kill
-</summary>
-**Type:** `Time (0s - 90s)`\
-**Default:** `3`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Bypass Lazy
+  </Fragment>
+  If enabled, players with the Lazy add-on can be *puppeted*. By default, they are immune.
+</RoleOption>
 
-The minimum delay before the *puppeted* player becomes *manipulated* and able to kill anyone who enters their range. This should never be lower than the maximum delay.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Bypass Lazy Guy
+  </Fragment>
+  If enabled, Crewmates with the Lazy Guy role can be *puppeted*. By default, they are immune.
+</RoleOption>
 
-<details>
-<summary>
-### Maximum Delay Before The Puppeted Player Can Kill
-</summary>
-**Type:** `Time (0s - 90s)`\
-**Default:** `7`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Puppet Can Kill Other Impostors
+  </Fragment>
+  If enabled, the *puppeted* player can kill other impostors — but not the Puppeteer.
+</RoleOption>
 
-The maximum delay before the *puppeted* player becomes *manipulated* and able to kill anyone who enters their range. This should never be lower than the minimum delay.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Puppet Can Kill The Puppeteer
+  </Fragment>
+  If enabled, the *puppeted* player can kill the Puppeteer who puppeted them.  
+  Combining this with a very low [minimum delay](#minimum-delay-before-the-puppeted-player-can-kill) (0-2 seconds) can be extremely punishing for the Puppeteer.
+</RoleOption>
 
-<details>
-<summary>
-### Manipulation Ends After a Specific Time
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption number={{default: 5}}>
+  <Fragment slot='title'>
+    ### Maximum Number of Puppets
+  </Fragment>
+  The maximum number of times the Puppeteer can puppet. Only successful puppets count, and this does not reset after meetings.
+</RoleOption>
 
-Whether the *puppeted* player is *manipulated* indefinitely or there is a time limit. If enabled, after this time has elapsed, the *puppeted* player will return to normal.
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Puppeteer Dies After Running Out Of Puppets
+  </Fragment>
+  If enabled, the Puppeteer will die after using their last puppet. Only successful puppets count.
+</RoleOption>
 
-<details>
-<summary>
-#### Time After The Manipulation Ends
-</summary>
-**Type:** `Time (0s - 90s)`\
-**Default:** `30`
-
-The amount of time until the *manipulated* player loses the effect.
-
-<Aside>
-This timer specifically starts after the **manipulation** starts, not the inital puppeting.
-</Aside>
-</details>
-</details>
-
-<details>
-<summary>
-### Bypass Lazy
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-If enabled, the players with the Lazy add-on will be able to be *puppeted*. By default, players with the Lazy add-on are immune to being *puppeted*.
-</details>
-
-<details>
-<summary>
-### Bypass Lazy Guy
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-If enabled, Crewmates with the Lazy Guy role will be able to be *puppeted*. By default, Crewmates with the Lazy Guy role are immune to being *puppeted*.
-</details>
-
-<details>
-<summary>
-### Puppet Can Kill Other Impostors
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-If enabled, the *puppeted* player will be able to kill other impostors - not the Puppeteer.
-</details>
-
-<details>
-<summary>
-### Puppet Can Kill The Puppeteer
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-If enabled, the *puppeted* player will be able to kill the Puppeteer who puppeted them.
-
-<Aside type="caution">
-Combining this with a very low [Minimum Delay Before The Puppeted Player Can Kill](#minimum-delay-before-the-puppeted-player-can-kill) (0-2 seconds) can be quite harsh on the Puppeteer, as the puppet has the chance to kill them almost instantly!
-</Aside>
-</details>
-
-<details>
-<summary>
-### Maximum Number of Puppets
-</summary>
-**Type:** `Number (0 - 30)`\
-**Default:** `5` 
-
-The maximum number of times the Puppeteer can puppet. This only counts successful puppets and does not reset after meetings.
-</details>
-
-<details>
-<summary>
-### Puppeteer Dies After Running Out Of Puppets
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-If enabled, the Puppeteer will suicide after using their last puppet. This only counts successful puppets.
-</details>
-
-<details>
-<summary>
-### Puppet Dies Along With The Victim
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-If enabled, the *puppeted* player will die with the player they kill when manipulated.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Puppet Dies Along With The Victim
+  </Fragment>
+  If enabled, the *puppeted* player will die along with the player they kill while manipulated.
+</RoleOption>

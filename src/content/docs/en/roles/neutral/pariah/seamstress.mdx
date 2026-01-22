@@ -4,7 +4,8 @@ description: Learn how the Seamstress role works in The endless host roles among
 shortDesc: The Seamstress may link 2 players with their thread.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Shapeshifter"
@@ -23,22 +24,16 @@ Interactions performed on one sewn player (such as ability use or status effects
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Seamstresses that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Seamstresses that can appear in one game.
-</details>
-
-<details>
-<summary>
-### Shapeshift cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `15s`
-
-Specifies the cooldown before the Seamstress can shapeshift or sew another player.
-</details>
+<RoleOption time={{default: 15}}>
+  <Fragment slot='title'>
+    ### Shapeshift Cooldown
+  </Fragment>
+  Specifies the cooldown before the Seamstress can shapeshift or sew another player.
+</RoleOption>

@@ -4,7 +4,8 @@ description: Learn how the Soul Hunter role works in the Endless Host Roles Amon
 shortDesc: The Soul Hunter must collect souls to win at the end of the game.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -30,72 +31,51 @@ The Soul Hunter must reach a certain amount of souls by the end of the game to w
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Soul Hunters that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Soul Hunters that can appear in one game.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Vent
+  </Fragment>
+  Decides whether or not the Soul Hunter can Vent.
+</RoleOption>
 
-<details>
-<summary>
-### Can Vent
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Has Impostor Vision
+  </Fragment>
+  Decides whether or not the Soul Hunter has Impostor Vision.
+</RoleOption>
 
-Decides whether or not the Soul Hunter can Vent.
-</details>
+<RoleOption number={{default: 3}}>
+  <Fragment slot='title'>
+    ### Number of Souls Required To Win
+  </Fragment>
+  Specifies how many Souls the Soul Hunter must get to satisfy their win condition.
+</RoleOption>
 
-<details>
-<summary>
-### Has Impostor Vision
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption time={{default: 3}}>
+  <Fragment slot='title'>
+    ### Waiting Time After Meeting
+  </Fragment>
+  Specifies the amount of time the Soul Hunter is frozen for after a meeting when having a marked player.
+</RoleOption>
 
-Decides whether or not the Soul Hunter has Impostor Vision.
-</details>
+<RoleOption time={{default: 30}}>
+  <Fragment slot='title'>
+    ### Time To Kill Target
+  </Fragment>
+  Specifies how much time the Soul Hunter has to kill its marked player.
+</RoleOption>
 
-<details>
-<summary>
-### Number of Souls Required To Win
-</summary>
-**Type:** `Number`\
-**Default:** `3`
-
-Specifies how many Souls the Soul Hunter must get to satisfy their win condition.
-</details>
-
-<details>
-<summary>
-### Waiting Time After Meeting
-</summary>
-**Type:** `Time`\
-**Default:** `3s`
-
-Specifies the amount of time the Soul Hunter is frozen for after a meeting when having a marked player.
-</details>
-
-<details>
-<summary>
-### Time To Kill Target
-</summary>
-**Type:** `Time`\
-**Default:** `30s`
-
-Specifies how much time the Soul Hunter has to kill its marked player.
-</details>
-
-<details>
-<summary>
-### Gain Soul When Target Dies By Other Means
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Soul Hunter gains a soul instead of losing one when the marked player dies to anything other than the Soul Hunter in the specified killing time.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Gain Soul When Target Dies By Other Means
+  </Fragment>
+  Decides whether or not the Soul Hunter gains a soul instead of losing one when the marked player dies to anything other than the Soul Hunter in the specified killing time.
+</RoleOption>

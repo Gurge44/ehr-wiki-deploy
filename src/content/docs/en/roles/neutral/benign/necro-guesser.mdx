@@ -4,7 +4,8 @@ description: Learn how the Necro-Guesser works in the Endless Host Roles Among U
 shortDesc: Can guess the roles of dead players.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Crewmate"
@@ -18,22 +19,16 @@ The **Necro-Guesser** is a Neutral Benign role. The Necro-Guesser is able to gue
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies how many Necro-Guessers can appear in one game.
+</RoleOption>
 
-Specifies how many Necro-Guessers can appear in one game.
-</details>
-
-<details>
-<summary>
-### Number of Guesses Required to Win
-</summary>
-**Type:** `Number`\
-**Default:** `3`
-
-Specifies how many dead player roles the Necro-Guesser must guess to satisfy their win condition.
-</details>
+<RoleOption number={{default: 3}}>
+  <Fragment slot='title'>
+    ### Number of Guesses Required to Win
+  </Fragment>
+  Specifies how many dead player roles the Necro-Guesser must guess to satisfy their win condition.
+</RoleOption>

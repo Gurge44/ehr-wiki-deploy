@@ -4,7 +4,8 @@ description: Learn how the Impartial role works in the Endless Host Roles Among 
 shortDesc: Must kill a certain amount of players from each team.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -19,122 +20,86 @@ The **Impartial** is a Neutral Benign role. Despite having the Benign alignment,
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Impartials that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Impartials that can appear in one game.
-</details>
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Minimum Number of Impostors to Kill
+  </Fragment>
+  Specifies the minimum amount of Impostors the Impartial must kill to satisfy their win condition.
+</RoleOption>
 
-<details>
-<summary>
-### Minimum Number of Impostors to Kill
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Maximum Number of Impostors to Kill
+  </Fragment>
+  Specifies the maximum amount of Impostors the Impartial can kill to satisfy their win condition.
+</RoleOption>
 
-Specifies the minimum amount of Impostors the Impartial must kill to satisfy their win condition.
-</details>
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Minimum Number of Neutrals to Kill
+  </Fragment>
+  Specifies the minimum amount of Neutrals the Impartial must kill to satisfy their win condition.
+</RoleOption>
 
-<details>
-<summary>
-### Maximum Number of Impostors to Kill
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Maximum Number of Neutrals to Kill
+  </Fragment>
+  Specifies the maximum amount of Neutrals the Impartial can kill to satisfy their win condition.
+</RoleOption>
 
-Specifies the maximum amount of Impostors the Impartial can kill to satisfy their win condition.
-</details>
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Minimum Number of Crewmates to Kill
+  </Fragment>
+  Specifies the minimum amount of Crewmates the Impartial must kill to satisfy their win condition.
+</RoleOption>
 
-<details>
-<summary>
-### Minimum Number of Neutrals to Kill
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Maximum Number of Crewmates to Kill
+  </Fragment>
+  Specifies the maximum amount of Crewmates the Impartial can kill to satisfy their win condition.
+</RoleOption>
 
-Specifies the minimum amount of Neutrals the Impartial must kill to satisfy their win condition.
-</details>
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Minimum Number of Coven to Kill
+  </Fragment>
+  Specifies the minimum amount of Coven the Impartial must kill to satisfy their win condition.
+</RoleOption>
 
-<details>
-<summary>
-### Maximum Number of Neutrals to Kill
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Maximum Number of Coven to Kill
+  </Fragment>
+  Specifies the maximum amount of Coven the Impartial can kill to satisfy their win condition.
+</RoleOption>
 
-Specifies the maximum amount of Neutrals the Impartial can kill to satisfy their win condition.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Vent
+  </Fragment>
+  Decides whether or not the Impartial can Vent.
+</RoleOption>
 
-<details>
-<summary>
-### Minimum Number of Crewmates to Kill
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Has Impostor Vision
+  </Fragment>
+  Decides whether or not the Impartial has Impostor Vision.
+</RoleOption>
 
-Specifies the minimum amount of Crewmates the Impartial must kill to satisfy their win condition.
-</details>
-
-<details>
-<summary>
-### Maximum Number of Crewmates to Kill
-</summary>
-**Type:** `Number`\
-**Default:** `1`
-
-Specifies the maximum amount of Crewmates the Impartial can kill to satisfy their win condition.
-</details>
-
-<details>
-<summary>
-### Minimum Number of Coven to Kill
-</summary>
-**Type:** `Number`\
-**Default:** `1`
-
-Specifies the minimum amount of Coven the Impartial must kill to satisfy their win condition.
-</details>
-
-<details>
-<summary>
-### Maximum Number of Coven to Kill
-</summary>
-**Type:** `Number`\
-**Default:** `1`
-
-Specifies the maximum amount of Coven the Impartial can kill to satisfy their win condition.
-</details>
-
-<details>
-<summary>
-### Can Vent
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Impartial can Vent.
-</details>
-
-<details>
-<summary>
-### Has Impostor Vision
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Impartial has Impostor Vision.
-</details>
-
-<details>
-<summary>
-### Can Win Even When Killing More of a Team than the Maximum
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Impartial wins with the winning team even if they kill more than the set maximum amount of players in a faction.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Win Even When Killing More of a Team than the Maximum
+  </Fragment>
+  Decides whether or not the Impartial wins with the winning team even if they kill more than the set maximum amount of players in a faction.
+</RoleOption>

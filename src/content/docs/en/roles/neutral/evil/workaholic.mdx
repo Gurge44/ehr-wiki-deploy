@@ -4,7 +4,8 @@ description: Learn how the Workaholic role works in the Endless Host Roles Among
 shortDesc: The Workaholic must finish their tasks to win.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Engineer"
@@ -22,102 +23,74 @@ The **Workaholic** is a Neutral Evil role. When the Workaholic completes its tas
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Workaholics that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Workaholics that can appear in one game.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can't Win After They Died
+  </Fragment>
+  Decides whether or not the Workaholic is unable to win after death.
+</RoleOption>
 
-<details>
-<summary>
-### Can't Win After They Died
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption time={{default: 30}}>
+  <Fragment slot='title'>
+    ### Vent Cooldown
+  </Fragment>
+  Specifies the cooldown of the Workaholic for Venting.
+</RoleOption>
 
-Decides whether or not the Workaholic is unable to win after death.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Everyone Knows Who the Workaholic Is
+  </Fragment>
+  Decides whether or not the Workaholic's role is revealed to everyone.
+</RoleOption>
 
-<details>
-<summary>
-### Vent Cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `30s`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Override Workaholic's Tasks
+  </Fragment>
+  Decides whether or not the Workaholic has a custom amount of tasks set by the host.
 
-Specifies the cooldown of the Workaholic for Venting.
-</details>
+  <Fragment slot='sub-options'>
+    <RoleOption toggle={{default: false}}>
+      <Fragment slot='title'>
+        #### Workaholic Has Common Tasks
+      </Fragment>
+      Decides whether or not the Workaholic has Common Tasks.
+    </RoleOption>
 
-<details>
-<summary>
-### Everyone knows who the Workaholic is
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+    <RoleOption number={{}}>
+      <Fragment slot='title'>
+        #### Amount of Long Tasks for Workaholic
+      </Fragment>
+      Specifies how many Long Tasks the Workaholic has.
+    </RoleOption>
 
-Decides whether or not the Workaholic's role is revealed to everyone.
-</details>
+    <RoleOption number={{}}>
+      <Fragment slot='title'>
+        #### Amount of Short Tasks for Workaholic
+      </Fragment>
+      Specifies how many Short Tasks the Workaholic has.
+    </RoleOption>
+  </Fragment>
+</RoleOption>
 
-<details>
-<summary>
-### Override Workaholic's Tasks
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Guess in Guesser Mode
+  </Fragment>
+  Decides whether or not the Workaholic can guess in Guesser Mode.
+</RoleOption>
 
-Decides whether or not the Workaholic has a custom amount of tasks set by the host.
-
-<details>
-<summary>
-#### Workaholic has Common Tasks
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Workaholic has Common Tasks.
-</details>
-
-<details>
-<summary>
-#### Amount of Long Tasks for Workaholic
-</summary>
-**Type:** `Number`\
-**Default:** `The default amount of Long Tasks for crewmates`
-
-Specifies how many Long Tasks the Workaholic has.
-</details>
-
-<details>
-<summary>
-#### Amount of Short Tasks for Workaholic
-</summary>
-**Type:** `Number`\
-**Default:** `The default amount of Short Tasks for crewmates`
-
-Specifies how many Short Tasks the Workaholic has.
-</details>
-</details>
-
-<details>
-<summary>
-### Can Guess in Guesser Mode
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Workaholic can guess in Guesser Mode.
-</details>
-
-<details>
-<summary>
-### Workaholic Speed
-</summary>
-**Type:** `Multiplier`\
-**Default:** `1.5x`
-
-Specifies the movement speed of the Workaholic.
-</details>
+<RoleOption multiplier={{default: 1.5}}>
+  <Fragment slot='title'>
+    ### Workaholic Speed
+  </Fragment>
+  Specifies the movement speed of the Workaholic.
+</RoleOption>

@@ -4,7 +4,8 @@ description: Learn how the Clerk role works in the Endless Host Roles Among Us m
 shortDesc: The Clerk can collect tax from crewmates.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Crewmate"
@@ -25,52 +26,37 @@ The Clerk only wins with the Crewmates if the game ends due to a task win (meani
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Sets the maximum number of Clerks that can appear in a match.
+</RoleOption>
 
-Sets the maximum number of Clerks that can appear in a match.
-</details>
+<RoleOption number={{default: 5}}>
+  <Fragment slot='title'>
+    ### Initial Ability Uses
+  </Fragment>
+  Determines how many collect tax votes the Clerk starts with.
+</RoleOption>
 
-<details>
-<summary>
-### Initial Ability Uses
-</summary>
-**Type:** `Number`\
-**Default:** `5`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Use Ability on First Meeting
+  </Fragment>
+  Allows or prevents the Clerk from using their ability during the first meeting.
+</RoleOption>
 
-Determines how many collect tax votes the Clerk starts with.
-</details>
+<RoleOption multiplier={{default: 1.8}}>
+  <Fragment slot='title'>
+    ### Increased Speed
+  </Fragment>
+  Specifies the speed boost granted to a player who receives a tax refund.
+</RoleOption>
 
-<details>
-<summary>
-### Can Use Ability on First Meeting
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Allows or prevents the Clerk from using their ability during the first meeting.
-</details>
-
-<details>
-<summary>
-### Increased Speed
-</summary>
-**Type:** `Multiplier`\
-**Default:** `1.8x`
-
-Specifies the speed boost granted to a player who receives a tax refund.
-</details>
-
-<details>
-<summary>
-### Increased Vision
-</summary>
-**Type:** `Multiplier`\
-**Default:** `1x`
-
-Specifies the vision boost granted to a player who receives a tax refund.
-</details>
+<RoleOption multiplier={{default: 1}}>
+  <Fragment slot='title'>
+    ### Increased Vision
+  </Fragment>
+  Specifies the vision boost granted to a player who receives a tax refund.
+</RoleOption>

@@ -4,7 +4,8 @@ description: Learn about the Opportunist role in the Endless Host Roles Among Us
 shortDesc: Must survive till the end of the game.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Crewmate/Engineer"
@@ -18,72 +19,53 @@ The **Opportunist** is a Neutral Benign role. The Opportunist's win condition is
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies how many Opportunists can appear in one game.
+</RoleOption>
 
-Specifies how many Opportunists can appear in one game.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Immune to Attacks on Task Completion
+  </Fragment>
+  Decides whether or not the Opportunist becomes immune to regular attacks after completing their tasks.
+</RoleOption>
 
-<details>
-<summary>
-### Immune to attacks on task completion
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Vent
+  </Fragment>
+  Decides whether or not the Opportunist can Vent.
+</RoleOption>
 
-Decides whether or not the Opportunist becomes immune to regular attacks after completing their tasks.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Override Opportunist's Tasks
+  </Fragment>
+  Decides whether or not the Opportunist has a custom task amount sent by the host.
 
-<details>
-<summary>
-### Can Vent
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+  <Fragment slot='sub-options'>
+    <RoleOption toggle={{default: false}}>
+      <Fragment slot='title'>
+        #### Opportunist Has Common Tasks
+      </Fragment>
+      Decides whether or not the Opportunist has Common tasks.
+    </RoleOption>
 
-Decides whether or not the Opportunist can Vent.
-</details>
+    <RoleOption number={{}}>
+      <Fragment slot='title'>
+        #### Amount of Long Tasks for Opportunist
+      </Fragment>
+      Specifies how many Long Tasks the Opportunist has.
+    </RoleOption>
 
-<details>
-<summary>
-### Override Opportunist's Tasks
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Opportunist has a custom task amount sent by the host.
-
-<details>
-<summary>
-#### Opportunist has Common Tasks
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Opportunist has Common tasks.
-</details>
-
-<details>
-<summary>
-#### Amount of Long Tasks for Opportunist
-</summary>
-**Type:** `Number`\
-**Default:** `The default amount of long tasks for crewmates`
-
-Specifies how many Long Tasks the Opportunist has.
-</details>
-
-<details>
-<summary>
-#### Amount of Short Tasks for Opportunist
-</summary>
-**Type:** `Number`\
-**Default:** `The default amount of short tasks for crewmates`
-
-Specifies how many Short Tasks the Opportunist has.
-</details>
-</details>
+    <RoleOption number={{}}>
+      <Fragment slot='title'>
+        #### Amount of Short Tasks for Opportunist
+      </Fragment>
+      Specifies how many Short Tasks the Opportunist has.
+    </RoleOption>
+  </Fragment>
+</RoleOption>

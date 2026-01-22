@@ -4,8 +4,8 @@ description: Learn how the Auditor role works in The endless host roles among us
 shortDesc: The Auditor may audit or smokebomb others.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
-import RoleOption from '@components/RoleOption.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Phantom"
@@ -22,65 +22,51 @@ The **Auditor** is a Neutral Pariah role that can switch between Auditing and Sm
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
 <RoleOption number={{default: 1, min: 1, max: 15}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
   Specifies the maximum amount of Auditors that can appear in one game.
 </RoleOption>
-</details>
 
-<details>
-<summary>
-### Lowered vision
-</summary>
 <RoleOption multiplier={{default: 0.3}}>
+  <Fragment slot='title'>
+    ### Lowered Vision
+  </Fragment>
   Specifies the vision multiplier for a smokebombed player.
 </RoleOption>
-</details>
 
-<details>
-<summary>
-### Lowered vision duration
-</summary>
 <RoleOption time={{default: 10}}>
+  <Fragment slot='title'>
+    ### Lowered Vision Duration
+  </Fragment>
   Specifies how long the lowered vision lasts.
 </RoleOption>
-</details>
 
-<details>
-<summary>
-### Steal all charges
-</summary>
 <RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Steal All Charges
+  </Fragment>
   Decides whether the Auditor takes one ability charge or all remaining ability charges from the target.
 </RoleOption>
-</details>
 
-<details>
-<summary>
-### Initial ability uses
-</summary>
 <RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Initial Ability Uses
+  </Fragment>
   Specifies how many ability uses the Auditor starts the game with.
 </RoleOption>
-</details>
 
-<details>
-<summary>
-### Smokebomb cooldown
-</summary>
 <RoleOption time={{default: 30}}>
+  <Fragment slot='title'>
+    ### Smokebomb Cooldown
+  </Fragment>
   Specifies how long the Auditor has to wait before they can Smokebomb again.
 </RoleOption>
-</details>
 
-<details>
-<summary>
-### Audit cooldown
-</summary>
 <RoleOption time={{default: 30}}>
+  <Fragment slot='title'>
+    ### Audit Cooldown
+  </Fragment>
   Specifies how long the Auditor has to wait before they can Audit again.
 </RoleOption>
-</details>

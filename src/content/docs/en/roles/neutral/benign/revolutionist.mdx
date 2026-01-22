@@ -4,7 +4,8 @@ description: Learn how the Revolutionist role works in the Endless Host Roles Am
 shortDesc: The Revolutionist can recruit players to win with them.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -26,62 +27,44 @@ The Revolutionist must tag a certain amount of players. When this amount is reac
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Revolutionists that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Revolutionists that can appear in one game.
-</details>
+<RoleOption time={{default: 3}}>
+  <Fragment slot='title'>
+    ### Tag Duration
+  </Fragment>
+  Specifies how long the Revolutionist must stay near their target to tag them.
+</RoleOption>
 
-<details>
-<summary>
-### Tag Duration
-</summary>
-**Type:** `Time`\
-**Default:** `3s`
+<RoleOption time={{default: 10}}>
+  <Fragment slot='title'>
+    ### Tag Cooldown
+  </Fragment>
+  Specifies the Revolutionist's cooldown for tagging players.
+</RoleOption>
 
-Specifies how long the Revolutionist must stay near their target to tag them.
-</details>
+<RoleOption number={{default: 6}}>
+  <Fragment slot='title'>
+    ### Amount of Players Needed to Tag
+  </Fragment>
+  Specifies how many players need to be tagged to instruct all to vent to win.
+</RoleOption>
 
-<details>
-<summary>
-### Tag Cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `10s`
+<RoleOption percentage={{default: 15}}>
+  <Fragment slot='title'>
+    ### Tagged Player Sacrifice Probability
+  </Fragment>
+  Specifies the chance that a tagged player is killed by the Revolutionist.
+</RoleOption>
 
-Specifies the Revolutionist's cooldown for tagging players.
-</details>
-
-<details>
-<summary>
-### Amount of players needed to tag
-</summary>
-**Type:** `Number`\
-**Default:** `6`
-
-Specifies how many players need to be tagged to instruct all to vent to win.
-</details>
-
-<details>
-<summary>
-### Tagged player sacrifice probability
-</summary>
-**Type:** `Percentage`\
-**Default:** `15%`
-
-Specifies the chance that a tagged player is killed by the Revolutionist.
-</details>
-
-<details>
-<summary>
-### Time to Vent
-</summary>
-**Type:** `Time`\
-**Default:** `15s`
-
-Specifies the amount of time tagged players have to vent to win when enough players are tagged.
-</details>
+<RoleOption time={{default: 15}}>
+  <Fragment slot='title'>
+    ### Time to Vent
+  </Fragment>
+  Specifies the amount of time tagged players have to vent to win when enough players are tagged.
+</RoleOption>

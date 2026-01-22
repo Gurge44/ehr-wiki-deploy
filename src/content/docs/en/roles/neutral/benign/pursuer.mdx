@@ -4,7 +4,8 @@ description: Learn how the Pursuer role works in the Endless Host Roles Among Us
 shortDesc: The Pursuer can cause someone's kill to fail.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -18,32 +19,23 @@ The **Pursuer** is a Neutral Benign role. The Pursuer can use their kill button 
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies how many Pursuers can appear in one game.
+</RoleOption>
 
-Specifies how many Pursuers can appear in one game.
-</details>
+<RoleOption time={{default: 15}}>
+  <Fragment slot='title'>
+    ### Ability Cooldown
+  </Fragment>
+  Specifies the cooldown for the Pursuer's ability.
+</RoleOption>
 
-<details>
-<summary>
-### Ability Cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `15s`
-
-Specifies the cooldown for the Pursuer's ability.
-</details>
-
-<details>
-<summary>
-### Max number of uses
-</summary>
-**Type:** `Number`\
-**Default:** `2`
-
-Specifies how many times the Pursuer can use its ability.
-</details>
+<RoleOption number={{default: 2}}>
+  <Fragment slot='title'>
+    ### Max Number of Uses
+  </Fragment>
+  Specifies how many times the Pursuer can use its ability.
+</RoleOption>

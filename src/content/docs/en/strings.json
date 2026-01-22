@@ -39,7 +39,8 @@
     "toggle": "Toggle",
     "multiplier": "Multiplier",
     "number": "Number",
-    "array": "Array"
+    "array": "Array",
+    "percentage": "Percentage"
   },
   "units": {
     "multiplier": "x",

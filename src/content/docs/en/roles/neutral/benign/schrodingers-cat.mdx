@@ -4,7 +4,8 @@ description: Learn how the Schrödinger's Cat role works in The Endless Host Rol
 shortDesc: The Schrödinger's Cat takes on their attacker's role.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Crewmate"
@@ -20,22 +21,16 @@ The **Schrödinger's Cat** is a Neutral Benign role that has the ability to surv
 
 ## Role Options
 
-<details>
-<summary>
-### Wins with Crewmates if Not Attacked
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Wins with Crewmates if Not Attacked
+  </Fragment>
+  Decides whether the Schrödinger's Cat wins with the Crewmates if they are not attacked during the game.
+</RoleOption>
 
-Decides whether the Schrödinger's Cat wins with the Crewmates if they are not attacked during the game.
-</details>
-
-<details>
-<summary>
-### Steals the exact Impostor role instead of Renegade
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether the Schrödinger's Cat takes on the Impostor's exact role if attacked by an Impostor, instead of changing to the [**Renegade**](../../../impostor/madmate/renegade) role.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Steals the Exact Impostor Role Instead of Renegade
+  </Fragment>
+  Decides whether the Schrödinger's Cat takes on the Impostor's exact role if attacked by an Impostor, instead of changing to the [**Renegade**](../../../impostor/madmate/renegade) role.
+</RoleOption>

@@ -4,7 +4,8 @@ description: Learn how the Innocent role works in The Endless Host Roles Among U
 shortDesc: The Innocent frames others for their death.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -23,22 +24,16 @@ The Innocent can win together with: [**Jester**](../../evil/jester) and [**Execu
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Innocents that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Innocents that can appear in one game.
-</details>
-
-<details>
-<summary>
-### Innocent win with framed Impostor
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Innocent wins with the Impostor's team if the framed Impostor is ejected.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Innocent Win With Framed Impostor
+  </Fragment>
+  Decides whether or not the Innocent wins with the Impostor's team if the framed Impostor is ejected.
+</RoleOption>

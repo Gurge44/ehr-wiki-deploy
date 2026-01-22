@@ -4,7 +4,8 @@ description: Learn how the Provocateur role works in the Endless Host Roles Amon
 shortDesc: The Provocatuer can kill one person per game to win if that person loses.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -22,12 +23,9 @@ When the Provocateur executes this ability, the target's death reason is registe
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
-
-Specifies how many Provocateurs can appear in one game.
-</details>
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Provocateurs that can appear in one game.
+</RoleOption>

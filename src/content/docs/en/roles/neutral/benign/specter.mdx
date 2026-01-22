@@ -4,7 +4,8 @@ description: Learn how the Specter role works in the Endless Host Roles Among Us
 shortDesc: The Specter must die and finish their tasks to win.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Crewmate"
@@ -18,82 +19,60 @@ The **Specter** is a Neutral Benign role. The Specter must complete their tasks,
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies how many Specters can appear in one game.
+</RoleOption>
 
-Specifies how many Specters can appear in one game.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Vent
+  </Fragment>
+  Decides whether or not the Specter can Vent.
+</RoleOption>
 
-<details>
-<summary>
-### Can Vent
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Snatches Victory
+  </Fragment>
+  Decides whether or not the Specter wins alone after finishing tasks instead of with the winning team.
+</RoleOption>
 
-Decides whether or not the Specter can Vent.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Guess In Guesser Mode
+  </Fragment>
+  Decides whether or not the Specter can Guess in Guesser mode.
+</RoleOption>
 
-<details>
-<summary>
-### Snatches Victory
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Override Specter's Tasks
+  </Fragment>
+  Decides whether or not the Specter gets a custom amount of tasks set by the host.
 
-Decides whether or not the Specter wins alone after finishing tasks instead of with the winning team.
-</details>
+  <Fragment slot='sub-options'>
+    <RoleOption toggle={{default: false}}>
+      <Fragment slot='title'>
+        #### Specter Has Common Tasks
+      </Fragment>
+      Decides whether or not the Specter gets Common Tasks.
+    </RoleOption>
 
-<details>
-<summary>
-### Can Guess In Guesser Mode
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+    <RoleOption number={{}}>
+      <Fragment slot='title'>
+        #### Amount of Long Tasks for Specter
+      </Fragment>
+      Specifies how many Long Tasks the Specter has.
+    </RoleOption>
 
-Decides whether or not the Specter can Guess in Guesser mode.
-</details>
-
-<details>
-<summary>
-### Override Specter's Tasks
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Specter gets a custom amount of tasks set by the host.
-
-<details>
-<summary>
-#### Specter has Common Tasks
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Specter gets Common Tasks.
-</details>
-
-<details>
-<summary>
-#### Amount of Long Tasks for Specter
-</summary>
-**Type:** `Number`\
-**Default:** `The default amount of long tasks for crewmates`
-
-Specifies how many Long Tasks the Specter has.
-</details>
-
-<details>
-<summary>
-#### Amount of Short Tasks for Specter
-</summary>
-**Type:** `Number`\
-**Default:** `The default amount of short tasks for crewmates`
-
-Specifies how many Short Tasks the Specter has.
-</details>
-</details>
+    <RoleOption number={{}}>
+      <Fragment slot='title'>
+        #### Amount of Short Tasks for Specter
+      </Fragment>
+      Specifies how many Short Tasks the Specter has.
+    </RoleOption>
+  </Fragment>
+</RoleOption>

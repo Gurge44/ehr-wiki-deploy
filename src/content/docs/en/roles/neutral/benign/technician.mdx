@@ -4,7 +4,8 @@ description: Learn how the Technician role works in The endless host roles among
 shortDesc: The Technician must fix sabotages to satisfy their win condition.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Crewmate"
@@ -20,82 +21,58 @@ The **Technician** is a Neutral Benign role that must fix sabotages to satisfy t
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Technicians that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Technicians that can appear in one game.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Wins Alone
+  </Fragment>
+  Decides whether or not the Technician wins alone instead of with the winning team.
+</RoleOption>
 
-<details>
-<summary>
-### Wins Alone
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption number={{default: 5}}>
+  <Fragment slot='title'>
+    ### Required Points To Win
+  </Fragment>
+  Specifies the amount of points that the Technician must reach to satisfy their win condition.
+</RoleOption>
 
-Decides whether or not the Technician wins alone instead of with the winning team.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Vent
+  </Fragment>
+  Decides whether or not the Technician can Vent.
+</RoleOption>
 
-<details>
-<summary>
-### Required Points To Win
-</summary>
-**Type:** `Number`\
-**Default:** `5`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Points Gained for Fixing Lights
+  </Fragment>
+  Specifies how many points the Technician gains from fixing the Lights Sabotage.
+</RoleOption>
 
-Specifies the amount of points that the Technician must reach to satisfy their win condition.
-</details>
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Points Gained for Fixing Comms
+  </Fragment>
+  Specifies how many points the Technician gains from fixing the Communications Sabotage.
+</RoleOption>
 
-<details>
-<summary>
-### Can Vent
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Points Gained for Fixing O2
+  </Fragment>
+  Specifies how many points the Technician gains from fixing the Oxygen Sabotage.
+</RoleOption>
 
-Decides whether or not the Technician can Vent.
-</details>
-
-<details>
-<summary>
-### Points gained for fixing Lights
-</summary>
-**Type:** `Number`\
-**Default:** `1`
-
-Specifies how many points the Technician gains from fixing the Lights Sabotage.
-</details>
-
-<details>
-<summary>
-### Points gained for fixing Comms
-</summary>
-**Type:** `Number`\
-**Default:** `1`
-
-Specifies how many points the Technician gains from fixing the Communications Sabotage.
-</details>
-
-<details>
-<summary>
-### Points gained for fixing O2
-</summary>
-**Type:** `Number`\
-**Default:** `1`
-
-Specifies how many points the Technician gains from fixing the Oxygen Sabotage.
-</details>
-
-<details>
-<summary>
-### Points gained for fixing Reactor
-</summary>
-**Type:** `Number`\
-**Default:** `1`
-
-Specifies how many points the Technician gains from fixing the Reactor Sabotage.
-</details>
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Points Gained for Fixing Reactor
+  </Fragment>
+  Specifies how many points the Technician gains from fixing the Reactor Sabotage.
+</RoleOption>

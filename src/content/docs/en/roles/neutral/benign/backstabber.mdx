@@ -4,7 +4,8 @@ description: Learn how the Backstabber role works in the Endless Host Roles Amon
 shortDesc: The Backstabber kills a player to decide what team they win with.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -22,42 +23,30 @@ The **Backstabber** is a Neutral Benign role. **It possesses a unique killing ab
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies how many Backstabbers can appear in one game.
+</RoleOption>
 
-Specifies how many Backstabbers can appear in one game.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Vent
+  </Fragment>
+  Decides whether or not the Backstabber can Vent.
+</RoleOption>
 
-<details>
-<summary>
-### Can Vent
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Has Impostor Vision
+  </Fragment>
+  Decides whether or not the Backstabber has Impostor Vision.
+</RoleOption>
 
-Decides whether or not the Backstabber can Vent.
-</details>
-
-<details>
-<summary>
-### Has Impostor Vision
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Backstabber has Impostor Vision.
-</details>
-
-<details>
-<summary>
-### Revealed After Killing
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Backstabber's role becomes visible after using up their 1 kill.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Revealed After Killing
+  </Fragment>
+  Decides whether or not the Backstabber's role becomes visible after using up their 1 kill.
+</RoleOption>

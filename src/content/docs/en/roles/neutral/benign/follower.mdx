@@ -4,7 +4,8 @@ description: Learn how the Follower role works in the Endless Host Roles Among U
 shortDesc: The Follower can choose a target to win with them.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -19,72 +20,51 @@ The **Follower** is a Neutral Benign role. When the Follower uses its kill butto
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Followers that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Followers that can appear in one game.
-</details>
+<RoleOption number={{default: 3}}>
+  <Fragment slot='title'>
+    ### Maximum Number of Follows
+  </Fragment>
+  Specifies the maximum amount of players the Follower is able to Follow per game.
+</RoleOption>
 
-<details>
-<summary>
-### Maximum Number of Follows
-</summary>
-**Type:** `Number`\
-**Default:** `3`
+<RoleOption time={{default: 10}}>
+  <Fragment slot='title'>
+    ### Follow Cooldown
+  </Fragment>
+  Specifies the cooldown for the Follower's Follow.
+</RoleOption>
 
-Specifies the maximum amount of players the Follower is able to Follow per game.
-</details>
+<RoleOption time={{default: 10}}>
+  <Fragment slot='title'>
+    ### Increase Cooldown per 1 Follow By
+  </Fragment>
+  Specifies how much time is added to the Follower's Follow cooldown each time it is used.
+</RoleOption>
 
-<details>
-<summary>
-### Follow Cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `10s`
+<RoleOption time={{default: 70}}>
+  <Fragment slot='title'>
+    ### Maximum Follow Cooldown
+  </Fragment>
+  Specifies the maximum amount of time the Follower's Follow cooldown can be increased to.
+</RoleOption>
 
-Specifies the cooldown for the Follower's Follow.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Follower Knows Their Target's Role
+  </Fragment>
+  Decides whether or not the role of the target of the Follower is revealed to the Follower.
+</RoleOption>
 
-<details>
-<summary>
-### Increase Cooldown per 1 follow by
-</summary>
-**Type:** `Time`\
-**Default:** `10s`
-
-Specifies how much time is added to the Follower's Follow cooldown each time it is used.
-</details>
-
-<details>
-<summary>
-### Maximum Follow Cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `70s`
-
-Specifies the maximum amount of time the Follower's Follow cooldown can be increased to.
-</details>
-
-<details>
-<summary>
-### Follower Knows Their Target's Role
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the role of the target of the Follower is revealed to the Follower.
-</details>
-
-<details>
-<summary>
-### Follower Target Knows Who the Follower Is
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the role of the Follower is revealed to their target.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Follower Target Knows Who the Follower Is
+  </Fragment>
+  Decides whether or not the role of the Follower is revealed to their target.
+</RoleOption>

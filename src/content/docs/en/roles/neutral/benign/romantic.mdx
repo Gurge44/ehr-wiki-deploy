@@ -4,7 +4,8 @@ description: Learn how the Romantic role works in the Endless Host Roles Among U
 shortDesc: The Romantic can choose a partner to win with them.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -30,142 +31,100 @@ It is also important to note that the Romantic is a **Unique role**, meaning its
 
 ## Role Options
 
-<details>
-<summary>
-### Pick Partner Cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `7s`
+<RoleOption time={{default: 7}}>
+  <Fragment slot='title'>
+    ### Pick Partner Cooldown
+  </Fragment>
+  Specifies the cooldown of the Romantic for picking a partner.
+</RoleOption>
 
-Specifies the cooldown of the Romantic for picking a partner.
-</details>
+<RoleOption time={{default: 25}}>
+  <Fragment slot='title'>
+    ### Protect Cooldown
+  </Fragment>
+  Specifies the cooldown of the Romantic for applying a shield to their partner.
+</RoleOption>
 
-<details>
-<summary>
-### Protect Cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `25s`
+<RoleOption time={{default: 10}}>
+  <Fragment slot='title'>
+    ### Protect Duration
+  </Fragment>
+  Specifies how long the shield lasts for the partner.
+</RoleOption>
 
-Specifies the cooldown of the Romantic for applying a shield to their partner.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Romantic Knows Their Target's Role
+  </Fragment>
+  Decides whether or not the Romantic can see its partner's role.
+</RoleOption>
 
-<details>
-<summary>
-### Protect Duration
-</summary>
-**Type:** `Time`\
-**Default:** `10s`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Target Knows Who the Romantic Is
+  </Fragment>
+  Decides whether or not the Romantic's partner knows who the Romantic is.
+</RoleOption>
 
-Specifies how long the shield lasts for the partner.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Romantic Gets the Converted Add-ons of Their Partner
+  </Fragment>
+  Decides whether or not the Romantic obtains the betrayal add-ons of the partner after choosing them.
+</RoleOption>
 
-<details>
-<summary>
-### Romantic knows their target's role
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Romantic Has Arrows Pointing to Their Partner
+  </Fragment>
+  Decides whether or not the Romantic gets an arrow that points to its partner's location.
+</RoleOption>
 
-Decides whether or not the Romantic can see its partner's role.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Partner Has Arrows Pointing to the Romantic
+  </Fragment>
+  Decides whether or not the Partner of the Romantic gets an arrow that points to the Romantic's location.
+</RoleOption>
 
-<details>
-<summary>
-### Target knows who the Romantic is
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption time={{default: 22.5}}>
+  <Fragment slot='title'>
+    ### Vengeful Romantic Kill Cooldown
+  </Fragment>
+  Specifies the kill cooldown of the Vengeful Romantic.
+</RoleOption>
 
-Decides whether or not the Romantic's partner knows who the Romantic is.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Vengeful Romantic Can Vent
+  </Fragment>
+  Decides whether or not the Vengeful Romantic can Vent.
+</RoleOption>
 
-<details>
-<summary>
-### Romantic gets the converted add-ons of their partner
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Vengeful Romantic Has Impostor Vision
+  </Fragment>
+  Decides whether or not the Vengeful Romantic has Impostor Vision.
+</RoleOption>
 
-Decides whether or not the Romantic obtains the betrayal add-ons of the partner after choosing them.
-</details>
+<RoleOption time={{default: 22.5}}>
+  <Fragment slot='title'>
+    ### Ruthless Romantic Kill Cooldown
+  </Fragment>
+  Specifies the kill cooldown of the Ruthless Romantic.
+</RoleOption>
 
-<details>
-<summary>
-### Romantic has arrows pointing to their Partner
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Ruthless Romantic Can Vent
+  </Fragment>
+  Decides whether or not the Ruthless Romantic can Vent.
+</RoleOption>
 
-Decides whether or not the Romantic gets an arrow that points to its partner's location.
-</details>
-
-<details>
-<summary>
-### Partner has arrows pointing to the Romantic
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Partner of the Romantic gets an arrow that points to the Romantic's location.
-</details>
-
-<details>
-<summary>
-### Vengeful Romantic Kill Cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `22.5s`
-
-Specifies the kill cooldown of the Vengeful Romantic.
-</details>
-
-<details>
-<summary>
-### Vengeful Romantic Can Vent
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Vengeful Romantic can Vent.
-</details>
-
-<details>
-<summary>
-### Vengeful Romantic has Impostor Vision
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Vengeful Romantic has Impostor Vision.
-</details>
-
-<details>
-<summary>
-### Ruthless Romantic Kill Cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `22.5s`
-
-Specifies the kill cooldown of the Ruthless Romantic.
-</details>
-
-<details>
-<summary>
-### Ruthless Romantic Can Vent
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Ruthless Romantic can Vent.
-</details>
-
-<details>
-<summary>
-### Ruthless Romantic has Impostor Vision
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Ruthless Romantic has Impostor Vision.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Ruthless Romantic Has Impostor Vision
+  </Fragment>
+  Decides whether or not the Ruthless Romantic has Impostor Vision.
+</RoleOption>

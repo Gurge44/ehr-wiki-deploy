@@ -4,7 +4,8 @@ description: Learn how the God role works in the Endless Host Roles Among Us mod
 shortDesc: The God knows the roles of all players and must survive till the end of the game to win.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Crewmate"
@@ -22,47 +23,35 @@ The **God** is a Neutral Chaos role. The God can see the roles of all players, a
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Gods that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Gods that can appear in one game.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Inform Player at Meetings That God Is Still Alive
+  </Fragment>
+  If on, at the start of each meeting where God is still alive, a coral-colored message is sent through the lowest ID player visible to all: `-> [Message about God] <-`
+  The message reads: "During the meeting, each player felt a revelation from heaven, and it turned out that God is still alive!"
+</RoleOption>
 
-<details>
-<summary>
-### Inform player at meetings that God is still alive
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Guess in Guesser Mode
+  </Fragment>
+  Decides whether or not the God can guess if Guesser Mode is enabled.
 
-If on, at the start of each meeting where God is still alive, a coral colored message is sent through the lowest ID player visible to all: `-> [Message about God] <-`\
-The message reads in normal colored text: "During the meeting, each player felt a revelation from heaven, and it turned out that God is still alive!"
-</details>
+  <Aside type="danger">
+    **Immediate Win Risk:** Enabling the God to guess in Guesser Mode while also allowing them to know players' Roles (the default setting) is not recommended, as it permits the God to guess every player's role immediately, resulting in an instant win.
+  </Aside>
+</RoleOption>
 
-<details>
-<summary>
-### Can Guess in Guesser Mode
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the God can guess if Guesser Mode is enabled.
-</details>
-
-<details>
-<summary>
-### God knows other players'
-</summary>
-**Type:** `Select (Alignments, Roles)`\
-**Default:** `Roles`
-
-Decides what is revealed to the God: either Alignments or specific Roles.
-</details>
-
-<Aside type="danger">
-**Immediate Win Risk:** Enabling the God to guess in Guesser Mode while also allowing them to know players' Roles (the default setting) is not recommended, as it permits the God to guess every player's role immediately, resulting in an instant win.
-</Aside>
+<RoleOption select={{options: ['Alignments', 'Roles'], default: 'Roles'}}>
+  <Fragment slot='title'>
+    ### God Knows Other Players'
+  </Fragment>
+  Decides what is revealed to the God: either Alignments or specific Roles.
+</RoleOption>

@@ -4,7 +4,8 @@ description: Learn how the Investor role works in the Endless Host Roles Among U
 shortDesc: The Investor can mark players to win.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -18,32 +19,23 @@ The **Investor** is a Neutral Benign role. The Investor can use the kill button 
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Investors that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Investors that can appear in one game.
-</details>
+<RoleOption number={{default: 5}}>
+  <Fragment slot='title'>
+    ### Initial Ability Uses
+  </Fragment>
+  Specifies how many ability uses the Investor has.
+</RoleOption>
 
-<details>
-<summary>
-### Initial Ability Uses
-</summary>
-**Type:** `Number`\
-**Default:** `5`
-
-Specifies how many ability uses the Investor has.
-</details>
-
-<details>
-<summary>
-### Minimum Percentage of Winning Marked Players Needed to Win
-</summary>
-**Type:** `Percentage`\
-**Default:** `50%`
-
-Specifies the minimum percentage of marked players that must win for the Investor to win.
-</details>
+<RoleOption percentage={{default: 50}}>
+  <Fragment slot='title'>
+    ### Minimum Percentage of Winning Marked Players Needed to Win
+  </Fragment>
+  Specifies the minimum percentage of marked players that must win for the Investor to win.
+</RoleOption>

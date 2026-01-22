@@ -4,7 +4,8 @@ description: Learn how the Executioner role works in the Endless Host Roles Amon
 shortDesc: The Executioner is a neutral evil role. Their goal is to eject their target.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Crewmate"
@@ -21,92 +22,67 @@ Additionally, the Executioner may win alongside the Jester and Innocent if their
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Sets the maximum number of Executioners that can appear in a match.
+</RoleOption>
 
-Sets the maximum number of Executioners that can appear in a match.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Target Impostors
+  </Fragment>
+  Determines whether the Executioner is allowed to receive an Impostor as their target.
+</RoleOption>
 
-<details>
-<summary>
-### Can Target Impostors
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Target Neutral Killing
+  </Fragment>
+  Determines whether the Executioner is allowed to receive a Neutral Killing role as their target.
+</RoleOption>
 
-Determines whether the Executioner is allowed to receive an Impostor as their target.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Target Neutral Benign
+  </Fragment>
+  Determines whether the Executioner is allowed to receive a Neutral Benign role as their target.
+</RoleOption>
 
-<details>
-<summary>
-### Can Target Neutral Killing
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Target Neutral Evil
+  </Fragment>
+  Determines whether the Executioner is allowed to receive a Neutral Evil role as their target.
+</RoleOption>
 
-Determines whether the Executioner is allowed to receive a Neutral Killing role as their target.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Target Coven
+  </Fragment>
+  Determines whether the Executioner is allowed to receive a Coven role as their target.
+</RoleOption>
 
-<details>
-<summary>
-### Can Target Neutral Benign
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Know Role of Target
+  </Fragment>
+  If enabled, the Executioner will see the exact role of their target.
 
-Determines whether the Executioner is allowed to receive a Neutral Benign role as their target.
-</details>
+  <Fragment slot='sub-options'>
+    <RoleOption toggle={{default: false}}>
+      <Fragment slot='title'>
+        #### Can Guess Their Target
+      </Fragment>
+      Allows the Executioner to guess their target.
+    </RoleOption>
+  </Fragment>
+</RoleOption>
 
-<details>
-<summary>
-### Can Target Neutral Evil
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Determines whether the Executioner is allowed to receive a Neutral Evil role as their target.
-</details>
-
-<details>
-<summary>
-### Can Target Coven
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Determines whether the Executioner is allowed to receive a Coven role as their target.
-</details>
-
-<details>
-<summary>
-### Know role of target
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-If enabled, the Executioner will see the exact role of their target.
-
-<details>
-<summary>
-#### Can Guess Their Target
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Allows the Executioner to guess their target.
-</details>
-</details>
-
-<details>
-<summary>
-### When target Dies, Executioner becomes
-</summary>
-**Type:** `Select (Maverick, Crewmate, Jester, Opportunist, Convict, Super Star, BodyGuard, Dictator, Doctor, Amnesiac)`\
-**Default:** `Maverick`
-
-Determines what role the Executioner converts into if their target dies without being voted out.
-</details>
+<RoleOption select={{options: ['Maverick', 'Crewmate', 'Jester', 'Opportunist', 'Convict', 'Super Star', 'BodyGuard', 'Dictator', 'Doctor', 'Amnesiac'], default: 'Maverick'}}>
+  <Fragment slot='title'>
+    ### When Target Dies, Executioner Becomes
+  </Fragment>
+  Determines what role the Executioner converts into if their target dies without being voted out.
+</RoleOption>

@@ -4,7 +4,8 @@ description: Learn how the Dealer role works in the Endless Host Roles Among Us 
 shortDesc: The Dealer must give players addons to win.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -18,32 +19,23 @@ The **Dealer** is a Neutral Benign role. The Dealer can use their kill button on
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Dealers that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Dealers that can appear in one game.
-</details>
+<RoleOption select={{default: "On The Next Meeting", options: ["On The Next Meeting", "After 5 Seconds", "Instantly"]}}>
+  <Fragment slot='title'>
+    ### Add-ons Assign Target Sees The Add-on
+  </Fragment>
+  Specifies when the target of the Dealer's ability is able to see the Add-on given.
+</RoleOption>
 
-<details>
-<summary>
-### Add-ons Assign Target Sees The Add-on
-</summary>
-**Type:** `Select (On The Next Meeting, After 5 Seconds, Instantly)`\
-**Default:** `On The Next Meeting`
-
-Specifies when the target of the Dealer's ability is able to see the Add-on given.
-</details>
-
-<details>
-<summary>
-### Number Of Add-ons Needed To Give To Win
-</summary>
-**Type:** `Number`\
-**Default:** `5`
-
-Specifies the amount of add-ons the Dealer needs to give to satisfy their win condition.
-</details>
+<RoleOption number={{default: 5}}>
+  <Fragment slot='title'>
+    ### Number Of Add-ons Needed To Give To Win
+  </Fragment>
+  Specifies the amount of add-ons the Dealer needs to give to satisfy their win condition.
+</RoleOption>

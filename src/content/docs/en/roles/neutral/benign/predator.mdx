@@ -4,7 +4,8 @@ description: Learn how the Predator role works in The Endless Host Roles Among U
 shortDesc: The Predator has to kill 1 of their prey.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -22,62 +23,44 @@ The **Predator** is a Neutral Benign role. **It stands out as one of the few Ben
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Predators that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Predators that can appear in one game.
-</details>
+<RoleOption number={{default: 3}}>
+  <Fragment slot='title'>
+    ### Amount of Roles to Choose From
+  </Fragment>
+  Specifies the amount of roles that the Predator can choose from to kill one of them to satisfy their win condition.
+</RoleOption>
 
-<details>
-<summary>
-### Amount of Roles to choose from
-</summary>
-**Type:** `Number`\
-**Default:** `3`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Maximum Number of Impostor Roles to Choose From
+  </Fragment>
+  Specifies the maximum number of Impostor roles that can appear in the Predator's role choices.
+</RoleOption>
 
-Specifies the amount of roles that the Predator can choose from to kill one of them to satisfy their win condition.
-</details>
+<RoleOption time={{default: 15}}>
+  <Fragment slot='title'>
+    ### Kill Cooldown
+  </Fragment>
+  Specifies the Kill Cooldown of the Predator.
+</RoleOption>
 
-<details>
-<summary>
-### Maximum Number of Impostor Roles to Choose From
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Vent
+  </Fragment>
+  Decides whether or not the Predator can Vent.
+</RoleOption>
 
-Specifies the maximum number of Impostor roles that can appear in the Predator's role choices.
-</details>
-
-<details>
-<summary>
-### Kill Cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `15s`
-
-Specifies the Kill Cooldown of the Predator.
-</details>
-
-<details>
-<summary>
-### Can Vent
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Predator can Vent.
-</details>
-
-<details>
-<summary>
-### Has Impostor Vision
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Predator has Impostor Vision.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Has Impostor Vision
+  </Fragment>
+  Decides whether or not the Predator has Impostor Vision.
+</RoleOption>

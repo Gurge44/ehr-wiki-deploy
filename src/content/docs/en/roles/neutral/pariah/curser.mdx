@@ -4,7 +4,8 @@ description: Learn how the Curser role works in the Endless Host Roles Among Us 
 shortDesc: The Curser may curse a player with a debuff.
 ---
 import { Aside } from '@astrojs/starlight/components';
-import RoleInfo from '@components/RoleInfo.astro'
+import RoleInfo from '@components/RoleInfo.astro';
+import RoleOption from '@components/RoleOption.astro';
 
 <RoleInfo
   basis="Impostor"
@@ -20,72 +21,51 @@ The **Curser** is a Neutral Pariah role. They can use their kill button on a pla
 
 ## Role Options
 
-<details>
-<summary>
-### Max
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Max
+  </Fragment>
+  Specifies the maximum amount of Cursers that can appear in one game.
+</RoleOption>
 
-Specifies the maximum amount of Cursers that can appear in one game.
-</details>
+<RoleOption number={{default: 1}}>
+  <Fragment slot='title'>
+    ### Initial Ability Uses
+  </Fragment>
+  Specifies how many ability uses the Curser starts with.
+</RoleOption>
 
-<details>
-<summary>
-### Initial ability uses
-</summary>
-**Type:** `Number`\
-**Default:** `1`
+<RoleOption time={{default: 15}}>
+  <Fragment slot='title'>
+    ### Ability Cooldown
+  </Fragment>
+  Specifies how long the Curser has to wait to curse a player.
+</RoleOption>
 
-Specifies how many ability uses the Curser starts with.
-</details>
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Impostor Vision
+  </Fragment>
+  Decides whether or not the Curser has Impostor vision.
+</RoleOption>
 
-<details>
-<summary>
-### Ability cooldown
-</summary>
-**Type:** `Time`\
-**Default:** `15s`
+<RoleOption toggle={{default: false}}>
+  <Fragment slot='title'>
+    ### Can Vent
+  </Fragment>
+  Decides whether or not the Curser can Vent.
+</RoleOption>
 
-Specifies how long the Curser has to wait to curse a player.
-</details>
+<RoleOption multiplier={{default: 0.3}}>
+  <Fragment slot='title'>
+    ### Permanent Lower Vision
+  </Fragment>
+  Specifies the decreased vision multiplier applied when a player receives a curse.
+</RoleOption>
 
-<details>
-<summary>
-### Impostor vision
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Curser has Impostor vision.
-</details>
-
-<details>
-<summary>
-### Can Vent
-</summary>
-**Type:** `Toggle`\
-**Default:** `OFF`
-
-Decides whether or not the Curser can Vent.
-</details>
-
-<details>
-<summary>
-### Permanent Lower vision
-</summary>
-**Type:** `Multiplier`\
-**Default:** `0.3x`
-
-Specifies the decreased vision multiplier applied when a player receives a curse.
-</details>
-
-<details>
-<summary>
-### Permanent lower speed
-</summary>
-**Type:** `Multiplier`\
-**Default:** `0.7x`
-
-Specifies the decreased speed multiplier applied when a player receives a curse.
-</details>
+<RoleOption multiplier={{default: 0.7}}>
+  <Fragment slot='title'>
+    ### Permanent Lower Speed
+  </Fragment>
+  Specifies the decreased speed multiplier applied when a player receives a curse.
+</RoleOption>
